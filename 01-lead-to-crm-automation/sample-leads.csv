@@ -1,0 +1,12 @@
+test_id,first_name,last_name,email,phone,lead_source,message,expected
+T01,olivia,tremblay,olivia.tremblay@example.com,416-555-0101,Website Form,Interested in 3-bed in Markham,CREATED
+T02,Olivia,Tremblay,olivia.tremblay@example.com,(416) 555-0101,Property Inquiry,Second inquiry about a townhouse,UPDATED (no duplicate)
+T03,Liam,Singh,,416-555-0102,Website Form,No email supplied,REJECTED (MISSING_EMAIL)
+T04,Mia,Chen,MIA.CHEN@EXAMPLE.COM,416-555-0103,Online Ad,Uppercase email,CREATED (email stored lowercase)
+T05,Mia,Chen,mia.chen@example.com,416-555-0103,Online Ad,Same person lowercase,UPDATED (matches T04)
+T06,Noah,Patel,noah.patel.example.com,416-555-0104,Referral,Email missing @,REJECTED (INVALID_EMAIL)
+T07,Ava,Garcia,ava.garcia@example.com,12345,Open House,Bad phone,REJECTED (INVALID_PHONE)
+T08,  elena ,  novak ,elena.novak@example.com,+1 416 555 0105,Website Form,Whitespace and +1 phone,CREATED (clean name; phone 416-555-0105)
+T09,Omar,Ali,omar.ali@example.com,416-555-0106,Website Form,Submit this row twice quickly,CREATED once then UPDATED
+T10,Yuki,Ito,yuki.ito@example.com,416-555-0107,Referral,Run with wrong token,CRM_ERROR_NEEDS_REVIEW (logged)
+T11,Priya,Mehta,priya.mehta@example.com,416-555-0108,Online Ad,Run with HubSpot unreachable,Retries 3x then CRM_ERROR_NEEDS_REVIEW

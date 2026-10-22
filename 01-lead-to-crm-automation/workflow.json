@@ -1,0 +1,574 @@
+{
+  "name": "Real Estate Lead-to-CRM (portfolio v0.1)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "Lead Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ],
+      "webhookId": "REPLACE_ME"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate + normalize incoming lead. Output: { valid, errors[], lead{}, idempotency_key }\nconst b = $input.first().json.body ?? $input.first().json;\nconst errors = [];\nconst email = String(b.email ?? '').trim().toLowerCase();\nif (!email) errors.push('MISSING_EMAIL');\nelse if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)) errors.push('INVALID_EMAIL');\nconst digits = String(b.phone ?? '').replace(/\\D/g, '');\nconst p = digits.length === 11 && digits[0] === '1' ? digits.slice(1) : digits;\nconst phone = p.length === 10 ? `${p.slice(0,3)}-${p.slice(3,6)}-${p.slice(6)}` : '';\nif (b.phone && !phone) errors.push('INVALID_PHONE');\nconst cap = s => String(s ?? '').trim().replace(/\\s+/g,' ').replace(/\\b\\w/g, c => c.toUpperCase());\nconst lead = { email, firstname: cap(b.first_name), lastname: cap(b.last_name), phone,\n  hs_lead_status: 'NEW', lead_source: String(b.lead_source ?? 'Unknown').trim(),\n  message: String(b.message ?? '').slice(0, 500) };\nreturn [{ json: { valid: errors.length === 0, errors, lead, received_at: new Date().toISOString() } }];"
+      },
+      "id": "validate-&-normalize",
+      "name": "Validate & Normalize",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.valid }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "valid?",
+      "name": "Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ filterGroups: [{ filters: [{ propertyName: \"email\", operator: \"EQ\", value: $json.lead.email }] }], properties: [\"email\",\"firstname\",\"lastname\"], limit: 1 }) }}",
+        "options": {}
+      },
+      "id": "hubspot-search",
+      "name": "HubSpot Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "HubSpot Private App Token"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.total }}",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "contact-exists?",
+      "name": "Contact Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        880,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build HubSpot create payload from normalized lead\nconst l = $('Validate & Normalize').first().json.lead;\nreturn [{ json: { properties: { email: l.email, firstname: l.firstname, lastname: l.lastname, phone: l.phone, hs_lead_status: l.hs_lead_status } } }];"
+      },
+      "id": "build-create-payload",
+      "name": "Build Create Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "hubspot-create",
+      "name": "HubSpot Create",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1320,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "HubSpot Private App Token"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.hubapi.com/crm/v3/objects/contacts/' + $json.results[0].id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ properties: { firstname: $('Validate & Normalize').first().json.lead.firstname, lastname: $('Validate & Normalize').first().json.lead.lastname, phone: $('Validate & Normalize').first().json.lead.phone } }) }}",
+        "options": {}
+      },
+      "id": "hubspot-update",
+      "name": "HubSpot Update",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        100
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "HubSpot Private App Token"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "outcome",
+              "value": "CREATED",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "id",
+              "value": "={{ $json.id ?? $json.results?.[0]?.id ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "outcome-created",
+      "name": "Outcome Created",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "outcome",
+              "value": "UPDATED",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "id",
+              "value": "={{ $json.id ?? $json.results?.[0]?.id ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "outcome-updated",
+      "name": "Outcome Updated",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1320,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "outcome",
+              "value": "REJECTED_NEEDS_REVIEW",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "id",
+              "value": "={{ $json.id ?? $json.results?.[0]?.id ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "outcome-rejected",
+      "name": "Outcome Rejected",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "outcome",
+              "value": "CRM_ERROR_NEEDS_REVIEW",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "id",
+              "value": "={{ $json.id ?? $json.results?.[0]?.id ?? '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "outcome-crm-error",
+      "name": "Outcome CRM Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Audit log entry (replace with Google Sheets / Data Table / DB node for persistence)\nconst v = $('Validate & Normalize').first().json;\nreturn [{ json: { timestamp: new Date().toISOString(), email: v.lead.email, outcome: $json.outcome ?? 'UNKNOWN', errors: v.errors, hubspot_id: $json.id ?? null } }];"
+      },
+      "id": "audit-log",
+      "name": "Audit Log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "notify",
+      "name": "Notify Agent (replace)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: $json.outcome, hubspot_id: $json.hubspot_id }) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-ok",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1980,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: \"rejected\", errors: $(\"Validate & Normalize\").first().json.errors }) }}",
+        "options": {
+          "responseCode": 422
+        }
+      },
+      "id": "respond-422",
+      "name": "Respond 422",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Portfolio 01: Lead-to-CRM. Setup: create HubSpot Private App token (crm.objects.contacts read/write), add as Header Auth credential (Authorization = Bearer <token>). Fictional data only. Not yet verified on a specific n8n version: import, fix any node-version warnings, then record real results in test-results.md.",
+        "height": 160,
+        "width": 420
+      },
+      "id": "note",
+      "name": "Setup Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Audit log entry (replace with Google Sheets / Data Table / DB node for persistence)\nconst v = $('Validate & Normalize').first().json;\nreturn [{ json: { timestamp: new Date().toISOString(), email: v.lead.email, outcome: $json.outcome ?? 'UNKNOWN', errors: v.errors, hubspot_id: $json.id ?? null } }];"
+      },
+      "id": "audit-log-rejected",
+      "name": "Audit Log Rejected",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        600
+      ]
+    }
+  ],
+  "connections": {
+    "Lead Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate & Normalize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate & Normalize": {
+      "main": [
+        [
+          {
+            "node": "Valid?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valid?": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Search",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Search": {
+      "main": [
+        [
+          {
+            "node": "Contact Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome CRM Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contact Exists?": {
+      "main": [
+        [
+          {
+            "node": "Build Create Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HubSpot Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Create Payload": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Create": {
+      "main": [
+        [
+          {
+            "node": "Outcome Created",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome CRM Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Update": {
+      "main": [
+        [
+          {
+            "node": "Outcome Updated",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome CRM Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outcome Created": {
+      "main": [
+        [
+          {
+            "node": "Audit Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outcome Updated": {
+      "main": [
+        [
+          {
+            "node": "Audit Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outcome CRM Error": {
+      "main": [
+        [
+          {
+            "node": "Audit Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outcome Rejected": {
+      "main": [
+        [
+          {
+            "node": "Respond 422",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Audit Log Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audit Log": {
+      "main": [
+        [
+          {
+            "node": "Notify Agent (replace)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Respond OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
