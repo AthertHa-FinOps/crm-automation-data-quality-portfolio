@@ -1,0 +1,701 @@
+lead_id,first_name,last_name,email,phone,lead_source,city,province,created_date
+L0001,Ethan,Tremblay,ethan.tremblay760@example.com,416-555-4506,Property Inquiry,Richmond Hill,ON,2026-03-24
+L0002,Mia,Santos,mia.santos759@example.com,416-555-8935,Website Form,Mississauga,ON,2026-07-02
+L0003,Liam,Chen,liam.chen224@example.com,416-555-3811,Open House,Mississauga,ON,2026-01-18
+L0004,Chloe,Ito,chloe.ito666@example.com,416-555-8928,Referral,Richmond Hill,ON,2026-08-19
+L0005,Owen,Fraser,owen.fraser891@example.com,416-555-0106,Property Inquiry,Whitby,ON,2026-06-09
+L0006,Mason,Patel,mason.patel981@example.com,416-555-5514,Website Form,Stouffville,ON,2026-07-04
+L0007,Mei,Ali,mei.ali619@example.com,416-555-4333,Website Form,Oshawa,ON,2026-09-04
+L0008,Carlos,Chen,carlos.chen566@example.com,416-555-4803,Open House,Pickering,ON,2026-04-23
+L0009,Ava,Singh,ava.singh678@example.com,416-555-3733,Online Ad,Stouffville,ON,2026-04-28
+L0010,Mia,Kim,mia.kim285@example.com,416-555-7428,Online Ad,Toronto,ON,2026-06-12
+L0011,Jacob,Santos,jacob.santos274@example.com,416-555-1169,Open House,Toronto,ON,2026-09-24
+L0012,Aiden,Wilson,aiden.wilson474@example.com,416-555-6216,Online Ad,Newmarket,ON,2026-04-22
+L0013,Priya,Mehta,priya.mehta795@example.com,416-555-0916,Property Inquiry,Markham,ON,2026-06-13
+L0014,Owen,Chen,owen.chen217@example.com,416-555-9292,Online Ad,Richmond Hill,ON,2026-08-13
+L0015,Fatima,Roy,fatima.roy272@example.com,416-555-2287,Property Inquiry,Newmarket,ON,2026-09-09
+L0016,Elena,Murphy,elena.murphy409@example.com,416-555-5930,Property Inquiry,Toronto,ON,2026-09-16
+L0017,Lucas,Mehta,lucas.mehta49@example.com,416-555-1796,Property Inquiry,Toronto,ON,2026-07-20
+L0018,Ava,Kim,ava.kim391@example.com,416-555-9763,Referral,Newmarket,ON,2026-05-18
+L0019,Olivia,Santos,olivia.santos739@example.com,416-555-1876,Open House,Vaughan,ON,2026-06-04
+L0020,Lily,Cohen,lily.cohen162@example.com,416-555-7433,Website Form,Vaughan,ON,2026-09-25
+L0021,Logan,Novak,logan.novak935@example.com,416-555-1743,Online Ad,Newmarket,ON,2026-04-05
+L0022,Wei,Mehta,wei.mehta166@example.com,416-555-8837,Open House,Markham,ON,2026-06-16
+L0023,Liam,Martin,liam.martin952@example.com,416-555-5947,Online Ad,Richmond Hill,ON,2026-01-08
+L0024,Lucas,Chen,lucas.chen750@example.com,416-555-7962,Website Form,Newmarket,ON,2026-03-05
+L0025,Kenji,Khan,kenji.khan170@example.com,416-555-4342,Open House,Mississauga,ON,2026-07-07
+L0026,Chloe,Ito,chloe.ito320@example.com,416-555-6537,Online Ad,Oshawa,ON,2026-09-15
+L0027,Ethan,Nguyen,ethan.nguyen231@example.com,416-555-1049,Online Ad,Markham,ON,2026-09-08
+L0028,Zoe,Tremblay,zoe.tremblay73@example.com,416-555-0964,Property Inquiry,Stouffville,ON,2026-01-28
+L0029,Arjun,Chen,arjun.chen527@example.com,416-555-3899,Online Ad,Oshawa,ON,2026-04-18
+L0030,Sofia,Park,sofia.park958@example.com,416-555-9355,Open House,Oshawa,ON,2026-04-26
+L0031,Kenji,Fraser,kenji.fraser417@example.com,416-555-3119,Website Form,Stouffville,ON,2026-07-12
+L0032,Elena,Cohen,elena.cohen479@example.com,416-555-0887,Website Form,Markham,ON,2026-07-24
+L0033,Arjun,Fraser,arjun.fraser883@example.com,416-555-1790,Property Inquiry,Richmond Hill,ON,2026-04-18
+L0034,Omar,Roy,omar.roy433@example.com,416-555-3006,Online Ad,Oshawa,ON,2026-04-28
+L0035,Ava,Silva,ava.silva828@example.com,416-555-9016,Website Form,Markham,ON,2026-09-27
+L0036,Olivia,Chen,olivia.chen949@example.com,416-555-3872,Property Inquiry,Whitby,ON,2026-08-16
+L0037,Jacob,Kim,jacob.kim925@example.com,416-555-0960,Property Inquiry,Whitby,ON,2026-01-13
+L0038,Nora,Fraser,nora.fraser804@example.com,416-555-7454,Online Ad,Whitby,ON,2026-09-22
+L0039,Yuki,Roy,yuki.roy195@example.com,416-555-4861,Property Inquiry,Markham,ON,2026-09-02
+L0040,Priya,Singh,priya.singh52@example.com,416-555-9571,Referral,Newmarket,ON,2026-09-06
+L0041,Noah,Novak,noah.novak83@example.com,416-555-3044,Website Form,Mississauga,ON,2026-02-22
+L0042,Aiden,Kim,aiden.kim123@example.com,416-555-9333,Property Inquiry,Mississauga,ON,2026-01-20
+L0043,Lucas,Cohen,lucas.cohen674@example.com,416-555-9562,Open House,Newmarket,ON,2026-06-09
+L0044,Jacob,Santos,jacob.santos734@example.com,416-555-5147,Property Inquiry,Vaughan,ON,2026-07-05
+L0045,Wyatt,Silva,wyatt.silva324@example.com,416-555-1188,Website Form,Oshawa,ON,2026-02-03
+L0046,Jacob,Novak,jacob.novak272@example.com,416-555-2170,Online Ad,Stouffville,ON,2026-04-12
+L0047,Lily,Wilson,lily.wilson449@example.com,416-555-8900,Online Ad,Mississauga,ON,2026-09-01
+L0048,Wyatt,Santos,wyatt.santos107@example.com,416-555-2200,Online Ad,Stouffville,ON,2026-02-24
+L0049,Mason,Garcia,mason.garcia289@example.com,416-555-9909,Property Inquiry,Pickering,ON,2026-04-22
+L0050,Nora,Novak,nora.novak501@example.com,416-555-4114,Website Form,Stouffville,ON,2026-07-27
+L0051,Owen,Singh,owen.singh4@example.com,416-555-5464,Property Inquiry,Vaughan,ON,2026-03-24
+L0052,Omar,Khan,omar.khan723@example.com,416-555-7007,Open House,Markham,ON,2026-02-03
+L0053,Mason,Khan,mason.khan37@example.com,416-555-6049,Open House,Newmarket,ON,2026-03-14
+L0054,Sofia,Singh,sofia.singh316@example.com,416-555-5974,Website Form,Pickering,ON,2026-04-22
+L0055,Aiden,Santos,aiden.santos106@example.com,416-555-5794,Open House,Whitby,ON,2026-03-08
+L0056,Isla,Fraser,isla.fraser831@example.com,416-555-2900,Referral,Markham,ON,2026-03-24
+L0057,Arjun,Fraser,arjun.fraser954@example.com,416-555-6745,Property Inquiry,Vaughan,ON,2026-03-26
+L0058,Mia,Kim,mia.kim894@example.com,416-555-0634,Referral,Richmond Hill,ON,2026-04-27
+L0059,Fatima,Ali,fatima.ali313@example.com,416-555-3728,Property Inquiry,Markham,ON,2026-04-13
+L0060,Arjun,Garcia,arjun.garcia886@example.com,416-555-1137,Online Ad,Pickering,ON,2026-09-13
+L0061,Arjun,Tremblay,arjun.tremblay119@example.com,416-555-4279,Property Inquiry,Mississauga,ON,2026-05-02
+L0062,Mia,Campbell,mia.campbell445@example.com,416-555-5663,Online Ad,Whitby,ON,2026-09-04
+L0063,Carlos,Murphy,carlos.murphy195@example.com,416-555-4173,Website Form,Whitby,ON,2026-01-17
+L0064,Chloe,Ali,chloe.ali442@example.com,416-555-1146,Online Ad,Mississauga,ON,2026-06-22
+L0065,Ethan,Park,ethan.park922@example.com,416-555-4920,Open House,Vaughan,ON,2026-07-11
+L0066,Maria,Ito,maria.ito303@example.com,416-555-9083,Property Inquiry,Richmond Hill,ON,2026-07-22
+L0067,Carlos,Santos,carlos.santos767@example.com,416-555-2851,Open House,Mississauga,ON,2026-05-13
+L0068,Olivia,Lopez,olivia.lopez294@example.com,416-555-3443,Referral,Mississauga,ON,2026-06-15
+L0069,Omar,Silva,omar.silva692@example.com,416-555-3501,Open House,Oshawa,ON,2026-03-22
+L0070,Lucas,Lopez,lucas.lopez528@example.com,416-555-5491,Website Form,Richmond Hill,ON,2026-05-08
+L0071,Chloe,Roy,chloe.roy26@example.com,416-555-0757,Property Inquiry,Oshawa,ON,2026-02-15
+L0072,Diego,Reyes,diego.reyes590@example.com,416-555-3185,Referral,Oshawa,ON,2026-07-08
+L0073,Mason,Reyes,mason.reyes705@example.com,416-555-0090,Website Form,Whitby,ON,2026-04-06
+L0074,Rohan,Silva,rohan.silva52@example.com,416-555-9132,Property Inquiry,Stouffville,ON,2026-08-05
+L0075,Fatima,Santos,fatima.santos544@example.com,416-555-9157,Open House,Pickering,ON,2026-08-20
+L0076,Anika,Cohen,anika.cohen851@example.com,416-555-8976,Referral,Toronto,ON,2026-08-15
+L0077,Nora,Mehta,nora.mehta254@example.com,416-555-4543,Open House,Oshawa,ON,2026-04-09
+L0078,Omar,Chen,omar.chen731@example.com,416-555-4681,Property Inquiry,Vaughan,ON,2026-06-11
+L0079,Lucas,Roy,lucas.roy155@example.com,416-555-3788,Referral,Toronto,ON,2026-04-03
+L0080,Diego,Cohen,diego.cohen339@example.com,416-555-8890,Referral,Whitby,ON,2026-01-07
+L0081,Diego,Kim,diego.kim927@example.com,416-555-9569,Website Form,Mississauga,ON,2026-07-16
+L0082,Olivia,Ali,olivia.ali306@example.com,416-555-6389,Referral,Newmarket,ON,2026-09-26
+L0083,Zoe,Rossi,zoe.rossi225@example.com,416-555-4471,Referral,Oshawa,ON,2026-01-13
+L0084,Arjun,Santos,arjun.santos696@example.com,416-555-6624,Property Inquiry,Oshawa,ON,2026-03-20
+L0085,Liam,Kim,liam.kim607@example.com,416-555-9246,Website Form,Stouffville,ON,2026-07-05
+L0086,Fatima,Wilson,fatima.wilson52@example.com,416-555-4262,Referral,Pickering,ON,2026-04-15
+L0087,Priya,Brown,priya.brown780@example.com,416-555-6211,Online Ad,Whitby,ON,2026-05-27
+L0088,Lucas,Rossi,lucas.rossi20@example.com,416-555-8837,Website Form,Pickering,ON,2026-04-21
+L0089,Ava,Mehta,ava.mehta981@example.com,416-555-0659,Website Form,Richmond Hill,ON,2026-04-27
+L0090,Liam,Campbell,liam.campbell157@example.com,416-555-3908,Property Inquiry,Oshawa,ON,2026-02-19
+L0091,Jacob,Silva,jacob.silva717@example.com,416-555-4198,Online Ad,Toronto,ON,2026-02-25
+L0092,Isla,Lopez,isla.lopez111@example.com,416-555-9481,Website Form,Vaughan,ON,2026-07-13
+L0093,Chloe,Chen,chloe.chen607@example.com,416-555-3978,Website Form,Vaughan,ON,2026-02-26
+L0094,Emma,Ali,emma.ali546@example.com,416-555-7018,Online Ad,Stouffville,ON,2026-09-21
+L0095,Arjun,Tremblay,arjun.tremblay870@example.com,416-555-6882,Referral,Stouffville,ON,2026-07-12
+L0096,Fatima,Ito,fatima.ito157@example.com,416-555-7135,Property Inquiry,Newmarket,ON,2026-05-20
+L0097,Kenji,Silva,kenji.silva447@example.com,416-555-9707,Online Ad,Pickering,ON,2026-04-27
+L0098,Lucas,Garcia,lucas.garcia903@example.com,416-555-7385,Property Inquiry,Oshawa,ON,2026-07-11
+L0099,Liam,Rossi,liam.rossi872@example.com,416-555-5325,Property Inquiry,Oshawa,ON,2026-04-12
+L0100,Nora,Brown,nora.brown287@example.com,416-555-9767,Online Ad,Newmarket,ON,2026-01-17
+L0101,Chloe,Chen,chloe.chen248@example.com,416-555-6658,Referral,Newmarket,ON,2026-04-23
+L0102,Kenji,Reyes,kenji.reyes729@example.com,416-555-8041,Referral,Markham,ON,2026-02-10
+L0103,Zoe,Kim,zoe.kim709@example.com,416-555-3986,Online Ad,Mississauga,ON,2026-06-16
+L0104,Rohan,Ali,rohan.ali436@example.com,416-555-9017,Online Ad,Pickering,ON,2026-08-09
+L0105,Wyatt,Garcia,wyatt.garcia237@example.com,416-555-1976,Property Inquiry,Pickering,ON,2026-02-24
+L0106,Logan,Patel,logan.patel222@example.com,416-555-7933,Online Ad,Mississauga,ON,2026-09-20
+L0107,Lily,Martin,lily.martin853@example.com,416-555-3180,Online Ad,Richmond Hill,ON,2026-06-06
+L0108,Wyatt,Tremblay,wyatt.tremblay726@example.com,416-555-8751,Property Inquiry,Vaughan,ON,2026-01-02
+L0109,Lily,Ito,lily.ito967@example.com,416-555-2068,Referral,Stouffville,ON,2026-01-19
+L0110,Lily,Rossi,lily.rossi491@example.com,416-555-7216,Online Ad,Toronto,ON,2026-01-09
+L0111,Kenji,Martin,kenji.martin842@example.com,416-555-1070,Referral,Oshawa,ON,2026-02-19
+L0112,Noah,Roy,noah.roy153@example.com,416-555-9221,Online Ad,Stouffville,ON,2026-04-04
+L0113,Diego,Campbell,diego.campbell611@example.com,416-555-3697,Open House,Whitby,ON,2026-08-15
+L0114,Wyatt,Murphy,wyatt.murphy440@example.com,416-555-5003,Open House,Mississauga,ON,2026-01-20
+L0115,Mia,Mehta,mia.mehta213@example.com,416-555-3457,Online Ad,Stouffville,ON,2026-03-08
+L0116,Logan,Khan,logan.khan77@example.com,416-555-2564,Website Form,Whitby,ON,2026-08-23
+L0117,Kenji,Lopez,kenji.lopez34@example.com,416-555-3792,Online Ad,Vaughan,ON,2026-08-03
+L0118,Zoe,Garcia,zoe.garcia807@example.com,416-555-9663,Property Inquiry,Whitby,ON,2026-02-18
+L0119,Zoe,Reyes,zoe.reyes153@example.com,416-555-4352,Property Inquiry,Stouffville,ON,2026-01-06
+L0120,Wyatt,Campbell,wyatt.campbell767@example.com,416-555-9325,Online Ad,Oshawa,ON,2026-02-15
+L0121,Wyatt,Ito,wyatt.ito413@example.com,416-555-4460,Open House,Newmarket,ON,2026-08-15
+L0122,Lucas,Campbell,lucas.campbell41@example.com,416-555-7078,Online Ad,Mississauga,ON,2026-05-01
+L0123,Lucas,Nguyen,lucas.nguyen985@example.com,416-555-9424,Open House,Markham,ON,2026-05-19
+L0124,Emma,Mehta,emma.mehta775@example.com,416-555-2870,Referral,Newmarket,ON,2026-08-09
+L0125,Logan,Murphy,logan.murphy447@example.com,416-555-8056,Website Form,Oshawa,ON,2026-06-14
+L0126,Arjun,Brown,arjun.brown687@example.com,416-555-1713,Property Inquiry,Pickering,ON,2026-07-23
+L0127,Yuki,Lopez,yuki.lopez679@example.com,416-555-6561,Open House,Markham,ON,2026-08-03
+L0128,Priya,Garcia,priya.garcia332@example.com,416-555-1899,Referral,Newmarket,ON,2026-01-22
+L0129,Fatima,Cohen,fatima.cohen56@example.com,416-555-3073,Open House,Pickering,ON,2026-08-21
+L0130,Omar,Mehta,omar.mehta53@example.com,416-555-3335,Online Ad,Newmarket,ON,2026-03-10
+L0131,Omar,Ito,omar.ito497@example.com,416-555-1989,Website Form,Mississauga,ON,2026-04-23
+L0132,Isla,Lopez,isla.lopez565@example.com,416-555-0224,Open House,Whitby,ON,2026-02-08
+L0133,Ethan,Silva,ethan.silva970@example.com,416-555-1924,Property Inquiry,Oshawa,ON,2026-05-17
+L0134,Owen,Cohen,owen.cohen855@example.com,416-555-7905,Referral,Richmond Hill,ON,2026-08-18
+L0135,Mason,Kim,mason.kim196@example.com,416-555-9820,Open House,Toronto,ON,2026-02-09
+L0136,Diego,Brown,diego.brown957@example.com,416-555-8318,Online Ad,Markham,ON,2026-05-24
+L0137,Wyatt,Murphy,wyatt.murphy594@example.com,416-555-8022,Property Inquiry,Oshawa,ON,2026-09-16
+L0138,Mei,Brown,mei.brown566@example.com,416-555-8903,Referral,Oshawa,ON,2026-06-28
+L0139,Chloe,Ito,chloe.ito245@example.com,416-555-9368,Referral,Richmond Hill,ON,2026-07-02
+L0140,Priya,Park,priya.park485@example.com,416-555-6246,Referral,Toronto,ON,2026-08-02
+L0141,Sofia,Novak,sofia.novak989@example.com,416-555-9669,Online Ad,Stouffville,ON,2026-08-04
+L0142,Rohan,Silva,rohan.silva16@example.com,416-555-2361,Referral,Toronto,ON,2026-02-16
+L0143,Nora,Brown,nora.brown639@example.com,416-555-6512,Website Form,Pickering,ON,2026-09-13
+L0144,Priya,Reyes,priya.reyes736@example.com,416-555-7994,Open House,Markham,ON,2026-02-08
+L0145,Lily,Nguyen,lily.nguyen765@example.com,416-555-1480,Referral,Stouffville,ON,2026-02-15
+L0146,Isla,Ito,isla.ito307@example.com,416-555-0474,Website Form,Pickering,ON,2026-01-10
+L0147,Mei,Ali,mei.ali442@example.com,416-555-2385,Property Inquiry,Newmarket,ON,2026-07-19
+L0148,Logan,Wilson,logan.wilson180@example.com,416-555-1293,Open House,Whitby,ON,2026-04-16
+L0149,Mason,Nguyen,mason.nguyen473@example.com,416-555-4161,Referral,Vaughan,ON,2026-01-26
+L0150,Fatima,Lopez,fatima.lopez694@example.com,416-555-8955,Property Inquiry,Stouffville,ON,2026-08-12
+L0151,Wyatt,Reyes,wyatt.reyes986@example.com,416-555-6951,Online Ad,Oshawa,ON,2026-05-07
+L0152,Carlos,Rossi,carlos.rossi110@example.com,416-555-3886,Referral,Mississauga,ON,2026-06-19
+L0153,Lily,Ito,lily.ito303@example.com,416-555-0359,Referral,Vaughan,ON,2026-01-19
+L0154,Noah,Campbell,noah.campbell764@example.com,416-555-8138,Online Ad,Richmond Hill,ON,2026-06-08
+L0155,Chloe,Campbell,chloe.campbell257@example.com,416-555-2240,Website Form,Markham,ON,2026-05-26
+L0156,Omar,Singh,omar.singh594@example.com,416-555-5977,Property Inquiry,Stouffville,ON,2026-05-11
+L0157,Diego,Wilson,diego.wilson206@example.com,416-555-2165,Open House,Pickering,ON,2026-09-17
+L0158,Owen,Wilson,owen.wilson264@example.com,416-555-7894,Online Ad,Pickering,ON,2026-02-15
+L0159,Ava,Roy,ava.roy773@example.com,416-555-3696,Referral,Newmarket,ON,2026-06-03
+L0160,Maria,Tremblay,maria.tremblay271@example.com,416-555-8791,Website Form,Oshawa,ON,2026-06-22
+L0161,Nora,Murphy,nora.murphy391@example.com,416-555-6086,Website Form,Richmond Hill,ON,2026-08-01
+L0162,Priya,Campbell,priya.campbell227@example.com,416-555-1035,Referral,Vaughan,ON,2026-07-04
+L0163,Sofia,Singh,sofia.singh969@example.com,416-555-0609,Online Ad,Oshawa,ON,2026-02-04
+L0164,Aiden,Khan,aiden.khan139@example.com,416-555-6367,Referral,Pickering,ON,2026-09-14
+L0165,Mason,Cohen,mason.cohen671@example.com,416-555-1622,Referral,Mississauga,ON,2026-07-09
+L0166,Emma,Ito,emma.ito380@example.com,416-555-3559,Referral,Oshawa,ON,2026-04-28
+L0167,Wei,Martin,wei.martin703@example.com,416-555-6018,Open House,Pickering,ON,2026-01-13
+L0168,Owen,Patel,owen.patel992@example.com,416-555-2001,Referral,Stouffville,ON,2026-04-21
+L0169,Liam,Singh,liam.singh806@example.com,416-555-5464,Property Inquiry,Toronto,ON,2026-04-03
+L0170,Jacob,Murphy,jacob.murphy222@example.com,416-555-3817,Online Ad,Toronto,ON,2026-01-09
+L0171,Mason,Roy,mason.roy554@example.com,416-555-4106,Property Inquiry,Stouffville,ON,2026-01-05
+L0172,Olivia,Ali,olivia.ali809@example.com,416-555-3898,Open House,Pickering,ON,2026-01-06
+L0173,Nora,Singh,nora.singh130@example.com,416-555-6897,Open House,Stouffville,ON,2026-02-16
+L0174,Omar,Mehta,omar.mehta371@example.com,416-555-8408,Open House,Stouffville,ON,2026-08-17
+L0175,Zoe,Campbell,zoe.campbell45@example.com,416-555-8543,Online Ad,Oshawa,ON,2026-01-02
+L0176,Kenji,Kim,kenji.kim437@example.com,416-555-1768,Referral,Oshawa,ON,2026-02-03
+L0177,Priya,Campbell,priya.campbell152@example.com,416-555-1076,Property Inquiry,Vaughan,ON,2026-09-23
+L0178,Priya,Kim,priya.kim612@example.com,416-555-8692,Online Ad,Oshawa,ON,2026-09-20
+L0179,Elena,Martin,elena.martin813@example.com,416-555-1874,Open House,Richmond Hill,ON,2026-07-15
+L0180,Zoe,Cohen,zoe.cohen348@example.com,416-555-7430,Referral,Whitby,ON,2026-02-11
+L0181,Elena,Brown,elena.brown682@example.com,416-555-4176,Online Ad,Toronto,ON,2026-08-03
+L0182,Lucas,Chen,lucas.chen96@example.com,416-555-7075,Website Form,Pickering,ON,2026-03-18
+L0183,Noah,Murphy,noah.murphy980@example.com,416-555-9201,Open House,Pickering,ON,2026-02-14
+L0184,Mei,Santos,mei.santos964@example.com,416-555-6929,Website Form,Vaughan,ON,2026-05-12
+L0185,Mia,Murphy,mia.murphy520@example.com,416-555-3485,Property Inquiry,Oshawa,ON,2026-04-28
+L0186,Mia,Ali,mia.ali866@example.com,416-555-9113,Online Ad,Stouffville,ON,2026-05-19
+L0187,Zoe,Fraser,zoe.fraser440@example.com,416-555-9190,Open House,Mississauga,ON,2026-09-01
+L0188,Owen,Tremblay,owen.tremblay185@example.com,416-555-4477,Online Ad,Pickering,ON,2026-06-01
+L0189,Logan,Roy,logan.roy580@example.com,416-555-6566,Website Form,Toronto,ON,2026-01-03
+L0190,Rohan,Patel,rohan.patel386@example.com,416-555-6878,Referral,Pickering,ON,2026-03-12
+L0191,Wyatt,Park,wyatt.park333@example.com,416-555-9299,Open House,Stouffville,ON,2026-01-05
+L0192,Isla,Mehta,isla.mehta633@example.com,416-555-0815,Website Form,Vaughan,ON,2026-08-22
+L0193,Elena,Rossi,elena.rossi622@example.com,416-555-7242,Referral,Vaughan,ON,2026-04-25
+L0194,Anika,Martin,anika.martin354@example.com,416-555-7043,Website Form,Vaughan,ON,2026-08-17
+L0195,Wyatt,Singh,wyatt.singh226@example.com,416-555-6475,Open House,Markham,ON,2026-01-07
+L0196,Wyatt,Patel,wyatt.patel786@example.com,416-555-2248,Online Ad,Vaughan,ON,2026-06-04
+L0197,Olivia,Rossi,olivia.rossi765@example.com,416-555-7055,Property Inquiry,Toronto,ON,2026-07-18
+L0198,Zoe,Novak,zoe.novak573@example.com,416-555-5802,Website Form,Whitby,ON,2026-01-14
+L0199,Liam,Silva,liam.silva944@example.com,416-555-1275,Online Ad,Mississauga,ON,2026-07-19
+L0200,Maria,Ito,maria.ito656@example.com,416-555-6843,Online Ad,Stouffville,ON,2026-07-01
+L0201,Priya,Wilson,priya.wilson821@example.com,416-555-7538,Online Ad,Stouffville,ON,2026-07-28
+L0202,Mia,Nguyen,mia.nguyen447@example.com,416-555-9648,Referral,Newmarket,ON,2026-02-13
+L0203,Wyatt,Park,wyatt.park348@example.com,416-555-3630,Online Ad,Toronto,ON,2026-02-17
+L0204,Ethan,Novak,ethan.novak523@example.com,416-555-3176,Online Ad,Pickering,ON,2026-03-08
+L0205,Mia,Roy,mia.roy263@example.com,416-555-3232,Property Inquiry,Mississauga,ON,2026-03-25
+L0206,Ava,Wilson,ava.wilson975@example.com,416-555-8095,Referral,Mississauga,ON,2026-08-22
+L0207,Priya,Reyes,priya.reyes324@example.com,416-555-2473,Referral,Stouffville,ON,2026-08-15
+L0208,Wyatt,Fraser,wyatt.fraser282@example.com,416-555-9689,Website Form,Pickering,ON,2026-09-03
+L0209,Wyatt,Silva,wyatt.silva463@example.com,416-555-0616,Website Form,Pickering,ON,2026-05-03
+L0210,Lucas,Campbell,lucas.campbell609@example.com,416-555-8307,Referral,Oshawa,ON,2026-09-26
+L0211,Emma,Silva,emma.silva931@example.com,416-555-9366,Property Inquiry,Pickering,ON,2026-08-17
+L0212,Mason,Singh,mason.singh462@example.com,416-555-1695,Online Ad,Stouffville,ON,2026-09-21
+L0213,Logan,Singh,logan.singh254@example.com,416-555-7172,Referral,Newmarket,ON,2026-09-20
+L0214,Isla,Ali,isla.ali382@example.com,416-555-4634,Referral,Whitby,ON,2026-06-22
+L0215,Noah,Fraser,noah.fraser647@example.com,416-555-5482,Website Form,Pickering,ON,2026-02-18
+L0216,Carlos,Lopez,carlos.lopez259@example.com,416-555-9874,Property Inquiry,Pickering,ON,2026-02-19
+L0217,Mason,Ali,mason.ali318@example.com,416-555-6421,Property Inquiry,Mississauga,ON,2026-02-10
+L0218,Carlos,Reyes,carlos.reyes811@example.com,416-555-5381,Property Inquiry,Newmarket,ON,2026-02-21
+L0219,Elena,Novak,elena.novak371@example.com,416-555-0298,Online Ad,Vaughan,ON,2026-03-07
+L0220,Arjun,Mehta,arjun.mehta498@example.com,416-555-3145,Property Inquiry,Toronto,ON,2026-03-03
+L0221,Lily,Fraser,lily.fraser104@example.com,416-555-8317,Open House,Newmarket,ON,2026-01-22
+L0222,Arjun,Mehta,arjun.mehta633@example.com,416-555-2147,Open House,Whitby,ON,2026-03-06
+L0223,Logan,Ito,logan.ito790@example.com,416-555-2712,Referral,Markham,ON,2026-07-12
+L0224,Aiden,Silva,aiden.silva626@example.com,416-555-4668,Referral,Richmond Hill,ON,2026-09-08
+L0225,Wyatt,Fraser,wyatt.fraser804@example.com,416-555-7684,Property Inquiry,Pickering,ON,2026-08-15
+L0226,Lily,Mehta,lily.mehta392@example.com,416-555-8239,Open House,Whitby,ON,2026-03-27
+L0227,Chloe,Fraser,chloe.fraser620@example.com,416-555-2267,Online Ad,Markham,ON,2026-08-28
+L0228,Wei,Khan,wei.khan957@example.com,416-555-1680,Open House,Stouffville,ON,2026-05-03
+L0229,Isla,Garcia,isla.garcia461@example.com,416-555-8410,Property Inquiry,Whitby,ON,2026-02-08
+L0230,Omar,Ali,omar.ali953@example.com,416-555-0436,Referral,Markham,ON,2026-07-17
+L0231,Wei,Nguyen,wei.nguyen396@example.com,416-555-1337,Online Ad,Richmond Hill,ON,2026-01-11
+L0232,Mia,Ito,mia.ito666@example.com,416-555-5493,Property Inquiry,Toronto,ON,2026-01-10
+L0233,Kenji,Ito,kenji.ito852@example.com,416-555-2273,Referral,Oshawa,ON,2026-01-03
+L0234,Liam,Garcia,liam.garcia221@example.com,416-555-2449,Open House,Mississauga,ON,2026-09-14
+L0235,Ethan,Mehta,ethan.mehta296@example.com,416-555-3893,Online Ad,Stouffville,ON,2026-01-08
+L0236,Diego,Reyes,diego.reyes813@example.com,416-555-7489,Website Form,Stouffville,ON,2026-08-20
+L0237,Liam,Reyes,liam.reyes528@example.com,416-555-9421,Property Inquiry,Toronto,ON,2026-05-14
+L0238,Olivia,Campbell,olivia.campbell362@example.com,416-555-3941,Open House,Whitby,ON,2026-03-22
+L0239,Lucas,Novak,lucas.novak999@example.com,416-555-5908,Website Form,Newmarket,ON,2026-09-17
+L0240,Anika,Khan,anika.khan21@example.com,416-555-6397,Referral,Markham,ON,2026-07-12
+L0241,Nora,Park,nora.park17@example.com,416-555-5850,Website Form,Pickering,ON,2026-04-24
+L0242,Mia,Mehta,mia.mehta596@example.com,416-555-5447,Property Inquiry,Markham,ON,2026-06-18
+L0243,Arjun,Reyes,arjun.reyes180@example.com,416-555-7612,Referral,Toronto,ON,2026-03-03
+L0244,Fatima,Singh,fatima.singh301@example.com,416-555-3302,Website Form,Richmond Hill,ON,2026-01-11
+L0245,Wyatt,Novak,wyatt.novak408@example.com,416-555-8897,Referral,Vaughan,ON,2026-01-25
+L0246,Chloe,Lopez,chloe.lopez366@example.com,416-555-0783,Online Ad,Vaughan,ON,2026-02-26
+L0247,Wei,Cohen,wei.cohen911@example.com,416-555-6553,Referral,Whitby,ON,2026-06-06
+L0248,Yuki,Ito,yuki.ito510@example.com,416-555-6018,Open House,Vaughan,ON,2026-02-24
+L0249,Elena,Chen,elena.chen441@example.com,416-555-9870,Property Inquiry,Newmarket,ON,2026-05-11
+L0250,Mia,Chen,mia.chen336@example.com,416-555-4843,Online Ad,Oshawa,ON,2026-07-06
+L0251,Omar,Ali,omar.ali458@example.com,416-555-0693,Online Ad,Mississauga,ON,2026-07-09
+L0252,Noah,Chen,noah.chen688@example.com,416-555-6655,Online Ad,Newmarket,ON,2026-03-01
+L0253,Mason,Campbell,mason.campbell695@example.com,416-555-7179,Website Form,Toronto,ON,2026-02-08
+L0254,Wei,Ali,wei.ali393@example.com,416-555-9293,Website Form,Mississauga,ON,2026-03-22
+L0255,Omar,Ali,omar.ali381@example.com,416-555-7273,Website Form,Mississauga,ON,2026-03-17
+L0256,Wei,Kim,wei.kim322@example.com,416-555-4566,Property Inquiry,Stouffville,ON,2026-01-24
+L0257,Logan,Rossi,logan.rossi531@example.com,416-555-6340,Open House,Stouffville,ON,2026-05-25
+L0258,Nora,Ito,nora.ito457@example.com,416-555-3515,Open House,Vaughan,ON,2026-08-07
+L0259,Ethan,Roy,ethan.roy874@example.com,416-555-1213,Referral,Toronto,ON,2026-08-03
+L0260,Priya,Santos,priya.santos356@example.com,416-555-1063,Open House,Newmarket,ON,2026-05-10
+L0261,Isla,Ito,isla.ito727@example.com,416-555-2852,Online Ad,Newmarket,ON,2026-04-04
+L0262,Chloe,Fraser,chloe.fraser143@example.com,416-555-3878,Referral,Markham,ON,2026-06-18
+L0263,Wei,Silva,wei.silva823@example.com,416-555-9038,Property Inquiry,Mississauga,ON,2026-02-03
+L0264,Wyatt,Kim,wyatt.kim735@example.com,416-555-7842,Open House,Whitby,ON,2026-07-27
+L0265,Ava,Roy,ava.roy996@example.com,416-555-5194,Website Form,Oshawa,ON,2026-08-22
+L0266,Rohan,Ali,rohan.ali132@example.com,416-555-9032,Open House,Toronto,ON,2026-03-14
+L0267,Anika,Singh,anika.singh852@example.com,416-555-2034,Open House,Toronto,ON,2026-05-06
+L0268,Isla,Brown,isla.brown958@example.com,416-555-3694,Online Ad,Newmarket,ON,2026-05-28
+L0269,Lucas,Garcia,lucas.garcia202@example.com,416-555-9024,Online Ad,Toronto,ON,2026-05-20
+L0270,Lucas,Novak,lucas.novak657@example.com,416-555-2762,Open House,Mississauga,ON,2026-03-06
+L0271,Arjun,Murphy,arjun.murphy43@example.com,416-555-0464,Website Form,Markham,ON,2026-05-21
+L0272,Jacob,Mehta,jacob.mehta586@example.com,416-555-6825,Open House,Markham,ON,2026-08-21
+L0273,Lily,Reyes,lily.reyes980@example.com,416-555-4949,Referral,Richmond Hill,ON,2026-07-10
+L0274,Fatima,Chen,fatima.chen706@example.com,416-555-0981,Property Inquiry,Oshawa,ON,2026-07-16
+L0275,Fatima,Patel,fatima.patel349@example.com,416-555-9939,Property Inquiry,Pickering,ON,2026-06-24
+L0276,Mei,Kim,mei.kim134@example.com,416-555-6070,Open House,Newmarket,ON,2026-02-11
+L0277,Aiden,Silva,aiden.silva126@example.com,416-555-4382,Referral,Richmond Hill,ON,2026-03-04
+L0278,Noah,Lopez,noah.lopez969@example.com,416-555-6293,Open House,Whitby,ON,2026-04-28
+L0279,Isla,Brown,isla.brown957@example.com,416-555-9464,Online Ad,Richmond Hill,ON,2026-03-16
+L0280,Anika,Silva,anika.silva511@example.com,416-555-5055,Referral,Markham,ON,2026-02-13
+L0281,Anika,Silva,anika.silva990@example.com,416-555-3944,Property Inquiry,Mississauga,ON,2026-06-02
+L0282,Noah,Lopez,noah.lopez507@example.com,416-555-9789,Referral,Vaughan,ON,2026-09-01
+L0283,Mia,Cohen,mia.cohen138@example.com,416-555-4333,Online Ad,Whitby,ON,2026-06-02
+L0284,Maria,Singh,maria.singh584@example.com,416-555-9204,Property Inquiry,Pickering,ON,2026-09-10
+L0285,Ava,Kim,ava.kim517@example.com,416-555-7378,Open House,Vaughan,ON,2026-02-05
+L0286,Mia,Kim,mia.kim383@example.com,416-555-5555,Open House,Pickering,ON,2026-03-07
+L0287,Anika,Kim,anika.kim513@example.com,416-555-0659,Website Form,Markham,ON,2026-03-23
+L0288,Arjun,Fraser,arjun.fraser486@example.com,416-555-8508,Referral,Toronto,ON,2026-09-05
+L0289,Priya,Campbell,priya.campbell327@example.com,416-555-2662,Referral,Mississauga,ON,2026-05-19
+L0290,Arjun,Novak,arjun.novak849@example.com,416-555-8351,Open House,Oshawa,ON,2026-05-16
+L0291,Liam,Ali,liam.ali340@example.com,416-555-1795,Referral,Mississauga,ON,2026-05-26
+L0292,Liam,Campbell,liam.campbell486@example.com,416-555-4350,Open House,Mississauga,ON,2026-04-24
+L0293,Noah,Murphy,noah.murphy492@example.com,416-555-2793,Open House,Mississauga,ON,2026-07-05
+L0294,Aiden,Singh,aiden.singh587@example.com,416-555-1800,Property Inquiry,Markham,ON,2026-08-11
+L0295,Diego,Roy,diego.roy423@example.com,416-555-3340,Referral,Newmarket,ON,2026-08-28
+L0296,Noah,Ito,noah.ito142@example.com,416-555-8498,Property Inquiry,Newmarket,ON,2026-06-22
+L0297,Kenji,Novak,kenji.novak386@example.com,416-555-5140,Property Inquiry,Oshawa,ON,2026-09-11
+L0298,Mei,Santos,mei.santos791@example.com,416-555-4331,Open House,Oshawa,ON,2026-04-08
+L0299,Owen,Khan,owen.khan306@example.com,416-555-3684,Online Ad,Vaughan,ON,2026-04-23
+L0300,Yuki,Brown,yuki.brown492@example.com,416-555-5714,Open House,Vaughan,ON,2026-05-04
+L0301,Carlos,Kim,carlos.kim839@example.com,416-555-5654,Property Inquiry,Vaughan,ON,2026-01-10
+L0302,Lucas,Ali,lucas.ali947@example.com,416-555-7247,Online Ad,Oshawa,ON,2026-04-07
+L0303,Owen,Khan,owen.khan713@example.com,416-555-4450,Property Inquiry,Stouffville,ON,2026-04-08
+L0304,Noah,Santos,noah.santos927@example.com,416-555-8700,Property Inquiry,Richmond Hill,ON,2026-01-04
+L0305,Diego,Brown,diego.brown735@example.com,416-555-7739,Website Form,Toronto,ON,2026-01-18
+L0306,Isla,Cohen,isla.cohen669@example.com,416-555-7793,Referral,Richmond Hill,ON,2026-05-11
+L0307,Lily,Reyes,lily.reyes61@example.com,416-555-1465,Open House,Richmond Hill,ON,2026-09-24
+L0308,Emma,Wilson,emma.wilson428@example.com,416-555-2880,Website Form,Whitby,ON,2026-08-06
+L0309,Lily,Singh,lily.singh10@example.com,416-555-4888,Open House,Mississauga,ON,2026-02-11
+L0310,Lily,Silva,lily.silva657@example.com,416-555-8901,Open House,Oshawa,ON,2026-03-28
+L0311,Anika,Silva,anika.silva280@example.com,416-555-3159,Website Form,Pickering,ON,2026-03-24
+L0312,Fatima,Reyes,fatima.reyes264@example.com,416-555-3050,Website Form,Pickering,ON,2026-05-19
+L0313,Chloe,Wilson,chloe.wilson626@example.com,416-555-6643,Referral,Newmarket,ON,2026-06-03
+L0314,Maria,Santos,maria.santos98@example.com,416-555-3027,Property Inquiry,Oshawa,ON,2026-06-08
+L0315,Olivia,Garcia,olivia.garcia393@example.com,416-555-3858,Referral,Vaughan,ON,2026-06-10
+L0316,Olivia,Garcia,olivia.garcia670@example.com,416-555-5890,Property Inquiry,Markham,ON,2026-02-15
+L0317,Wyatt,Wilson,wyatt.wilson416@example.com,416-555-8233,Online Ad,Stouffville,ON,2026-05-12
+L0318,Zoe,Nguyen,zoe.nguyen981@example.com,416-555-2188,Referral,Toronto,ON,2026-08-24
+L0319,Wei,Cohen,wei.cohen719@example.com,416-555-8998,Referral,Newmarket,ON,2026-04-25
+L0320,Aiden,Santos,aiden.santos773@example.com,416-555-9761,Website Form,Newmarket,ON,2026-08-17
+L0321,Wei,Chen,wei.chen940@example.com,416-555-9243,Website Form,Markham,ON,2026-09-17
+L0322,Chloe,Murphy,chloe.murphy550@example.com,416-555-2455,Property Inquiry,Pickering,ON,2026-09-15
+L0323,Ethan,Santos,ethan.santos211@example.com,416-555-9554,Referral,Stouffville,ON,2026-09-15
+L0324,Noah,Silva,noah.silva136@example.com,416-555-8409,Referral,Oshawa,ON,2026-01-18
+L0325,Fatima,Santos,fatima.santos827@example.com,416-555-5049,Website Form,Whitby,ON,2026-05-27
+L0326,Olivia,Park,olivia.park224@example.com,416-555-9475,Website Form,Markham,ON,2026-07-12
+L0327,Ava,Khan,ava.khan62@example.com,416-555-1130,Referral,Markham,ON,2026-05-14
+L0328,Logan,Mehta,logan.mehta139@example.com,416-555-6887,Online Ad,Whitby,ON,2026-08-28
+L0329,Carlos,Kim,carlos.kim83@example.com,416-555-8835,Property Inquiry,Pickering,ON,2026-02-06
+L0330,Maria,Novak,maria.novak131@example.com,416-555-3648,Website Form,Markham,ON,2026-05-15
+L0331,Elena,Khan,elena.khan389@example.com,416-555-3762,Property Inquiry,Oshawa,ON,2026-06-05
+L0332,Owen,Patel,owen.patel960@example.com,416-555-1848,Website Form,Whitby,ON,2026-01-08
+L0333,Jacob,Chen,jacob.chen104@example.com,416-555-9731,Website Form,Oshawa,ON,2026-01-08
+L0334,Emma,Kim,emma.kim450@example.com,416-555-3839,Open House,Richmond Hill,ON,2026-01-05
+L0335,Anika,Lopez,anika.lopez240@example.com,416-555-9438,Online Ad,Mississauga,ON,2026-06-08
+L0336,Wyatt,Roy,wyatt.roy677@example.com,416-555-8540,Property Inquiry,Whitby,ON,2026-05-09
+L0337,Noah,Khan,noah.khan972@example.com,416-555-9693,Property Inquiry,Whitby,ON,2026-09-16
+L0338,Noah,Ali,noah.ali965@example.com,416-555-6244,Open House,Pickering,ON,2026-07-14
+L0339,Mason,Lopez,mason.lopez386@example.com,416-555-3012,Open House,Oshawa,ON,2026-04-28
+L0340,Zoe,Lopez,zoe.lopez879@example.com,416-555-2365,Referral,Markham,ON,2026-09-14
+L0341,Diego,Khan,diego.khan543@example.com,416-555-2196,Referral,Richmond Hill,ON,2026-05-07
+L0342,Arjun,Reyes,arjun.reyes81@example.com,416-555-7369,Online Ad,Stouffville,ON,2026-09-24
+L0343,Chloe,Singh,chloe.singh275@example.com,416-555-6179,Open House,Mississauga,ON,2026-01-28
+L0344,Ava,Patel,ava.patel824@example.com,416-555-9626,Open House,Richmond Hill,ON,2026-08-07
+L0345,Arjun,Lopez,arjun.lopez980@example.com,416-555-0251,Property Inquiry,Richmond Hill,ON,2026-02-24
+L0346,Kenji,Nguyen,kenji.nguyen713@example.com,416-555-9902,Property Inquiry,Whitby,ON,2026-04-18
+L0347,Priya,Mehta,priya.mehta290@example.com,416-555-6236,Referral,Newmarket,ON,2026-06-10
+L0348,Nora,Ali,nora.ali526@example.com,416-555-8147,Referral,Stouffville,ON,2026-08-25
+L0349,Priya,Patel,priya.patel380@example.com,416-555-5126,Referral,Markham,ON,2026-04-24
+L0350,Mason,Tremblay,mason.tremblay268@example.com,416-555-9065,Open House,Mississauga,ON,2026-07-10
+L0351,Mason,Patel,mason.patel338@example.com,416-555-3768,Referral,Mississauga,ON,2026-04-16
+L0352,Arjun,Garcia,arjun.garcia782@example.com,416-555-8005,Referral,Oshawa,ON,2026-03-24
+L0353,Mei,Wilson,mei.wilson144@example.com,416-555-8954,Referral,Toronto,ON,2026-09-21
+L0354,Noah,Novak,noah.novak35@example.com,416-555-1217,Website Form,Markham,ON,2026-07-05
+L0355,Zoe,Chen,zoe.chen725@example.com,416-555-2474,Website Form,Richmond Hill,ON,2026-09-15
+L0356,Wei,Singh,wei.singh633@example.com,416-555-7916,Referral,Markham,ON,2026-01-18
+L0357,Diego,Tremblay,diego.tremblay18@example.com,416-555-8673,Online Ad,Newmarket,ON,2026-05-01
+L0358,Anika,Ito,anika.ito691@example.com,416-555-7054,Property Inquiry,Stouffville,ON,2026-02-17
+L0359,Mason,Nguyen,mason.nguyen197@example.com,416-555-8625,Online Ad,Pickering,ON,2026-05-26
+L0360,Maria,Chen,maria.chen383@example.com,416-555-6652,Referral,Mississauga,ON,2026-04-23
+L0361,Zoe,Lopez,zoe.lopez701@example.com,416-555-1320,Website Form,Stouffville,ON,2026-07-13
+L0362,Carlos,Khan,carlos.khan488@example.com,416-555-0919,Website Form,Toronto,ON,2026-02-16
+L0363,Elena,Reyes,elena.reyes804@example.com,416-555-5427,Open House,Stouffville,ON,2026-09-02
+L0364,Zoe,Patel,zoe.patel923@example.com,416-555-9286,Referral,Vaughan,ON,2026-01-03
+L0365,Owen,Khan,owen.khan578@example.com,416-555-0539,Property Inquiry,Pickering,ON,2026-01-07
+L0366,Mason,Mehta,mason.mehta841@example.com,416-555-6525,Website Form,Vaughan,ON,2026-03-19
+L0367,Aiden,Murphy,aiden.murphy855@example.com,416-555-6375,Open House,Pickering,ON,2026-07-25
+L0368,Sofia,Fraser,sofia.fraser706@example.com,416-555-1284,Open House,Pickering,ON,2026-01-04
+L0369,Elena,Nguyen,elena.nguyen859@example.com,416-555-1245,Online Ad,Mississauga,ON,2026-07-25
+L0370,Priya,Tremblay,priya.tremblay650@example.com,416-555-4478,Referral,Oshawa,ON,2026-04-12
+L0371,Carlos,Cohen,carlos.cohen191@example.com,416-555-9598,Referral,Stouffville,ON,2026-05-26
+L0372,Aiden,Ito,aiden.ito76@example.com,416-555-1344,Online Ad,Toronto,ON,2026-07-23
+L0373,Mason,Park,mason.park399@example.com,416-555-5188,Online Ad,Stouffville,ON,2026-02-01
+L0374,Wyatt,Silva,wyatt.silva369@example.com,416-555-4419,Website Form,Toronto,ON,2026-02-06
+L0375,Elena,Silva,elena.silva571@example.com,416-555-9088,Open House,Whitby,ON,2026-02-01
+L0376,Lucas,Ali,lucas.ali568@example.com,416-555-1524,Open House,Mississauga,ON,2026-06-28
+L0377,Carlos,Tremblay,carlos.tremblay299@example.com,416-555-6779,Referral,Stouffville,ON,2026-09-08
+L0378,Rohan,Wilson,rohan.wilson702@example.com,416-555-6237,Property Inquiry,Toronto,ON,2026-05-10
+L0379,Owen,Rossi,owen.rossi150@example.com,416-555-1036,Property Inquiry,Whitby,ON,2026-05-14
+L0380,Wyatt,Rossi,wyatt.rossi802@example.com,416-555-1260,Online Ad,Vaughan,ON,2026-04-24
+L0381,Yuki,Campbell,yuki.campbell632@example.com,416-555-3203,Referral,Stouffville,ON,2026-03-10
+L0382,Olivia,Kim,olivia.kim341@example.com,416-555-6224,Online Ad,Oshawa,ON,2026-06-14
+L0383,Sofia,Lopez,sofia.lopez329@example.com,416-555-9883,Property Inquiry,Oshawa,ON,2026-06-06
+L0384,Maria,Brown,maria.brown299@example.com,416-555-8044,Open House,Richmond Hill,ON,2026-06-13
+L0385,Owen,Fraser,owen.fraser403@example.com,416-555-5980,Website Form,Mississauga,ON,2026-04-19
+L0386,Logan,Santos,logan.santos787@example.com,416-555-9012,Website Form,Oshawa,ON,2026-04-15
+L0387,Lily,Ito,lily.ito71@example.com,416-555-6703,Referral,Toronto,ON,2026-05-08
+L0388,Nora,Santos,nora.santos158@example.com,416-555-6932,Referral,Stouffville,ON,2026-08-20
+L0389,Kenji,Murphy,kenji.murphy411@example.com,416-555-8755,Open House,Whitby,ON,2026-09-02
+L0390,Wei,Ito,wei.ito917@example.com,416-555-8796,Open House,Stouffville,ON,2026-02-25
+L0391,Aiden,Santos,aiden.santos681@example.com,416-555-5816,Property Inquiry,Mississauga,ON,2026-01-19
+L0392,Maria,Mehta,maria.mehta340@example.com,416-555-7052,Website Form,Markham,ON,2026-02-09
+L0393,Zoe,Novak,zoe.novak765@example.com,416-555-8499,Open House,Mississauga,ON,2026-04-15
+L0394,Wei,Kim,wei.kim475@example.com,416-555-9643,Open House,Toronto,ON,2026-06-01
+L0395,Kenji,Martin,kenji.martin303@example.com,416-555-6815,Website Form,Stouffville,ON,2026-03-12
+L0396,Wyatt,Brown,wyatt.brown467@example.com,416-555-3389,Open House,Oshawa,ON,2026-06-16
+L0397,Mia,Silva,mia.silva740@example.com,416-555-7412,Online Ad,Stouffville,ON,2026-05-02
+L0398,Ethan,Tremblay,ethan.tremblay870@example.com,416-555-5620,Website Form,Toronto,ON,2026-04-17
+L0399,Logan,Khan,logan.khan164@example.com,416-555-5422,Open House,Whitby,ON,2026-08-08
+L0400,Maria,Reyes,maria.reyes189@example.com,416-555-3053,Referral,Whitby,ON,2026-01-24
+L0401,Chloe,Silva,chloe.silva607@example.com,416-555-7037,Referral,Markham,ON,2026-04-07
+L0402,Owen,Mehta,owen.mehta721@example.com,416-555-1025,Open House,Stouffville,ON,2026-09-06
+L0403,Wei,Brown,wei.brown202@example.com,416-555-7496,Website Form,Vaughan,ON,2026-08-17
+L0404,Priya,Campbell,priya.campbell398@example.com,416-555-6431,Open House,Stouffville,ON,2026-06-12
+L0405,Fatima,Campbell,fatima.campbell177@example.com,416-555-4873,Open House,Mississauga,ON,2026-02-22
+L0406,Sofia,Brown,sofia.brown121@example.com,416-555-3908,Online Ad,Stouffville,ON,2026-03-12
+L0407,Mason,Novak,mason.novak398@example.com,416-555-6852,Open House,Toronto,ON,2026-07-14
+L0408,Logan,Rossi,logan.rossi651@example.com,416-555-8804,Property Inquiry,Newmarket,ON,2026-03-16
+L0409,Lily,Roy,lily.roy192@example.com,416-555-5154,Referral,Mississauga,ON,2026-01-28
+L0410,Mei,Tremblay,mei.tremblay497@example.com,416-555-2236,Property Inquiry,Whitby,ON,2026-09-17
+L0411,Yuki,Cohen,yuki.cohen702@example.com,416-555-8056,Referral,Oshawa,ON,2026-08-06
+L0412,Lucas,Murphy,lucas.murphy32@example.com,416-555-3613,Online Ad,Markham,ON,2026-05-08
+L0413,Lily,Wilson,lily.wilson800@example.com,416-555-7492,Open House,Oshawa,ON,2026-09-17
+L0414,Ethan,Murphy,ethan.murphy117@example.com,416-555-4389,Open House,Pickering,ON,2026-09-27
+L0415,Emma,Mehta,emma.mehta737@example.com,416-555-7231,Open House,Richmond Hill,ON,2026-07-04
+L0416,Aiden,Lopez,aiden.lopez896@example.com,416-555-0528,Referral,Vaughan,ON,2026-06-28
+L0417,Lucas,Silva,lucas.silva887@example.com,416-555-1923,Property Inquiry,Richmond Hill,ON,2026-06-28
+L0418,Elena,Wilson,elena.wilson631@example.com,416-555-2281,Property Inquiry,Richmond Hill,ON,2026-01-19
+L0419,Mei,Khan,mei.khan288@example.com,416-555-9778,Open House,Toronto,ON,2026-06-23
+L0420,Lily,Lopez,lily.lopez587@example.com,416-555-4380,Open House,Stouffville,ON,2026-03-25
+L0421,Diego,Singh,diego.singh284@example.com,416-555-2078,Property Inquiry,Richmond Hill,ON,2026-03-23
+L0422,Priya,Nguyen,priya.nguyen780@example.com,416-555-6434,Referral,Toronto,ON,2026-05-21
+L0423,Diego,Kim,diego.kim463@example.com,416-555-1237,Website Form,Whitby,ON,2026-09-24
+L0424,Owen,Ito,owen.ito959@example.com,416-555-6046,Referral,Oshawa,ON,2026-06-19
+L0425,Olivia,Mehta,olivia.mehta868@example.com,416-555-1526,Referral,Pickering,ON,2026-02-26
+L0426,Maria,Patel,maria.patel992@example.com,416-555-7039,Property Inquiry,Oshawa,ON,2026-05-11
+L0427,Lily,Brown,lily.brown561@example.com,416-555-9468,Property Inquiry,Mississauga,ON,2026-08-26
+L0428,Arjun,Santos,arjun.santos781@example.com,416-555-0793,Website Form,Stouffville,ON,2026-08-01
+L0429,Ethan,Wilson,ethan.wilson452@example.com,416-555-7479,Website Form,Whitby,ON,2026-04-23
+L0430,Sofia,Reyes,sofia.reyes310@example.com,416-555-2604,Online Ad,Stouffville,ON,2026-06-09
+L0431,Lucas,Ali,lucas.ali681@example.com,416-555-2711,Website Form,Whitby,ON,2026-05-24
+L0432,Zoe,Cohen,zoe.cohen672@example.com,416-555-1494,Website Form,Markham,ON,2026-04-16
+L0433,Ava,Roy,ava.roy608@example.com,416-555-3705,Open House,Oshawa,ON,2026-01-01
+L0434,Arjun,Martin,arjun.martin881@example.com,416-555-6919,Property Inquiry,Oshawa,ON,2026-02-08
+L0435,Carlos,Chen,carlos.chen749@example.com,416-555-1678,Website Form,Pickering,ON,2026-06-10
+L0436,Sofia,Kim,sofia.kim793@example.com,416-555-2181,Property Inquiry,Stouffville,ON,2026-09-19
+L0437,Olivia,Campbell,olivia.campbell666@example.com,416-555-2688,Referral,Pickering,ON,2026-04-21
+L0438,Mason,Cohen,mason.cohen631@example.com,416-555-7248,Property Inquiry,Stouffville,ON,2026-02-05
+L0439,Ethan,Murphy,ethan.murphy748@example.com,416-555-6291,Online Ad,Whitby,ON,2026-06-26
+L0440,Sofia,Nguyen,sofia.nguyen284@example.com,416-555-1380,Property Inquiry,Newmarket,ON,2026-05-25
+L0441,Liam,Santos,liam.santos897@example.com,416-555-4942,Property Inquiry,Newmarket,ON,2026-09-07
+L0442,Maria,Lopez,maria.lopez662@example.com,416-555-0894,Property Inquiry,Oshawa,ON,2026-07-04
+L0443,Aiden,Rossi,aiden.rossi654@example.com,416-555-9730,Website Form,Newmarket,ON,2026-01-12
+L0444,Priya,Roy,priya.roy397@example.com,416-555-9312,Referral,Pickering,ON,2026-09-22
+L0445,Logan,Mehta,logan.mehta483@example.com,416-555-1195,Website Form,Mississauga,ON,2026-02-01
+L0446,Nora,Patel,nora.patel41@example.com,416-555-0990,Referral,Newmarket,ON,2026-05-21
+L0447,Anika,Mehta,anika.mehta426@example.com,416-555-6939,Referral,Stouffville,ON,2026-09-18
+L0448,Mason,Garcia,mason.garcia86@example.com,416-555-5077,Website Form,Newmarket,ON,2026-04-26
+L0449,Mason,Khan,mason.khan335@example.com,416-555-6401,Open House,Stouffville,ON,2026-05-23
+L0450,Elena,Park,elena.park977@example.com,416-555-3909,Website Form,Richmond Hill,ON,2026-02-14
+L0451,Ethan,Silva,ethan.silva627@example.com,416-555-9975,Website Form,Vaughan,ON,2026-03-04
+L0452,Olivia,Ito,olivia.ito141@example.com,416-555-0185,Property Inquiry,Oshawa,ON,2026-06-17
+L0453,Rohan,Fraser,rohan.fraser843@example.com,416-555-4247,Property Inquiry,Pickering,ON,2026-03-24
+L0454,Owen,Park,owen.park908@example.com,416-555-1934,Website Form,Pickering,ON,2026-07-09
+L0455,Rohan,Chen,rohan.chen270@example.com,416-555-9447,Website Form,Oshawa,ON,2026-08-17
+L0456,Wei,Singh,wei.singh512@example.com,416-555-9287,Property Inquiry,Pickering,ON,2026-03-09
+L0457,Mia,Murphy,mia.murphy691@example.com,416-555-1889,Property Inquiry,Newmarket,ON,2026-01-02
+L0458,Olivia,Nguyen,olivia.nguyen48@example.com,416-555-7729,Online Ad,Whitby,ON,2026-03-06
+L0459,Emma,Khan,emma.khan823@example.com,416-555-6870,Property Inquiry,Pickering,ON,2026-04-14
+L0460,Priya,Garcia,priya.garcia846@example.com,416-555-1276,Open House,Pickering,ON,2026-02-17
+L0461,Noah,Wilson,noah.wilson229@example.com,416-555-8450,Website Form,Whitby,ON,2026-02-15
+L0462,Lily,Mehta,lily.mehta866@example.com,416-555-5090,Online Ad,Stouffville,ON,2026-09-15
+L0463,Olivia,Ali,olivia.ali206@example.com,416-555-4777,Open House,Vaughan,ON,2026-04-15
+L0464,Wei,Murphy,wei.murphy996@example.com,416-555-8083,Property Inquiry,Newmarket,ON,2026-04-05
+L0465,Olivia,Cohen,olivia.cohen25@example.com,416-555-3817,Open House,Pickering,ON,2026-01-11
+L0466,Olivia,Mehta,olivia.mehta674@example.com,416-555-6164,Online Ad,Stouffville,ON,2026-04-17
+L0467,Aiden,Cohen,aiden.cohen504@example.com,416-555-0981,Property Inquiry,Vaughan,ON,2026-02-02
+L0468,Zoe,Novak,zoe.novak423@example.com,416-555-6102,Referral,Stouffville,ON,2026-02-17
+L0469,Sofia,Reyes,sofia.reyes840@example.com,416-555-6461,Website Form,Mississauga,ON,2026-01-14
+L0470,Sofia,Nguyen,sofia.nguyen299@example.com,416-555-4276,Online Ad,Whitby,ON,2026-06-11
+L0471,Omar,Garcia,omar.garcia240@example.com,416-555-1223,Property Inquiry,Toronto,ON,2026-02-05
+L0472,Mia,Wilson,mia.wilson461@example.com,416-555-7635,Online Ad,Whitby,ON,2026-02-18
+L0473,Mei,Mehta,mei.mehta213@example.com,416-555-7404,Online Ad,Oshawa,ON,2026-05-28
+L0474,Ethan,Chen,ethan.chen162@example.com,416-555-4984,Open House,Markham,ON,2026-04-27
+L0475,Priya,Roy,priya.roy94@example.com,416-555-4066,Online Ad,Whitby,ON,2026-09-02
+L0476,Wyatt,Garcia,wyatt.garcia840@example.com,416-555-2848,Website Form,Whitby,ON,2026-08-18
+L0477,Aiden,Martin,aiden.martin474@example.com,416-555-1669,Property Inquiry,Stouffville,ON,2026-01-02
+L0478,Zoe,Roy,zoe.roy203@example.com,416-555-6563,Online Ad,Stouffville,ON,2026-05-27
+L0479,Ava,Tremblay,ava.tremblay67@example.com,416-555-3239,Referral,Toronto,ON,2026-02-28
+L0480,Arjun,Martin,arjun.martin44@example.com,416-555-7552,Website Form,Toronto,ON,2026-07-27
+L0481,Maria,Rossi,maria.rossi31@example.com,416-555-6270,Referral,Toronto,ON,2026-06-07
+L0482,Logan,Garcia,logan.garcia287@example.com,416-555-7307,Property Inquiry,Markham,ON,2026-04-21
+L0483,Lily,Rossi,lily.rossi422@example.com,416-555-9022,Referral,Markham,ON,2026-02-09
+L0484,Carlos,Roy,carlos.roy430@example.com,416-555-3267,Open House,Richmond Hill,ON,2026-09-26
+L0485,Liam,Kim,liam.kim801@example.com,416-555-5883,Referral,Newmarket,ON,2026-08-12
+L0486,Anika,Brown,anika.brown398@example.com,416-555-4430,Property Inquiry,Markham,ON,2026-06-20
+L0487,Zoe,Tremblay,zoe.tremblay918@example.com,416-555-4602,Website Form,Oshawa,ON,2026-09-12
+L0488,Zoe,Wilson,zoe.wilson103@example.com,416-555-4060,Property Inquiry,Vaughan,ON,2026-09-27
+L0489,Noah,Mehta,noah.mehta971@example.com,416-555-3594,Open House,Whitby,ON,2026-06-27
+L0490,Logan,Wilson,logan.wilson243@example.com,416-555-9707,Online Ad,Pickering,ON,2026-01-23
+L0491,Mei,Murphy,mei.murphy578@example.com,416-555-2328,Open House,Richmond Hill,ON,2026-08-18
+L0492,Wyatt,Wilson,wyatt.wilson503@example.com,416-555-0621,Website Form,Markham,ON,2026-04-20
+L0493,Zoe,Tremblay,zoe.tremblay540@example.com,416-555-7831,Website Form,Pickering,ON,2026-04-26
+L0494,Sofia,Brown,sofia.brown735@example.com,416-555-2907,Online Ad,Markham,ON,2026-01-05
+L0495,Mason,Mehta,mason.mehta114@example.com,416-555-8622,Online Ad,Stouffville,ON,2026-06-23
+L0496,Maria,Murphy,maria.murphy104@example.com,416-555-5514,Online Ad,Pickering,ON,2026-03-06
+L0497,Elena,Fraser,elena.fraser655@example.com,416-555-7982,Online Ad,Toronto,ON,2026-09-23
+L0498,Mei,Nguyen,mei.nguyen682@example.com,416-555-9649,Property Inquiry,Whitby,ON,2026-05-24
+L0499,Lily,Roy,lily.roy182@example.com,416-555-0029,Open House,Whitby,ON,2026-01-06
+L0500,Priya,Fraser,priya.fraser991@example.com,416-555-3619,Open House,Stouffville,ON,2026-08-05
+L0501,Arjun,Park,arjun.park80@example.com,416-555-3899,Online Ad,Pickering,ON,2026-03-21
+L0502,Lucas,Ito,lucas.ito687@example.com,416-555-5500,Referral,Markham,ON,2026-05-07
+L0503,Aiden,Ito,aiden.ito70@example.com,416-555-5742,Online Ad,Stouffville,ON,2026-01-02
+L0504,Carlos,Silva,carlos.silva751@example.com,416-555-6875,Property Inquiry,Whitby,ON,2026-08-13
+L0505,Mei,Khan,mei.khan385@example.com,416-555-1661,Referral,Mississauga,ON,2026-04-06
+L0506,Omar,Chen,omar.chen819@example.com,416-555-0547,Online Ad,Markham,ON,2026-06-09
+L0507,Mia,Chen,mia.chen351@example.com,416-555-2787,Referral,Toronto,ON,2026-02-18
+L0508,Lucas,Brown,lucas.brown609@example.com,416-555-7909,Website Form,Whitby,ON,2026-03-20
+L0509,Elena,Wilson,elena.wilson55@example.com,416-555-1659,Online Ad,Richmond Hill,ON,2026-04-14
+L0510,Nora,Santos,nora.santos289@example.com,416-555-4872,Property Inquiry,Stouffville,ON,2026-01-13
+L0511,Yuki,Roy,yuki.roy56@example.com,416-555-5911,Website Form,Whitby,ON,2026-02-10
+L0512,Kenji,Patel,kenji.patel100@example.com,416-555-0421,Property Inquiry,Toronto,ON,2026-05-03
+L0513,Kenji,Martin,kenji.martin316@example.com,416-555-6512,Referral,Oshawa,ON,2026-05-03
+L0514,Carlos,Wilson,carlos.wilson380@example.com,416-555-6249,Online Ad,Toronto,ON,2026-08-02
+L0515,Nora,Silva,nora.silva477@example.com,416-555-4315,Property Inquiry,Vaughan,ON,2026-01-05
+L0516,Mia,Chen,mia.chen685@example.com,416-555-5632,Open House,Whitby,ON,2026-04-18
+L0517,Noah,Kim,noah.kim839@example.com,416-555-8561,Referral,Newmarket,ON,2026-08-19
+L0518,Aiden,Rossi,aiden.rossi307@example.com,416-555-1293,Referral,Markham,ON,2026-09-19
+L0519,Rohan,Fraser,rohan.fraser586@example.com,416-555-2415,Website Form,Oshawa,ON,2026-03-06
+L0520,Jacob,Fraser,jacob.fraser198@example.com,416-555-2067,Website Form,Whitby,ON,2026-02-22
+L0521,Elena,Patel,elena.patel843@example.com,416-555-2422,Open House,Vaughan,ON,2026-06-24
+L0522,Ava,Chen,ava.chen398@example.com,416-555-9115,Referral,Newmarket,ON,2026-06-28
+L0523,Owen,Novak,owen.novak470@example.com,416-555-0202,Open House,Mississauga,ON,2026-09-26
+L0524,Diego,Martin,diego.martin425@example.com,416-555-2451,Property Inquiry,Mississauga,ON,2026-02-04
+L0525,Mia,Fraser,mia.fraser293@example.com,416-555-8775,Online Ad,Whitby,ON,2026-05-13
+L0526,Yuki,Murphy,yuki.murphy624@example.com,416-555-7750,Website Form,Toronto,ON,2026-05-13
+L0527,Mason,Campbell,mason.campbell624@example.com,416-555-6581,Website Form,Whitby,ON,2026-06-23
+L0528,Aiden,Singh,aiden.singh764@example.com,416-555-7785,Online Ad,Pickering,ON,2026-01-11
+L0529,Wyatt,Lopez,wyatt.lopez288@example.com,416-555-8054,Website Form,Richmond Hill,ON,2026-03-10
+L0530,Omar,Mehta,omar.mehta846@example.com,416-555-5257,Online Ad,Whitby,ON,2026-02-07
+L0531,Omar,Patel,omar.patel936@example.com,416-555-6671,Referral,Newmarket,ON,2026-06-27
+L0532,Noah,Novak,noah.novak811@example.com,416-555-2604,Website Form,Vaughan,ON,2026-09-13
+L0533,Sofia,Mehta,sofia.mehta872@example.com,416-555-8589,Open House,Markham,ON,2026-03-07
+L0534,Chloe,Singh,chloe.singh256@example.com,416-555-0541,Referral,Markham,ON,2026-06-23
+L0535,Chloe,Garcia,chloe.garcia378@example.com,416-555-7605,Open House,Whitby,ON,2026-02-22
+L0536,Liam,Nguyen,liam.nguyen382@example.com,416-555-8008,Open House,Oshawa,ON,2026-03-28
+L0537,Kenji,Murphy,kenji.murphy565@example.com,416-555-5730,Online Ad,Toronto,ON,2026-05-24
+L0538,Lucas,Lopez,lucas.lopez29@example.com,416-555-6333,Website Form,Toronto,ON,2026-04-28
+L0539,Zoe,Reyes,zoe.reyes231@example.com,416-555-3387,Online Ad,Whitby,ON,2026-09-01
+L0540,Olivia,Rossi,olivia.rossi934@example.com,416-555-2167,Property Inquiry,Mississauga,ON,2026-01-08
+L0541,Nora,Campbell,nora.campbell825@example.com,416-555-5004,Online Ad,Whitby,ON,2026-07-28
+L0542,Mei,Silva,mei.silva259@example.com,416-555-3575,Referral,Vaughan,ON,2026-09-27
+L0543,Maria,Murphy,maria.murphy105@example.com,416-555-0120,Open House,Pickering,ON,2026-09-21
+L0544,Lily,Lopez,lily.lopez701@example.com,416-555-1771,Referral,Stouffville,ON,2026-06-09
+L0545,Priya,Garcia,priya.garcia268@example.com,416-555-4895,Property Inquiry,Toronto,ON,2026-09-25
+L0546,Aiden,Singh,aiden.singh825@example.com,416-555-9830,Referral,Pickering,ON,2026-03-24
+L0547,Liam,Reyes,liam.reyes510@example.com,416-555-4843,Online Ad,Whitby,ON,2026-07-13
+L0548,Emma,Murphy,emma.murphy726@example.com,416-555-9372,Property Inquiry,Pickering,ON,2026-04-22
+L0549,Kenji,Santos,kenji.santos368@example.com,416-555-8311,Online Ad,Toronto,ON,2026-09-06
+L0550,Lily,Martin,lily.martin483@example.com,416-555-2096,Online Ad,Newmarket,ON,2026-03-22
+L0551,Arjun,Reyes,arjun.reyes92@example.com,416-555-3641,Online Ad,Richmond Hill,ON,2026-05-14
+L0552,Arjun,Ali,arjun.ali267@example.com,416-555-9593,Online Ad,Oshawa,ON,2026-02-16
+L0553,Noah,Reyes,noah.reyes598@example.com,416-555-9507,Open House,Stouffville,ON,2026-08-07
+L0554,Anika,Martin,anika.martin889@example.com,416-555-6253,Open House,Vaughan,ON,2026-07-02
+L0555,Mason,Roy,mason.roy206@example.com,416-555-5614,Referral,Mississauga,ON,2026-08-05
+L0556,Priya,Ito,priya.ito185@example.com,416-555-1324,Referral,Pickering,ON,2026-03-11
+L0557,Noah,Tremblay,noah.tremblay463@example.com,416-555-4481,Property Inquiry,Toronto,ON,2026-03-16
+L0558,Lucas,Roy,lucas.roy630@example.com,416-555-7105,Referral,Whitby,ON,2026-07-16
+L0559,Carlos,Tremblay,carlos.tremblay39@example.com,416-555-8745,Property Inquiry,Pickering,ON,2026-01-11
+L0560,Rohan,Patel,rohan.patel19@example.com,416-555-0067,Property Inquiry,Richmond Hill,ON,2026-06-10
+L0561,Sofia,Martin,sofia.martin393@example.com,416-555-8246,Open House,Vaughan,ON,2026-03-03
+L0562,Emma,Lopez,emma.lopez972@example.com,416-555-4764,Referral,Newmarket,ON,2026-09-11
+L0563,Elena,Santos,elena.santos138@example.com,416-555-5615,Referral,Pickering,ON,2026-04-06
+L0564,Maria,Tremblay,maria.tremblay234@example.com,416-555-3675,Property Inquiry,Richmond Hill,ON,2026-01-19
+L0565,Anika,Wilson,anika.wilson127@example.com,416-555-6006,Website Form,Whitby,ON,2026-05-25
+L0566,Noah,Campbell,noah.campbell50@example.com,416-555-1771,Website Form,Markham,ON,2026-02-14
+L0567,Omar,Kim,omar.kim127@example.com,416-555-8966,Online Ad,Oshawa,ON,2026-03-07
+L0568,Olivia,Lopez,olivia.lopez431@example.com,416-555-1654,Open House,Vaughan,ON,2026-03-14
+L0569,Mia,Novak,mia.novak737@example.com,416-555-1928,Online Ad,Stouffville,ON,2026-02-16
+L0570,Chloe,Campbell,chloe.campbell205@example.com,416-555-4308,Open House,Richmond Hill,ON,2026-06-23
+L0571,Diego,Lopez,diego.lopez165@example.com,416-555-0645,Open House,Oshawa,ON,2026-04-23
+L0572,Kenji,Brown,kenji.brown241@example.com,416-555-0044,Website Form,Stouffville,ON,2026-02-27
+L0573,Yuki,Roy,yuki.roy973@example.com,416-555-1475,Open House,Stouffville,ON,2026-02-09
+L0574,Zoe,Silva,zoe.silva304@example.com,416-555-4327,Referral,Markham,ON,2026-02-27
+L0575,Logan,Singh,logan.singh873@example.com,416-555-4760,Online Ad,Pickering,ON,2026-07-24
+L0576,Ethan,Martin,ethan.martin872@example.com,416-555-0751,Website Form,Toronto,ON,2026-03-11
+L0577,Mei,Silva,mei.silva979@example.com,416-555-4395,Website Form,Pickering,ON,2026-06-06
+L0578,Ethan,Kim,ethan.kim410@example.com,416-555-7479,Online Ad,Whitby,ON,2026-08-26
+L0579,Diego,Reyes,diego.reyes908@example.com,416-555-2732,Website Form,Toronto,ON,2026-01-28
+L0580,Isla,Martin,isla.martin427@example.com,416-555-9678,Referral,Mississauga,ON,2026-08-06
+L0581,Carlos,Mehta,carlos.mehta368@example.com,416-555-0472,Property Inquiry,Oshawa,ON,2026-08-04
+L0582,Diego,Silva,diego.silva48@example.com,416-555-1037,Online Ad,Pickering,ON,2026-01-23
+L0583,Rohan,Mehta,rohan.mehta762@example.com,416-555-9447,Open House,Richmond Hill,ON,2026-06-17
+L0584,Rohan,Ito,rohan.ito718@example.com,416-555-1560,Referral,Richmond Hill,ON,2026-08-12
+L0585,Carlos,Roy,carlos.roy860@example.com,416-555-9147,Open House,Markham,ON,2026-01-21
+L0586,Isla,Novak,isla.novak870@example.com,416-555-7688,Referral,Toronto,ON,2026-02-25
+L0587,Yuki,Brown,yuki.brown247@example.com,416-555-5421,Online Ad,Markham,ON,2026-09-08
+L0588,Carlos,Kim,carlos.kim837@example.com,416-555-3850,Website Form,Oshawa,ON,2026-08-26
+L0589,Omar,Chen,omar.chen878@example.com,416-555-8166,Referral,Pickering,ON,2026-02-16
+L0590,Liam,Martin,liam.martin414@example.com,416-555-6755,Website Form,Newmarket,ON,2026-09-01
+L0591,Lucas,Fraser,lucas.fraser619@example.com,416-555-4990,Open House,Newmarket,ON,2026-04-21
+L0592,Fatima,Brown,fatima.brown373@example.com,416-555-0889,Property Inquiry,Oshawa,ON,2026-06-18
+L0593,Kenji,Ito,kenji.ito673@example.com,416-555-5952,Referral,Stouffville,ON,2026-02-25
+L0594,Zoe,Tremblay,zoe.tremblay350@example.com,416-555-5818,Online Ad,Newmarket,ON,2026-09-12
+L0595,Mia,Singh,mia.singh919@example.com,416-555-2689,Referral,Toronto,ON,2026-07-04
+L0596,Nora,Campbell,nora.campbell201@example.com,416-555-3072,Website Form,Whitby,ON,2026-04-15
+L0597,Chloe,Ito,chloe.ito347@example.com,416-555-1765,Referral,Markham,ON,2026-02-25
+L0598,Omar,Silva,omar.silva675@example.com,416-555-9655,Open House,Toronto,ON,2026-08-01
+L0599,Rohan,Park,rohan.park50@example.com,416-555-9064,Referral,Mississauga,ON,2026-08-17
+L0600,Logan,Ito,logan.ito593@example.com,416-555-2845,Property Inquiry,Stouffville,ON,2026-07-22
+L0601,Priya,Novak,priya.novak903@example.com,416-555-6302,Referral,Mississauga,ON,2026-04-09
+L0602,Maria,Brown,maria.brown994@example.com,416-555-4819,Referral,Toronto,ON,2026-03-14
+L0603,Anika,Lopez,anika.lopez864@example.com,416-555-8975,Online Ad,Newmarket,ON,2026-04-07
+L0604,Jacob,Campbell,jacob.campbell732@example.com,416-555-4760,Online Ad,Toronto,ON,2026-03-17
+L0605,Priya,Ito,priya.ito119@example.com,416-555-5771,Open House,Oshawa,ON,2026-07-22
+L0606,Lily,Cohen,lily.cohen828@example.com,416-555-0209,Open House,Stouffville,ON,2026-01-13
+L0607,Mason,Singh,mason.singh687@example.com,416-555-0927,Property Inquiry,Vaughan,ON,2026-03-10
+L0608,Nora,Roy,nora.roy860@example.com,416-555-1016,Online Ad,Richmond Hill,ON,2026-09-02
+L0609,Mei,Silva,mei.silva105@example.com,416-555-9205,Property Inquiry,Newmarket,ON,2026-07-08
+L0610,Anika,Fraser,anika.fraser816@example.com,416-555-4712,Website Form,Whitby,ON,2026-07-14
+L0611,Priya,Khan,priya.khan56@example.com,416-555-0212,Online Ad,Richmond Hill,ON,2026-08-27
+L0612,Zoe,Reyes,zoe.reyes722@example.com,416-555-6025,Open House,Newmarket,ON,2026-04-25
+L0613,Chloe,Lopez,chloe.lopez460@example.com,416-555-2906,Website Form,Toronto,ON,2026-03-24
+L0614,Anika,Martin,anika.martin387@example.com,416-555-0665,Referral,Vaughan,ON,2026-09-09
+L0615,Sofia,Wilson,sofia.wilson599@example.com,416-555-4178,Website Form,Pickering,ON,2026-08-23
+L0616,Mason,Singh,mason.singh158@example.com,416-555-5285,Open House,Markham,ON,2026-05-16
+L0617,Mei,Chen,mei.chen803@example.com,416-555-5207,Open House,Richmond Hill,ON,2026-03-17
+L0618,Ava,Fraser,ava.fraser518@example.com,416-555-2611,Referral,Newmarket,ON,2026-09-13
+L0619,Lucas,Ali,lucas.ali227@example.com,416-555-3495,Online Ad,Pickering,ON,2026-06-10
+L0620,Jacob,Mehta,jacob.mehta634@example.com,416-555-8691,Referral,Newmarket,ON,2026-01-04
+L0621,Mei,Silva,mei.silva247@example.com,416-555-3994,Website Form,Pickering,ON,2026-07-26
+L0622,Ethan,Kim,ethan.kim263@example.com,416-555-8851,Online Ad,Markham,ON,2026-09-27
+L0623,Wei,Novak,wei.novak823@example.com,416-555-8335,Referral,Oshawa,ON,2026-01-10
+L0624,Chloe,Brown,chloe.brown527@example.com,416-555-1349,Website Form,Toronto,ON,2026-09-18
+L0625,Olivia,Reyes,olivia.reyes68@example.com,416-555-3453,Property Inquiry,Whitby,ON,2026-02-07
+L0626,Elena,Reyes,elena.reyes837@example.com,416-555-1181,Property Inquiry,Markham,ON,2026-08-23
+L0627,Arjun,Singh,arjun.singh90@example.com,416-555-1200,Website Form,Toronto,ON,2026-05-18
+L0628,Ava,Murphy,ava.murphy842@example.com,416-555-3729,Online Ad,Whitby,ON,2026-07-15
+L0629,Maria,Cohen,maria.cohen324@example.com,416-555-0276,Referral,Stouffville,ON,2026-09-01
+L0630,Ava,Mehta,ava.mehta764@example.com,416-555-9594,Website Form,Stouffville,ON,2026-06-17
+L0631,Mia,Lopez,mia.lopez806@example.com,416-555-4937,Open House,Stouffville,ON,2026-05-25
+L0632,Omar,Kim,omar.kim405@example.com,416-555-0504,Referral,Toronto,ON,2026-09-08
+L0633,Sofia,Park,sofia.park401@example.com,416-555-8941,Online Ad,Toronto,ON,2026-05-22
+L0634,Wei,Tremblay,wei.tremblay567@example.com,416-555-9094,Property Inquiry,Stouffville,ON,2026-01-01
+L0635,Maria,Khan,maria.khan561@example.com,416-555-1394,Online Ad,Richmond Hill,ON,2026-06-07
+L0636,Diego,Reyes,diego.reyes872@example.com,416-555-8397,Property Inquiry,Toronto,ON,2026-03-08
+L0637,Nora,Patel,nora.patel118@example.com,416-555-2971,Open House,Markham,ON,2026-09-15
+L0638,Ava,Lopez,ava.lopez688@example.com,416-555-1103,Online Ad,Stouffville,ON,2026-04-24
+L0639,Yuki,Brown,yuki.brown366@example.com,416-555-2100,Property Inquiry,Stouffville,ON,2026-05-20
+L0640,Ava,Patel,ava.patel326@example.com,416-555-7960,Referral,Pickering,ON,2026-05-23
+L0641,Mason,Murphy,mason.murphy581@example.com,416-555-5971,Online Ad,Whitby,ON,2026-03-01
+L0642,Priya,Nguyen,priya.nguyen805@example.com,416-555-3629,Referral,Vaughan,ON,2026-06-05
+L0643,Arjun,Rossi,arjun.rossi474@example.com,416-555-7296,Online Ad,Vaughan,ON,2026-08-18
+L0644,Mia,Wilson,mia.wilson662@example.com,416-555-9938,Website Form,Vaughan,ON,2026-03-18
+L0645,Chloe,Garcia,chloe.garcia752@example.com,416-555-1252,Website Form,Markham,ON,2026-09-21
+L0646,Liam,Murphy,liam.murphy593@example.com,416-555-6637,Open House,Richmond Hill,ON,2026-01-18
+L0647,Nora,Khan,nora.khan916@example.com,416-555-8842,Referral,Toronto,ON,2026-06-13
+L0648,Zoe,Mehta,zoe.mehta604@example.com,416-555-4767,Property Inquiry,Oshawa,ON,2026-09-17
+L0649,Lucas,Kim,lucas.kim373@example.com,416-555-8227,Website Form,Richmond Hill,ON,2026-03-25
+L0650,Anika,Roy,anika.roy457@example.com,416-555-2608,Property Inquiry,Mississauga,ON,2026-03-24
+L0651,Kenji,Ali,kenji.ali42@example.com,416-555-3585,Referral,Richmond Hill,ON,2026-02-09
+L0652,Wei,Nguyen,wei.nguyen44@example.com,416-555-3387,Open House,Pickering,ON,2026-07-16
+L0653,Fatima,Singh,fatima.singh41@example.com,416-555-5309,Website Form,Newmarket,ON,2026-05-27
+L0654,Nora,Murphy,nora.murphy558@example.com,416-555-9341,Property Inquiry,Whitby,ON,2026-07-12
+L0655,Ava,Novak,ava.novak258@example.com,416-555-6165,Property Inquiry,Newmarket,ON,2026-07-12
+L0656,Mei,Rossi,mei.rossi812@example.com,416-555-7898,Open House,Markham,ON,2026-09-05
+L0657,Omar,Wilson,omar.wilson236@example.com,416-555-1263,Open House,Vaughan,ON,2026-04-05
+L0658,Logan,Wilson,logan.wilson371@example.com,416-555-9863,Website Form,Richmond Hill,ON,2026-07-26
+L0659,Arjun,Park,arjun.park117@example.com,416-555-7889,Referral,Oshawa,ON,2026-04-19
+L0660,Isla,Reyes,isla.reyes854@example.com,416-555-6732,Website Form,Richmond Hill,ON,2026-01-05
+L0661,Isla,Roy,isla.roy645@example.com,416-555-8399,Website Form,Mississauga,ON,2026-03-02
+L0662,Isla,Garcia,isla.garcia945@example.com,416-555-2949,Open House,Whitby,ON,2026-01-24
+L0663,Lily,Chen,lily.chen222@example.com,416-555-7359,Open House,Oshawa,ON,2026-08-06
+L0664,Zoe,Cohen,zoe.cohen616@example.com,416-555-2338,Open House,Toronto,ON,2026-09-09
+L0665,Isla,Park,isla.park703@example.com,416-555-5614,Referral,Mississauga,ON,2026-02-08
+L0666,Carlos,Kim,carlos.kim136@example.com,416-555-1778,Website Form,Richmond Hill,ON,2026-09-28
+L0667,Anika,Santos,anika.santos430@example.com,416-555-2450,Open House,Stouffville,ON,2026-03-16
+L0668,Emma,Fraser,emma.fraser545@example.com,416-555-8246,Website Form,Stouffville,ON,2026-08-22
+L0669,Sofia,Campbell,sofia.campbell553@example.com,416-555-0019,Referral,Newmarket,ON,2026-07-12
+L0670,Emma,Ito,emma.ito543@example.com,416-555-7028,Property Inquiry,Oshawa,ON,2026-07-12
+L0671,Nora,Rossi,nora.rossi785@example.com,416-555-3809,Website Form,Vaughan,ON,2026-09-14
+L0672,Nora,Patel,nora.patel6@example.com,416-555-0116,Open House,Newmarket,ON,2026-02-17
+L0673,Olivia,Kim,olivia.kim671@example.com,416-555-3365,Online Ad,Whitby,ON,2026-06-04
+L0674,Mason,Cohen,mason.cohen668@example.com,416-555-9590,Online Ad,Vaughan,ON,2026-09-14
+L0675,Wei,Campbell,wei.campbell283@example.com,416-555-6511,Property Inquiry,Whitby,ON,2026-09-26
+L0676,Kenji,Wilson,kenji.wilson380@example.com,416-555-9160,Open House,Oshawa,ON,2026-05-10
+L0677,Mei,Mehta,mei.mehta723@example.com,416-555-6522,Property Inquiry,Stouffville,ON,2026-04-15
+L0678,Isla,Martin,isla.martin220@example.com,416-555-8328,Referral,Pickering,ON,2026-09-20
+L0679,Noah,Wilson,noah.wilson399@example.com,416-555-0086,Website Form,Toronto,ON,2026-08-20
+L0680,Elena,Chen,elena.chen66@example.com,416-555-4310,Property Inquiry,Pickering,ON,2026-02-20
+L0681,Emma,Park,emma.park394@example.com,416-555-6564,Open House,Newmarket,ON,2026-05-23
+L0682,Noah,Mehta,noah.mehta840@example.com,416-555-2871,Referral,Oshawa,ON,2026-01-07
+L0683,Rohan,Lopez,rohan.lopez200@example.com,416-555-0550,Open House,Newmarket,ON,2026-09-23
+L0684,Zoe,Campbell,zoe.campbell174@example.com,416-555-0590,Online Ad,Richmond Hill,ON,2026-01-06
+L0685,Lucas,Garcia,lucas.garcia799@example.com,416-555-6544,Online Ad,Whitby,ON,2026-07-19
+L0686,Chloe,Novak,chloe.novak16@example.com,416-555-1124,Website Form,Newmarket,ON,2026-05-24
+L0687,Mei,Ali,mei.ali987@example.com,416-555-4530,Property Inquiry,Mississauga,ON,2026-04-15
+L0688,Maria,Murphy,maria.murphy5@example.com,416-555-4277,Property Inquiry,Whitby,ON,2026-09-04
+L0689,Ava,Novak,ava.novak302@example.com,416-555-5570,Website Form,Newmarket,ON,2026-05-18
+L0690,Nora,Ito,nora.ito454@example.com,416-555-6178,Open House,Oshawa,ON,2026-04-25
+L0691,Arjun,Mehta,arjun.mehta470@example.com,416-555-7548,Open House,Markham,ON,2026-08-04
+L0692,Nora,Chen,nora.chen392@example.com,416-555-3610,Property Inquiry,Pickering,ON,2026-07-12
+L0693,Rohan,Khan,rohan.khan10@example.com,416-555-4314,Property Inquiry,Vaughan,ON,2026-02-13
+L0694,Arjun,Chen,arjun.chen568@example.com,416-555-2924,Referral,Pickering,ON,2026-06-07
+L0695,Owen,Wilson,owen.wilson970@example.com,416-555-3115,Referral,Richmond Hill,ON,2026-04-24
+L0696,Aiden,Garcia,aiden.garcia212@example.com,416-555-3755,Property Inquiry,Richmond Hill,ON,2026-06-05
+L0697,Mia,Martin,mia.martin943@example.com,416-555-1285,Referral,Mississauga,ON,2026-01-25
+L0698,Emma,Rossi,emma.rossi381@example.com,416-555-5167,Referral,Mississauga,ON,2026-05-16
+L0699,Logan,Mehta,logan.mehta938@example.com,416-555-8374,Online Ad,Whitby,ON,2026-04-25
+L0700,Sofia,Singh,sofia.singh539@example.com,416-555-6933,Referral,Newmarket,ON,2026-01-17
