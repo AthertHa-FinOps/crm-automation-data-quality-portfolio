@@ -1,6 +1,6 @@
 # CRM Data Quality & Record Review
 
-**Runnable, read-only case study with fictional leads; not production CRM administration.**
+**Runnable, read-only case study with fictional leads. No live CRM records are changed.**
 
 ## Business task
 
@@ -11,7 +11,7 @@ A fictional lead source contains **700 rows** and a separate CRM export contains
 1. Read the original CSV exports without overwriting or deleting records.
 2. Check email normalization, invalid/missing values, phone formats, province variants and blank lead sources.
 3. Flag potential duplicate contact emails and preserve all versions for human review.
-4. Compare source and CRM data by normalized email, flag unmatched records and conflicting names/phone values.
+4. Compare source and CRM data by normalized email, include a source-record ID where exactly one source email matches, and flag conflicting surnames or phone values.
 5. Run ten SQLite checks and write a review-only output and control report.
 6. Run automated preservation, grounded-exception, count-bridge and matching edge-case tests.
 
@@ -21,10 +21,10 @@ A fictional lead source contains **700 rows** and a separate CRM export contains
 |---|---|
 | [Source leads](data/source_leads.csv) | 700 synthetic source leads |
 | [CRM export](data/crm_export.csv) | 733 synthetic CRM rows |
-| [Review output](outputs/crm_review.csv) | Every CRM row preserved, plus proposed normalized fields and flags |
+| [Review output](outputs/crm_review.csv) | Original CRM fields, proposed normalized values, source-match status, traceable source ID where available and flags |
 | [Control report](outputs/control_report.md) | Totals, quality checks and review decisions |
 | [Python analysis](run_analysis.py) | Runnable non-destructive processing |
-| [SQLite queries](sql/queries.sql) | Ten check queries |
+| [SQLite queries](sql/queries.sql) | Ten cross-check queries using the same fictional extracts |
 | [Automated tests](tests/test_review.py) | Preservation, duplicate flags, normalization and SQLite checks |
 | [Edge-case tests](tests/test_edge_cases.py) | Shared email, ambiguous sources, invalid addresses and conflicting details |
 
@@ -38,6 +38,10 @@ python -m unittest discover -s 02-crm-data-quality/tests -v
 ```
 
 Python 3.10+ standard library only. A GitHub Actions workflow also runs the checks. Data is fictional, so no CRM account, OAuth token or production credentials are required.
+
+## Reading the output
+
+`ONE_EMAIL_MATCH` means one **source** email key matches; it does not mean the CRM contact is unique. `matched_source_id` is populated only for that source match. `PASS_PRELIMINARY` means no scripted flags were raised, **not** that someone approved the record. The 52 source email keys without a CRM match may include changed or malformed CRM addresses; they are not 52 confirmed missing contacts.
 
 ## Business decisions
 
