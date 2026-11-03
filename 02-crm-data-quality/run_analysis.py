@@ -220,7 +220,7 @@ def write_outputs(rows, controls, flags, sql_counts):
         "Reference: [Count bridge](../../docs/COUNT_RECONCILIATION.md).",
     ]
     lines += [
-        "", "- The 52 source rows without a CRM email-key match are not proof that 52 contacts are absent; changed or malformed email values can break matching.",
+        "", f"- The {controls['source_leads_without_email_match']} source rows without a CRM email-key match are not proof that this many contacts are absent; changed or malformed email values can break matching.",
         "", "## Decisions requiring human review", "",
         "- Every original CRM record is preserved. Review flags do not authorize deletion, merging or updates.",
         "- Duplicate emails may identify duplicate contacts or legitimate versions; review both records.",
