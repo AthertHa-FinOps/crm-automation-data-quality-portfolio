@@ -20,7 +20,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Validate + normalize incoming lead. Output: { valid, errors[], lead{}, idempotency_key }\nconst b = $input.first().json.body ?? $input.first().json;\nconst errors = [];\nconst email = String(b.email ?? '').trim().toLowerCase();\nif (!email) errors.push('MISSING_EMAIL');\nelse if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)) errors.push('INVALID_EMAIL');\nconst digits = String(b.phone ?? '').replace(/\\D/g, '');\nconst p = digits.length === 11 && digits[0] === '1' ? digits.slice(1) : digits;\nconst phone = p.length === 10 ? `${p.slice(0,3)}-${p.slice(3,6)}-${p.slice(6)}` : '';\nif (b.phone && !phone) errors.push('INVALID_PHONE');\nconst cap = s => String(s ?? '').trim().replace(/\\s+/g,' ').replace(/\\b\\w/g, c => c.toUpperCase());\nconst lead = { email, firstname: cap(b.first_name), lastname: cap(b.last_name), phone,\n  hs_lead_status: 'NEW', lead_source: String(b.lead_source ?? 'Unknown').trim(),\n  message: String(b.message ?? '').slice(0, 500) };\nreturn [{ json: { valid: errors.length === 0, errors, lead, received_at: new Date().toISOString() } }];"
+        "jsCode": "// Validate + normalize incoming lead. Output: { valid, errors[], lead{}, received_at }\nconst b = $input.first().json.body ?? $input.first().json;\nconst errors = [];\nconst email = String(b.email ?? '').trim().toLowerCase();\nif (!email) errors.push('MISSING_EMAIL');\nelse if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)) errors.push('INVALID_EMAIL');\nconst digits = String(b.phone ?? '').replace(/\\D/g, '');\nconst p = digits.length === 11 && digits[0] === '1' ? digits.slice(1) : digits;\nconst phone = p.length === 10 ? `${p.slice(0,3)}-${p.slice(3,6)}-${p.slice(6)}` : '';\nif (b.phone && !phone) errors.push('INVALID_PHONE');\nconst clean = s => String(s ?? '').trim().replace(/\\s+/g,' ');\nconst lead = { email, firstname: clean(b.first_name), lastname: clean(b.last_name), phone,\n  hs_lead_status: 'NEW', lead_source: String(b.lead_source ?? 'Unknown').trim(),\n  message: String(b.message ?? '').slice(0, 500) };\nreturn [{ json: { valid: errors.length === 0, errors, lead, received_at: new Date().toISOString() } }];"
       },
       "id": "validate-&-normalize",
       "name": "Validate & Normalize",
@@ -140,9 +140,7 @@
         }
       },
       "onError": "continueErrorOutput",
-      "retryOnFail": true,
-      "maxTries": 3,
-      "waitBetweenTries": 2000
+      "retryOnFail": false
     },
     {
       "parameters": {
@@ -170,9 +168,7 @@
         }
       },
       "onError": "continueErrorOutput",
-      "retryOnFail": true,
-      "maxTries": 3,
-      "waitBetweenTries": 2000
+      "retryOnFail": false
     },
     {
       "parameters": {
@@ -292,7 +288,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Audit log entry (replace with Google Sheets / Data Table / DB node for persistence)\nconst v = $('Validate & Normalize').first().json;\nreturn [{ json: { timestamp: new Date().toISOString(), email: v.lead.email, outcome: $json.outcome ?? 'UNKNOWN', errors: v.errors, hubspot_id: $json.id ?? null } }];"
+        "jsCode": "// Audit log entry (replace with Google Sheets / Data Table / DB node for persistence)\nconst v = $('Validate & Normalize').first().json;\nreturn [{ json: { timestamp: new Date().toISOString(), outcome: $json.outcome ?? 'UNKNOWN', errors: v.errors, hubspot_id: $json.id ?? null } }];"
       },
       "id": "audit-log",
       "name": "Audit Log",
@@ -365,7 +361,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Audit log entry (replace with Google Sheets / Data Table / DB node for persistence)\nconst v = $('Validate & Normalize').first().json;\nreturn [{ json: { timestamp: new Date().toISOString(), email: v.lead.email, outcome: $json.outcome ?? 'UNKNOWN', errors: v.errors, hubspot_id: $json.id ?? null } }];"
+        "jsCode": "// Audit log entry (replace with Google Sheets / Data Table / DB node for persistence)\nconst v = $('Validate & Normalize').first().json;\nreturn [{ json: { timestamp: new Date().toISOString(), outcome: $json.outcome ?? 'UNKNOWN', errors: v.errors, hubspot_id: $json.id ?? null } }];"
       },
       "id": "audit-log-rejected",
       "name": "Audit Log Rejected",
@@ -375,6 +371,91 @@
         880,
         600
       ]
+    },
+    {
+      "name": "Search Response Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        880,
+        200
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.total === 0 ? Array.isArray($json.results) && $json.results.length === 0 : $json.total === 1 && Array.isArray($json.results) && $json.results.length === 1 && !!$json.results[0]?.id }}",
+              "value2": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Response Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        280
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ typeof $json.id === 'string' && $json.id.length > 0 }}",
+              "value2": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Response Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        80
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ typeof $json.id === 'string' && $json.id.length > 0 }}",
+              "value2": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Audit Log Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        560
+      ],
+      "parameters": {
+        "jsCode": "// Keep failure response metadata minimal; n8n execution data has the diagnostic context.\nreturn [{ json: { timestamp: new Date().toISOString(), outcome: 'CRM_ERROR_NEEDS_REVIEW', hubspot_id: null } }];"
+      }
+    },
+    {
+      "name": "Respond 502",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1980,
+        560
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: \"crm_error\", message: \"CRM request could not be completed\" }) }}",
+        "options": {
+          "responseCode": 502
+        }
+      }
     }
   ],
   "connections": {
@@ -422,7 +503,7 @@
       "main": [
         [
           {
-            "node": "Contact Exists?",
+            "node": "Search Response Valid?",
             "type": "main",
             "index": 0
           }
@@ -469,7 +550,7 @@
       "main": [
         [
           {
-            "node": "Outcome Created",
+            "node": "Create Response Valid?",
             "type": "main",
             "index": 0
           }
@@ -487,7 +568,7 @@
       "main": [
         [
           {
-            "node": "Outcome Updated",
+            "node": "Update Response Valid?",
             "type": "main",
             "index": 0
           }
@@ -527,7 +608,7 @@
       "main": [
         [
           {
-            "node": "Audit Log",
+            "node": "Audit Log Error",
             "type": "main",
             "index": 0
           }
@@ -560,6 +641,71 @@
           },
           {
             "node": "Respond OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Response Valid?": {
+      "main": [
+        [
+          {
+            "node": "Contact Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome CRM Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Response Valid?": {
+      "main": [
+        [
+          {
+            "node": "Outcome Created",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome CRM Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Response Valid?": {
+      "main": [
+        [
+          {
+            "node": "Outcome Updated",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Outcome CRM Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audit Log Error": {
+      "main": [
+        [
+          {
+            "node": "Respond 502",
             "type": "main",
             "index": 0
           }

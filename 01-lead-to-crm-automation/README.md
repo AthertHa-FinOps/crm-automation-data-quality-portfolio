@@ -1,41 +1,45 @@
-# Lead-to-CRM Automation — n8n + HubSpot Blueprint
+# n8n lead-intake workflow: local test candidate
 
-**Status: importable design, not demonstrated end-to-end integration.**
+**Status: 23-node export with automated structure and JavaScript checks. No verified n8n-to-HubSpot execution.**
 
-This AI-assisted workflow design addresses a common real estate operations problem: incoming leads need validation and duplicate checks before they are added to a CRM. All 11 sample submissions use fictional data.
+This workflow is intended to receive a lead, validate the contact details, look up an existing HubSpot contact and create or update a record. The sample requests contain fictional information.
 
-## Included
+## Workflow design
 
-- [workflow.json](workflow.json): 18-node n8n export with a webhook, normalization code, contact search/create/update design, error paths and response nodes.
-- [sample-leads.csv](sample-leads.csv): eleven fictional test inputs and expected results.
-- [send_leads.py](send_leads.py): test-request utility restricted to loopback n8n testing.
-- [test-results.md](test-results.md): eleven scenarios with **no recorded actual observations**.
-- [WORKFLOW_AUDIT.md](WORKFLOW_AUDIT.md): detailed static assessment, risks and next tests.
-- [demo-script.md](demo-script.md): script for a demonstration **only after tests are actually completed**.
+1. Accept a POST request at `lead-intake` and normalize the supplied email, phone and name.
+2. Return HTTP **422** for missing or invalid email, or an invalid nonblank phone.
+3. Search HubSpot by normalized email. Reject missing, malformed or ambiguous search responses rather than treating them as proof of a unique match.
+4. Create when the search returns no contact, or update the single matched contact. Require a returned contact ID before reporting success.
+5. Return HTTP **200** for the intended success response; route failed API calls or invalid CRM responses to HTTP **502**.
+6. Record minimal execution metadata. The audit objects are not a persistent log, and the notification node is a placeholder.
 
-## What the design intends to do
+The search node has limited retries configured. Create/update retries are disabled to avoid blind repetition of writes after an uncertain API response. This does **not** guarantee idempotency: simultaneous submissions and uncertain network outcomes still need to be tested and addressed.
 
-1. Receive a POST submission, validate the lead and normalize contact fields.
-2. Search HubSpot by email and choose create or update.
-3. Route errors and log a provisional outcome in n8n execution data.
-4. Return a success or rejection response.
+## Files and tests
 
-These are **intended behaviors**, not verified production results. HTTP retries are configured in the JSON, but actual retry behavior and data outcomes have not been demonstrated.
+| File | What it contains |
+|---|---|
+| [workflow.json](workflow.json) | Importable n8n export with 23 nodes and error branches |
+| [sample-leads.csv](sample-leads.csv) | Eleven fictional requests with expected outcomes |
+| [send_leads.py](send_leads.py) | Request sender restricted to loopback n8n test webhooks |
+| [test-results.md](test-results.md) | Eleven real-execution result fields, still blank |
+| [tests/workflow_contract.test.mjs](tests/workflow_contract.test.mjs) | Node-based isolated checks of code and export response paths |
+| [tests/test_workflow_export.py](tests/test_workflow_export.py) | Structural connection, credential and response-path checks |
+| [tests/test_webhook_safety.py](tests/test_webhook_safety.py) | Local-only sender URL validation |
+| [WORKFLOW_AUDIT.md](WORKFLOW_AUDIT.md) | Risks, verified static behaviour and remaining integration gates |
 
-## Unfinished components
+## Run the local test when a permitted environment is available
 
-HubSpot test-account authentication and end-to-end execution; confirmed duplicate behavior; webhook protection; persistent audit logging; agent assignment and notification; data protection/consent handling; error-path results; and the eleven observed test outcomes.
-
-The workflow's HubSpot credentials contain a `REPLACE_ME` reference, **not a real token**. The current webhook is not configured with authentication. Keep it on a local test URL with fictional data only, and do not expose it to public traffic or use it for client records.
-
-## Local-only test utility
-
-With a locally running n8n workflow listening for a test event:
+Import `workflow.json` into a local n8n instance. Use an isolated HubSpot test account with appropriately scoped credentials. **Do not put tokens into the repository or test against real customer records.** Start a webhook test listener in n8n, then send a fictional case:
 
 ```bash
 python 01-lead-to-crm-automation/send_leads.py http://localhost:5678/webhook-test/lead-intake T03
 ```
 
-This command is an example of how to run T03 **when the workflow is ready**; it is not evidence T03 has been run.
+Capture the actual HTTP status, response body, n8n execution outcome and, when applicable, the test contact before marking any scenario as passed. See [test-results.md](test-results.md) and the [completion checklist](../docs/COMPLETION_CHECKLIST.md).
 
-The [CRM data-quality study](../02-crm-data-quality/README.md), not this blueprint, is the repository's completed reproducible exercise.
+## Security and scope
+
+The exported workflow contains credential placeholders, and its webhook has **no configured authentication**. Restrict it to local, fictional tests; it is not safe to publish as an internet-facing customer intake endpoint without authentication, consent controls and further security review. Agent notification and persistent business logging are not implemented.
+
+The [CRM reconciliation](../02-crm-data-quality/README.md) is the completed reproducible exercise in this repository. The n8n integration remains an unverified candidate workflow until genuine execution results are recorded.
