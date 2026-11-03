@@ -81,7 +81,7 @@ test('invalid lead input is rejected before CRM operations', () => {
   assert.equal(ok.valid, true);
   assert.equal(ok.lead.email, 'test@example.com');
   assert.equal(ok.lead.phone, '416-555-0105');
-  assert.equal(ok.lead.firstname, 'Jane Doe');
+  assert.equal(ok.lead.firstname, 'jane DOE'); // Preserve supplied case; normalize whitespace only.
 });
 
 test('write requests avoid automatic retries and execution log omits raw email', () => {
