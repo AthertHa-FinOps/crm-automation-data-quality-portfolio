@@ -45,6 +45,15 @@
 | 9 CRM records with an email that has no source lead | 28 |
 | 10 matched records where CRM and source disagree (last name or phone digits) | 25 |
 
+## Email match count reconciliation
+
+- Python: **15** valid-looking CRM emails have no source match.
+- Python: **13** malformed nonblank emails are classified as `UNVERIFIABLE_EMAIL`.
+- SQLite Q9: **28** nonblank emails have no literal source match; this includes malformed strings.
+- Check: **15 + 13 = 28**; the measures use different inclusion rules.
+- **18** blank email rows are excluded from Q9.
+
+Reference: [Count bridge](../../docs/COUNT_RECONCILIATION.md).
 ## Decisions requiring human review
 
 - Every original CRM record is preserved. Review flags do not authorize deletion, merging or updates.

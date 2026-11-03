@@ -197,6 +197,26 @@ def write_outputs(rows, controls, flags, sql_counts):
               "| Check | Result |", "|---|---:|"]
     for label, count in sql_counts.items():
         lines.append(f"| {label} | {count} |")
+    q9_count = next((n for label, n in sql_counts.items()
+                     if label.startswith("9 ")), None)
+    unmatched_valid = controls["crm_emails_without_source_match"]
+    malformed_nonblank = flags.get("INVALID_EMAIL", 0)
+    if q9_count != unmatched_valid + malformed_nonblank:
+        raise ValueError(
+            "Unreconciled difference between Python and SQLite email checks"
+        )
+    lines += [
+        "",
+        "## Email match count reconciliation",
+        "",
+        f"- Python: **{unmatched_valid}** valid-looking CRM emails have no source match.",
+        f"- Python: **{malformed_nonblank}** malformed nonblank emails are classified as \`UNVERIFIABLE_EMAIL\`.",
+        f"- SQLite Q9: **{q9_count}** nonblank emails have no literal source match; this includes malformed strings.",
+        f"- Check: **{unmatched_valid} + {malformed_nonblank} = {q9_count}**; the measures use different inclusion rules.",
+        f"- **{flags.get('MISSING_EMAIL', 0)}** blank email rows are excluded from Q9.",
+        "",
+        "Reference: [Count bridge](../../docs/COUNT_RECONCILIATION.md).",
+    ]
     lines += [
         "", "## Decisions requiring human review", "",
         "- Every original CRM record is preserved. Review flags do not authorize deletion, merging or updates.",
