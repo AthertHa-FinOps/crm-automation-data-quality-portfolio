@@ -1,10 +1,8 @@
-# Test Results
+# Lead-to-CRM integration test results
 
-> **Status: NOT YET RUN.** The "Observed" and "Result" columns are intentionally empty. Fill them in from real n8n executions
-> (`python send_leads.py <webhook-url>`), attach screenshots, and record every fix you make. Do not publish this file with
-> invented results.
+**Status: Not run.** No end-to-end execution results have been recorded. The Observed and Result fields remain blank.
 
-Environment: n8n version ______ (cloud / self-hosted) · HubSpot account type ______ (free developer test account) · Date tested ______
+**Execution environment:** Not recorded. **HubSpot test account:** Not recorded. **Test date:** Not recorded.
 
 | Test | Scenario | Expected | Observed | Result | Fix / notes |
 |---|---|---|---|---|---|
@@ -16,9 +14,10 @@ Environment: n8n version ______ (cloud / self-hosted) · HubSpot account type __
 | T06 | Email without @ | HTTP 422 INVALID_EMAIL | | | |
 | T07 | Phone `12345` | HTTP 422 INVALID_PHONE | | | |
 | T08 | Whitespace + `+1` phone | Cleaned name; phone `416-555-0105` | | | |
-| T09 | Submit twice quickly | One contact only | | | Note any race condition |
+| T09 | Submit twice quickly | One contact only | | | |
 | T10 | Invalid HubSpot token | Error branch, audit entry, caller not left hanging | | | |
 | T11 | HubSpot unreachable (e.g. block network / bad URL) | 3 retries, then error branch | | | |
 
-## Defects found while testing
-_(Record each: what broke, how you diagnosed it from execution data, what you changed. This section is what hiring managers read most.)_
+## Defects observed
+
+No defects from end-to-end execution have been recorded.

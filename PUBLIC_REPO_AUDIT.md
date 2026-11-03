@@ -18,7 +18,6 @@
 - HubSpot token references in the current workflow are placeholders; its webhook design has no verified authentication for internet exposure. Do not expose it to real customer traffic.
 - All generated names, email domains and records are fictional. A current-file credential-pattern scan cannot prove that earlier Git history never contained secrets.
 - AI contributed to code, documentation and suggested dispositions. Automated tests do not prove independently authored software or personal review of every example.
-- This portfolio cannot guarantee applicant selection or passing proprietary AI-writing checkers.
 
 ## Audit decision
 

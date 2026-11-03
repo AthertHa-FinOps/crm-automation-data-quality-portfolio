@@ -2,9 +2,9 @@
 
 **Hans Atherton | Public, self-directed, AI-assisted portfolio | Ontario, Canada**
 
-A CRM record should not be deleted, merged or changed solely because a spreadsheet check flags it. This portfolio contains a **reproducible, non-destructive record-quality exercise** and two clearly separate, **unfinished** automation designs.
+This project compares **700 fictional source leads** with **733 CRM records** and flags discrepancies without deleting or changing the originals. It includes a reproducible record-quality exercise and two unfinished automation designs.
 
-My paid experience is reviewing real estate agreements and supporting records, investigating discrepancies, and coordinating corrections before transaction deadlines. The code, synthetic datasets and documentation are portfolio practice, **not paid CRM administration or completed production integrations**.
+In real estate, I review agreements and supporting documents, identify missing or conflicting information, and follow up on corrections before contractual deadlines. This portfolio applies the same record-checking approach to fictional CRM data.
 
 ![Illustrative reconciliation scorecard drawn from synthetic test results](docs/reconciliation-scorecard.svg)
 
@@ -21,11 +21,11 @@ My paid experience is reviewing real estate agreements and supporting records, i
 | **Walkthrough** | [Interview demonstration guide](docs/INTERVIEW_WALKTHROUGH.md) | Short sequence to explain a discrepancy without pretending a video was recorded |
 | **Independent owner review** | [Blank verification worksheet](CANDIDATE_VERIFICATION_WORKSHEET.md) | Where to record actual personal decisions and observations; **not completed** |
 
-**Verified example:** 700 fictional source leads were compared with 733 CRM rows. All 733 CRM rows remain in the review output. The checks flag **311 distinct rows** with at least one issue, including **40 duplicate-email groups (80 rows)**. These are deliberately planted defects, not a measured customer-data quality rate.
+**Reproducible example:** 700 fictional source leads were compared with 733 CRM rows. All 733 CRM rows remain in the review output. The checks flag **311 distinct rows** with at least one issue, including **40 duplicate-email groups (80 rows)**. These are deliberately planted defects, not a measured customer-data quality rate.
 
 ## Project status
 
-| Component | Status | Candid boundary |
+| Component | Status | Scope |
 |---|---|---|
 | [CRM data-quality review](02-crm-data-quality/README.md) | **Reproducible on fictional records** | Python/SQLite checks and repeatable tests. No live CRM access |
 | [n8n–HubSpot lead intake](01-lead-to-crm-automation/README.md) | **Importable blueprint; integration not verified** | Static workflow structure can be checked; none of 11 HubSpot scenarios has an observed result |
@@ -42,6 +42,6 @@ flowchart LR
  F -->|"Yes; authorized"| H["Propose source-backed change"]
 ```
 
-**Reproducibility:** GitHub Actions runs the Python record review, business-rule checks, static workflow checks and documentation validation. A passing build supports the *example*, not independent commercial QA, personally adjudicated review performance or production software tenure.
+**Testing:** GitHub Actions runs the Python record review, business-rule checks, static workflow checks and documentation validation. The automated tests verify the fictional exercise; they do not test a live CRM system.
 
 [Evidence boundaries and security audit](PUBLIC_REPO_AUDIT.md) · [AI output evaluation portfolio](https://github.com/AthertHa-FinOps/AI-Output-Evaluation-Content-Accuracy-Review)

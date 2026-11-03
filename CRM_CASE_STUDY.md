@@ -1,6 +1,6 @@
 # CRM record reconciliation — business case study
 
-**Self-directed, AI-assisted exercise using fictional source and CRM data.** This is not evidence of a live HubSpot/Salesforce integration or a client engagement.
+**Self-directed exercise using fictional source and CRM data.** The HubSpot integration remains unfinished.
 
 ## Business question
 
@@ -30,14 +30,14 @@ A source extract contains **700 leads**; a CRM export contains **733 rows**. Bef
 | **C00012** | Email is blank, so source match is unverifiable | Request source identifier or corrected contact data |
 | **C00006** | Valid-looking email has no match in supplied source extract | Check whether the extract omits another intake channel |
 
-These are **AI-assisted proposed dispositions**, not final approved business corrections or independent review findings personally signed off by the candidate. The [record-level evidence table](docs/REVIEW_DECISIONS.md) supplies exact references and limitations.
+These are proposed follow-up actions, not approved CRM changes or a completed independent owner review. The [record-level evidence table](docs/REVIEW_DECISIONS.md) lists the source records and supporting details.
 
 ## Deliverables
 
 The [review CSV](02-crm-data-quality/outputs/crm_review.csv) preserves all input CRM fields and adds normalized suggestions and review flags. The [control report](02-crm-data-quality/outputs/control_report.md) shows issue counts and the count bridge. [Python and SQLite checks](02-crm-data-quality/README.md), plus GitHub Actions, allow a third party to reproduce the sample.
 
-## Recruiter relevance and limits
+## Connection to my work
 
-The paid connection is **record checking, exception resolution and deadlines** from real estate transactions. The technical exercise adds **CRM export comparison, controlled normalization, reconciliation, SQL/Python-assisted checks and documented follow-up rules**. It does not demonstrate professional HubSpot/Salesforce configuration, actual CRM permissions, a deployed webhook or independently authored software engineering.
+In real estate, I review agreements and supporting records, investigate discrepancies and follow up before contractual deadlines. The project extends those record-checking methods to CRM exports. It identifies duplicate candidates, inconsistent contact details and records requiring manual review.
 
 For a genuine interview demonstration, the candidate should walk through one raw source row, the matching CRM row, the generated flag and the supporting evidence for a decision. [Guide](docs/INTERVIEW_WALKTHROUGH.md).
