@@ -40,12 +40,14 @@ class EdgeCases(unittest.TestCase):
         rows, _, _ = review(source,[crm('C1',' shared@example.com ')])
         self.assertEqual(rows[0]['source_match'], 'AMBIGUOUS_EMAIL')
         self.assertIn('AMBIGUOUS_SOURCE', rows[0]['review_flags'])
+        self.assertEqual(rows[0]['matched_source_id'], '')
 
     def test_invalid_and_missing_email_cannot_establish_identity(self):
         source = [lead('L1','valid@example.com')]
         rows, _, _ = review(source,[crm('C1',''),crm('C2','bad@@example.com')])
         self.assertEqual([x['source_match'] for x in rows],
                          ['UNVERIFIABLE_EMAIL','UNVERIFIABLE_EMAIL'])
+        self.assertTrue(all(x['matched_source_id'] == '' for x in rows))
         self.assertIn('MISSING_EMAIL', rows[0]['review_flags'])
         self.assertIn('INVALID_EMAIL', rows[1]['review_flags'])
 
@@ -53,6 +55,7 @@ class EdgeCases(unittest.TestCase):
         source = [lead('L1','valid@example.com',phone='416-555-0105')]
         rows, _, _ = review(source,[crm('C1','VALID@example.com',phone='+1 (416) 555-0105')])
         self.assertEqual(rows[0]['source_match'], 'ONE_EMAIL_MATCH')
+        self.assertEqual(rows[0]['matched_source_id'], 'L1')
         self.assertNotIn('PHONE_CONFLICT', rows[0]['review_flags'])
 
     def test_conflicting_names_flag_review_without_overwrite(self):

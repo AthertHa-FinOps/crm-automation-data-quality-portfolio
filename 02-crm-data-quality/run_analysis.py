@@ -19,7 +19,8 @@ ORIGINAL_FIELDS = (
     "lead_source", "city", "province", "created_date"
 )
 EXTRA_FIELDS = ("normalized_email", "normalized_phone",
-                "normalized_province", "source_match", "review_flags")
+                "normalized_province", "source_match",
+                "matched_source_id", "review_flags")
 
 
 def load_csv(path: Path) -> list[dict[str, str]]:
@@ -114,6 +115,7 @@ def review(source_rows: list[dict[str, str]],
             "normalized_phone": phone,
             "normalized_province": province,
             "source_match": match,
+            "matched_source_id": matches[0]["lead_id"] if match == "ONE_EMAIL_MATCH" else "",
             "review_flags": "|".join(flags) if flags else "PASS_PRELIMINARY",
         })
         results.append(row)
@@ -193,7 +195,7 @@ def write_outputs(rows, controls, flags, sql_counts):
               "| Issue | Rows |", "|---|---:|"]
     for label, count in flags.items():
         lines.append(f"| {label} | {count} |")
-    lines += ["", "## Independent SQLite checks", "",
+    lines += ["", "## SQLite cross-checks (same source extracts)", "",
               "| Check | Result |", "|---|---:|"]
     for label, count in sql_counts.items():
         lines.append(f"| {label} | {count} |")
@@ -218,6 +220,7 @@ def write_outputs(rows, controls, flags, sql_counts):
         "Reference: [Count bridge](../../docs/COUNT_RECONCILIATION.md).",
     ]
     lines += [
+        "", f"- The {controls['source_leads_without_email_match']} source rows without a CRM email-key match are not proof that {controls['source_leads_without_email_match']} contacts are absent; changed or malformed email values can break matching.",
         "", "## Decisions requiring human review", "",
         "- Every original CRM record is preserved. Review flags do not authorize deletion, merging or updates.",
         "- Duplicate emails may identify duplicate contacts or legitimate versions; review both records.",
@@ -226,7 +229,7 @@ def write_outputs(rows, controls, flags, sql_counts):
         "- Potential source conflicts must be resolved against authoritative records before CRM edits.",
         "", "## Limits", "",
         "- The dataset is fictional with deliberately injected errors; counts overlap.",
-        "- Email-only matching misses corrupted addresses and alternate identifiers.",
+        "- Email-only matching misses corrupted addresses and alternate identifiers; matched_source_id is a source trace link, not proof of identity.",
         "- Phone comparison normalizes digits; it does not verify phone ownership.",
         "- SQLite's email-format check is approximate; the Python validation is also simplified.",
         "- No live HubSpot connection, employer data, commercial accuracy or production throughput was tested.",
