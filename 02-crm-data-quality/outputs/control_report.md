@@ -54,6 +54,7 @@
 - **18** blank email rows are excluded from Q9.
 
 Reference: [Count bridge](../../docs/COUNT_RECONCILIATION.md).
+
 ## Decisions requiring human review
 
 - Every original CRM record is preserved. Review flags do not authorize deletion, merging or updates.
