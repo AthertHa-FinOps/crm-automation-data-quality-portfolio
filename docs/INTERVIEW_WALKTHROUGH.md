@@ -10,7 +10,7 @@
 
 **1:20–1:40 — Reconcile the counts.** Open the [count bridge](COUNT_RECONCILIATION.md). Python has 15 valid-looking unmatched emails; SQL includes 13 malformed addresses and reports 28.
 
-**1:40–2:00 — Describe what passed.** Open the [test workflow](../.github/workflows/data-quality-tests.yml). Explain the record-quality checks and isolated n8n export tests. State clearly that no HubSpot end-to-end run is recorded.
+**1:40–2:00 — Describe what passed.** Open the [test workflow](../.github/workflows/data-quality-tests.yml). Explain the record-quality checks and isolated n8n export tests. One local n8n missing-email test (T03) also returned HTTP 422 on November 3, 2026; see the [record](../01-lead-to-crm-automation/evidence/T03-2026-11-03.md). State clearly that no HubSpot end-to-end run is recorded.
 
 ## Questions worth preparing
 

@@ -1,6 +1,6 @@
 # Lead-intake workflow review
 
-**Scope:** Committed n8n JSON, source-level checks and isolated JavaScript execution. These checks do not run an n8n server or call HubSpot.
+**Scope:** Committed n8n JSON, source-level checks and isolated JavaScript execution, plus one separately documented n8n runtime test of missing-email rejection (T03). Automated checks do not run an n8n server or call HubSpot. The local T03 test did not call HubSpot.
 
 ## Changes to the candidate export
 
@@ -23,6 +23,10 @@ These are verified **export properties**, not claims about actual API responses.
 - Search retries do not prove success after rate limits or network loss. Inspect actual node outputs and retry outcomes.
 - The execution audit is not persistent business logging. The notification node is a no-op.
 - No consent, retention or production PII-handling controls have been validated.
+
+## Local n8n evidence
+
+On November 3, 2026, a POST with no email produced HTTP 422 and `MISSING_EMAIL` at the test webhook. The n8n execution view showed the rejection route in execution #6. See the [T03 evidence record](evidence/T03-2026-11-03.md). No HubSpot node ran on this test path. This validates one local input-error case; it does not verify the CRM calls or HTTP 502 path.
 
 ## Evidence gate
 

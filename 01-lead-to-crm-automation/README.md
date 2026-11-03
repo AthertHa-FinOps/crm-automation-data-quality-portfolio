@@ -1,6 +1,6 @@
 # n8n lead-intake workflow: local test candidate
 
-**Status: 23-node export with automated structure and JavaScript checks. No verified n8n-to-HubSpot execution.**
+**Status: 23-node export with automated structure and JavaScript checks. Local n8n validation test T03 passed on November 3, 2026; no verified n8n-to-HubSpot execution.**
 
 This workflow is intended to receive a lead, validate the contact details, look up an existing HubSpot contact and create or update a record. The sample requests contain fictional information.
 
@@ -22,7 +22,7 @@ The search node has limited retries configured. Create/update retries are disabl
 | [workflow.json](workflow.json) | Importable n8n export with 23 nodes and error branches |
 | [sample-leads.csv](sample-leads.csv) | Eleven fictional requests with expected outcomes |
 | [send_leads.py](send_leads.py) | Request sender restricted to loopback n8n test webhooks |
-| [test-results.md](test-results.md) | Eleven real-execution result fields, still blank |
+| [test-results.md](test-results.md) | T03 local runtime result recorded; ten scenarios remain unverified |
 | [tests/workflow_contract.test.mjs](tests/workflow_contract.test.mjs) | Node-based isolated checks of code and export response paths |
 | [tests/test_workflow_export.py](tests/test_workflow_export.py) | Structural connection, credential and response-path checks |
 | [tests/test_webhook_safety.py](tests/test_webhook_safety.py) | Local-only sender URL validation |
@@ -36,10 +36,10 @@ Import `workflow.json` into a local n8n instance. Use an isolated HubSpot test a
 python 01-lead-to-crm-automation/send_leads.py http://localhost:5678/webhook-test/lead-intake T03
 ```
 
-Capture the actual HTTP status, response body, n8n execution outcome and, when applicable, the test contact before marking any scenario as passed. See [test-results.md](test-results.md) and the [completion checklist](../docs/COMPLETION_CHECKLIST.md).
+Capture the actual HTTP status, response body, n8n execution outcome and, when applicable, the test contact before marking any scenario as passed. T03 has been documented from a real local execution: [T03 evidence](evidence/T03-2026-11-03.md). This did not use HubSpot. See [test-results.md](test-results.md) and the [completion checklist](../docs/COMPLETION_CHECKLIST.md).
 
 ## Security and scope
 
 The exported workflow contains credential placeholders, and its webhook has **no configured authentication**. Restrict it to local, fictional tests; it is not safe to publish as an internet-facing customer intake endpoint without authentication, consent controls and further security review. Agent notification and persistent business logging are not implemented.
 
-The [CRM reconciliation](../02-crm-data-quality/README.md) is the completed reproducible exercise in this repository. The n8n integration remains an unverified candidate workflow until genuine execution results are recorded.
+The [CRM reconciliation](../02-crm-data-quality/README.md) is the completed reproducible exercise in this repository. The n8n missing-email rejection is verified in one local test, but CRM contact creation, update and failure handling are still unverified in an actual HubSpot integration.

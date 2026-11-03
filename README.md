@@ -26,10 +26,10 @@ A fictional lead source has **700 rows** and the CRM export has **733**. The [re
 | Component | Current status | Evidence |
 |---|---|---|
 | [CRM record-quality analysis](02-crm-data-quality/README.md) | Reproducible synthetic exercise | Python/SQLite reports, preservation and edge-case tests |
-| [n8n lead-intake workflow](01-lead-to-crm-automation/README.md) | Export and validation/response paths checked; **no live HubSpot run verified** | Workflow JSON, isolated Code-node contract checks and 11 uncompleted integration scenarios |
+| [n8n lead-intake workflow](01-lead-to-crm-automation/README.md) | Export checked; **T03 passed in local n8n**; no live HubSpot run verified | Workflow JSON, isolated tests, [T03 runtime record](01-lead-to-crm-automation/evidence/T03-2026-11-03.md) and ten unverified scenarios |
 | [Power Automate translation](03-power-automate/README.md) | Design reference | Proposed mapping only; no executed cloud flow |
 
-The workflow keeps invalid leads out of the CRM request path. It distinguishes validation failures (HTTP 422) from CRM failures (HTTP 502) in its committed routing design. **These routes have been checked against the export but not exercised inside n8n.** The contact create/update calls also still require valid test credentials and observed results.
+The workflow keeps invalid leads out of the CRM request path. It distinguishes validation failures (HTTP 422) from CRM failures (HTTP 502) in its committed routing design. **The HTTP 422 missing-email route was exercised in local n8n on November 3, 2026; the HTTP 502 CRM route remains untested in n8n.** The contact create/update calls also still require valid test credentials and observed results.
 
 [Automated checks](https://github.com/AthertHa-FinOps/crm-automation-data-quality-portfolio/actions/workflows/data-quality-tests.yml) run the synthetic data review, business-rule tests, workflow structure and isolated JavaScript checks. They do not constitute a live n8n/HubSpot integration test.
 
