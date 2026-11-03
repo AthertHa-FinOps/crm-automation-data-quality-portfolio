@@ -1,52 +1,41 @@
-# Real Estate Lead-to-CRM Automation (n8n + HubSpot)
+# Lead-to-CRM Automation — n8n + HubSpot Blueprint
 
-A demonstration workflow that receives real-estate leads, validates and normalizes them, checks HubSpot for an existing contact,
-creates or updates the record, logs the outcome, and handles errors. **All data is fictional.**
+**Status: importable design, not demonstrated end-to-end integration.**
 
-> **Status: v0.1 blueprint + importable workflow. Not yet executed end-to-end.** Replace this line with your real status
-> (e.g. "Tested against n8n 1.x and a HubSpot developer test account, 11/11 tests passing") only after running `test-results.md`.
+This AI-assisted workflow design addresses a common real estate operations problem: incoming leads need validation and duplicate checks before they are added to a CRM. All 11 sample submissions use fictional data.
 
-## The business problem
-Brokerages receive leads from website forms, property inquiries, ads and referrals. Someone has to enter each into the CRM, check
-whether the person already exists, assign follow-up, and make sure nothing is missed. Manual entry creates duplicates, typos and dropped leads.
+## Included
 
-## How it works
+- [workflow.json](workflow.json): 18-node n8n export with a webhook, normalization code, contact search/create/update design, error paths and response nodes.
+- [sample-leads.csv](sample-leads.csv): eleven fictional test inputs and expected results.
+- [send_leads.py](send_leads.py): test-request utility restricted to loopback n8n testing.
+- [test-results.md](test-results.md): eleven scenarios with **no recorded actual observations**.
+- [WORKFLOW_AUDIT.md](WORKFLOW_AUDIT.md): detailed static assessment, risks and next tests.
+- [demo-script.md](demo-script.md): script for a demonstration **only after tests are actually completed**.
+
+## What the design intends to do
+
+1. Receive a POST submission, validate the lead and normalize contact fields.
+2. Search HubSpot by email and choose create or update.
+3. Route errors and log a provisional outcome in n8n execution data.
+4. Return a success or rejection response.
+
+These are **intended behaviors**, not verified production results. HTTP retries are configured in the JSON, but actual retry behavior and data outcomes have not been demonstrated.
+
+## Unfinished components
+
+HubSpot test-account authentication and end-to-end execution; confirmed duplicate behavior; webhook protection; persistent audit logging; agent assignment and notification; data protection/consent handling; error-path results; and the eleven observed test outcomes.
+
+The workflow's HubSpot credentials contain a `REPLACE_ME` reference, **not a real token**. The current webhook is not configured with authentication. Keep it on a local test URL with fictional data only, and do not expose it to public traffic or use it for client records.
+
+## Local-only test utility
+
+With a locally running n8n workflow listening for a test event:
+
+```bash
+python 01-lead-to-crm-automation/send_leads.py http://localhost:5678/webhook-test/lead-intake T03
 ```
-Webhook POST /lead-intake
-   → Validate & Normalize (email lowercased, phone → NNN-NNN-NNNN, names cleaned)
-   → Valid?
-        no  → Outcome Rejected → Audit Log Rejected + HTTP 422 with error codes
-        yes → HubSpot Search (by email)
-                 found     → HubSpot Update  → Outcome Updated
-                 not found → HubSpot Create  → Outcome Created
-              any HubSpot failure (after 3 retries, 2 s apart) → Outcome CRM Error
-   → Audit Log → Notify Agent (placeholder) + HTTP 200 response
-```
 
-| Situation | Behaviour |
-|---|---|
-| New complete lead | Create contact |
-| Existing email submits again | Update, no duplicate |
-| Email missing / malformed / bad phone | Reject with 422 and logged reason |
-| Uppercase or padded email | Normalized before matching |
-| Auth failure or HubSpot down | Retries, then flagged `CRM_ERROR_NEEDS_REVIEW` and logged |
+This command is an example of how to run T03 **when the workflow is ready**; it is not evidence T03 has been run.
 
-## Setup
-1. HubSpot: create a free developer test account → Private App with `crm.objects.contacts.read` and `.write` scopes.
-2. n8n: create a **Header Auth** credential named `HubSpot Private App Token` (`Authorization: Bearer <token>`); attach it to the three HubSpot nodes.
-3. Import `workflow.json`. Fix any node-version warnings your n8n version raises.
-4. Run: `python send_leads.py <n8n-test-webhook-url>` (rows in `sample-leads.csv`).
-5. Record real outcomes in `test-results.md`.
-
-## Known limitations (be upfront about these)
-- **Notification and audit log are placeholders.** Audit entries exist only in n8n execution data until you wire a Google Sheet / database node. Notify Agent is a No-Op until you add Slack or Email.
-- **Agent assignment is not implemented** (no round-robin / owner lookup yet).
-- **Duplicate race:** two identical submissions within seconds can both pass the search because HubSpot search is not instantly consistent. Test T09 will show whether this affects you; a queue or a short lock is the fix.
-- Workflow JSON was authored without access to your n8n instance: expect small compatibility fixes.
-- Not production-ready. No consent/privacy handling for real leads is included.
-
-## What I personally built or changed
-_(Fill in honestly after Phases B–D, e.g. "Rebuilt the workflow from a blank canvas; changed the duplicate check to ...; fixed the 422 response ...")_
-
-## Files
-`workflow.json` · `sample-leads.csv` · `send_leads.py` · `test-results.md` · `demo-script.md`
+The [CRM data-quality study](../02-crm-data-quality/README.md), not this blueprint, is the repository's completed reproducible exercise.

@@ -1,17 +1,30 @@
 # CRM Data Quality — Business Case Study
 
-**Purpose:** Investigate data-quality problems between a fictional lead source and a fictional CRM export without risking the destruction of original records.
+**Self-directed, AI-assisted technical demonstration. Synthetic records only.**
 
-**Scenario:** 700 source leads are compared with 733 CRM export records. The two counts are deliberately different. Some records have format inconsistencies, corrupted or absent emails, conflicting contact details or duplicate email values.
+## Business problem
 
-**Approach:** I used AI-assisted Python and SQLite code to create a repeatable comparison. The script preserves the original CRM rows, adds suggested normalized values and flags discrepancies. Each exception is an item for review, not an automatic permission to alter customer data.
+A fictional lead source contains **700 leads** and a CRM export contains **733 rows**. Matching their row counts or blindly removing duplicates would not establish record accuracy. The objective is to identify records requiring a human decision while preserving the original evidence.
 
-**Deliverables:** A CSV review file retaining all 733 CRM records, a count-and-issue report, ten existing SQLite queries, six automated tests, and source data that can be inspected.
+## Demonstrated process
 
-**What an operations team should decide:** Which record is authoritative, whether duplicates are versions of the same contact, whether unmatched records came from another intake channel, and which corrections require approval.
+I used an AI-assisted Python and SQLite exercise to compare the records by normalized email, inspect contact-field conflicts and produce a review-only output. It **retains all 733 CRM rows**, flags **311 rows** for review and identifies **40 duplicate-email groups** without deleting them.
 
-**Experience supporting the approach:** My paid real estate work involved checking agreement and supporting-document accuracy, identifying conflicting records and coordinating fixes before contractual deadlines. This portfolio is a separate technical exercise, not proof of paid HubSpot/Salesforce administration.
+Each row includes proposed normalized fields, a source-match category and issue flags. The report separates raw counts from decisions that require source confirmation. Ten SQL checks and six automated tests make the exercise inspectable.
 
-**Limitations:** Synthetic data, email-based joins, no live CRM, no operational performance benchmark, no completed n8n integration. AI contributed to the code and writing; the repository tests make the recorded exercise reproducible.
+## Examples of controlled decisions
 
-Start with the [control report](02-crm-data-quality/outputs/control_report.md) and [review output](02-crm-data-quality/outputs/crm_review.csv).
+- Duplicate emails: examine both records before a merge.
+- Invalid emails: hold records for review instead of inventing corrections.
+- Conflicting phone or last-name fields: verify the authoritative source.
+- Unmatched CRM records: investigate alternate lead sources rather than automatically deleting them.
+
+## What this supports
+
+My paid real estate experience involved verifying agreements and supporting documents, following up on discrepancies and maintaining accurate transaction records. This case study adds a demonstrable technical approach relevant to CRM data cleanup, quality review and junior CRM operations support.
+
+## What it does not establish
+
+Production HubSpot or Salesforce administration, a completed n8n integration, employment as a data analyst, external client results, independently authored production software or measured commercial performance. AI assisted drafting of the code and documentation; automated tests substantiate only the described fictional exercise.
+
+Start with the [control report](02-crm-data-quality/outputs/control_report.md), the [review output](02-crm-data-quality/outputs/crm_review.csv), and the [code and tests](02-crm-data-quality/README.md).

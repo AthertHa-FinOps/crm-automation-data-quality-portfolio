@@ -1,29 +1,26 @@
-# Power Automate Translation: Lead Intake (smaller flow)
+# Power Automate — Lead Intake Design
 
-> **Status: design and test plan only. The flow has not been built.** Power Automate flows cannot be generated as a file here, so build it in
-> your Microsoft 365 account and fill in the observed results.
+**Status: conceptual translation and planned test cases. No executable flow has been created or tested.**
 
-## Scope (deliberately small)
-Microsoft Forms submission → validate → add/update row in an Excel Online table or SharePoint list → email the agent → reject path emails a review address.
+This design compares an n8n lead intake idea with a possible Microsoft Forms → Excel Online/SharePoint → notification implementation.
 
-## Platform mapping
-| Concept | n8n (Project 01) | Power Automate |
-|---|---|---|
-| Trigger | Webhook | "When a new response is submitted" (Forms) |
-| Validate/normalize | Code node | `toLower()`, `trim()`, `replace()`, Condition actions |
-| Duplicate check | HubSpot search | "List rows present in a table" with filter on email |
-| Create vs update | IF + HTTP nodes | Condition → "Add a row" / "Update a row" |
-| Retry | Node retry settings | Action "Retry policy" setting |
-| Error handling | Error output branches | Scope + "Configure run after" (has failed) |
-| Debugging | Execution data per node | Run history, action inputs/outputs |
+| Processing step | Proposed Power Automate component |
+|---|---|
+| Lead received | Microsoft Forms trigger |
+| Normalize and validate | Condition and expression actions |
+| Search existing contact | Excel table or SharePoint List query |
+| Add or update | Conditional create/update actions |
+| Notify/flag exception | Email action and error-handling scope |
+| Check outcomes | Power Automate run history and output records |
 
-## Test plan (run and record)
-| Test | Expected | Observed | Result |
-|---|---|---|---|
-| New lead | Row added, agent emailed | | |
-| Same email again | Row updated, no duplicate | | |
-| Missing email | Review email sent, no row | | |
-| Uppercase email | Stored lowercase | | |
+## Tests to perform if built
 
-## Write-up to add after building
-Three things that were easier in each platform, one thing that surprised you, and the limitations of the free/licensed connectors you used.
+| Scenario | Required evidence |
+|---|---|
+| New contact | New record shown in actual test table |
+| Same email again | Existing record updated, no duplicate |
+| Missing email | Held or rejected; no invalid record created |
+| Uppercase email | Normalization verified against stored record |
+| API/connector failure | Error path confirmed in run history |
+
+No observed results are claimed. A real test also requires checking connector availability/licensing, permissions, duplicate race conditions and handling of private customer data. Do not claim paid Power Automate implementation or a functioning cloud flow on the basis of this document.

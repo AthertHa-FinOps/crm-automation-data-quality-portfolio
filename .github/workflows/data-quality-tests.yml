@@ -17,6 +17,8 @@ jobs:
           python-version: '3.12'
       - name: Run non-destructive data review
         run: python 02-crm-data-quality/run_analysis.py
+      - name: Validate local-only lead test client
+        run: python -m unittest discover -s 01-lead-to-crm-automation/tests -v
       - name: Check record controls
         run: python -m unittest discover -s 02-crm-data-quality/tests -v
       - name: Validate output snapshots
