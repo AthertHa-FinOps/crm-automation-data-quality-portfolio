@@ -210,7 +210,7 @@ def write_outputs(rows, controls, flags, sql_counts):
         "## Email match count reconciliation",
         "",
         f"- Python: **{unmatched_valid}** valid-looking CRM emails have no source match.",
-        f"- Python: **{malformed_nonblank}** malformed nonblank emails are classified as \`UNVERIFIABLE_EMAIL\`.",
+        f"- Python: **{malformed_nonblank}** malformed nonblank emails are classified as `UNVERIFIABLE_EMAIL`.",
         f"- SQLite Q9: **{q9_count}** nonblank emails have no literal source match; this includes malformed strings.",
         f"- Check: **{unmatched_valid} + {malformed_nonblank} = {q9_count}**; the measures use different inclusion rules.",
         f"- **{flags.get('MISSING_EMAIL', 0)}** blank email rows are excluded from Q9.",
