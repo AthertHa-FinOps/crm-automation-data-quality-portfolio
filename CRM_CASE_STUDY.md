@@ -1,6 +1,6 @@
 # CRM record reconciliation — business case study
 
-**Self-directed exercise using fictional source and CRM data.** The analysis is reproducible; the separate HubSpot integration has no recorded end-to-end execution.
+**Self-directed exercise using fictional source and CRM data.** The reconciliation can be rerun. A local n8n missing-email test passed, but no HubSpot-backed run has been demonstrated.
 
 ## Business question
 
@@ -20,6 +20,8 @@ A source extract contains **700 leads**; a CRM export contains **733 rows**. Bef
 
 **311 is the number of distinct flagged rows, not the sum of issue counts.** A record may have several flags. The SQL report's 28 unmatched nonblank emails consists of 15 valid-looking unmatched strings plus 13 malformed strings; [the count bridge](docs/COUNT_RECONCILIATION.md) makes the difference explicit.
 
+The review output now includes a **source-row trace ID** for the 687 CRM rows with exactly one normalized-email match in the source. This is a lookup aid, not a verified identity or proof that the source record is newer. The **52 source rows without a matching CRM email key** are not necessarily 52 missing contacts: invalid or changed CRM emails can also prevent matching.
+
 ## Source-based examples and safe next steps
 
 | CRM record | Evidence in fictional files | Proposed next step |
@@ -34,10 +36,10 @@ These are proposed follow-up actions, not approved CRM changes or a completed in
 
 ## Deliverables
 
-The [review CSV](02-crm-data-quality/outputs/crm_review.csv) preserves all input CRM fields and adds normalized suggestions and review flags. The [control report](02-crm-data-quality/outputs/control_report.md) shows issue counts and the count bridge. [Python and SQLite checks](02-crm-data-quality/README.md), plus GitHub Actions, allow a third party to reproduce the sample.
+The [review CSV](02-crm-data-quality/outputs/crm_review.csv) preserves the original CRM columns and adds normalized suggestions, the unique-match source ID where available, and review flags. The [control report](02-crm-data-quality/outputs/control_report.md) shows issue counts and the count bridge. [Python and SQLite checks](02-crm-data-quality/README.md), plus GitHub Actions, allow anyone to rerun the sample. The SQL queries check the **same fictional extracts**, rather than providing an external audit.
 
 ## Connection to my work
 
-In real estate, I review agreements and supporting records, investigate discrepancies and follow up before contractual deadlines. The project extends those record-checking methods to CRM exports. It identifies duplicate candidates, inconsistent contact details and records requiring manual review.
+When an agreement and a supporting document disagree, I can't decide which figure to use without checking the relevant record and following up with the right party. The same principle guides this exercise: it flags the conflict but does not approve a CRM correction based only on a matching email address.
 
 The [walkthrough outline](docs/INTERVIEW_WALKTHROUGH.md) follows a raw source record, its CRM counterpart and the resulting flag. The [completion checklist](docs/COMPLETION_CHECKLIST.md) records which independent checks and integration tests are still outstanding.
