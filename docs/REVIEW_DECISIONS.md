@@ -1,6 +1,6 @@
 # Exception review — five inspectable fictional examples
 
-**Evidence type:** Record examples drawn from synthetic repository files, with AI-assisted suggested dispositions. These are *not* personally signed-off reviewer decisions, client cases or approved CRM updates.
+**Evidence type:** Examples from fictional source and CRM extracts, with AI-assisted suggested follow-up actions. These are not independently signed-off personal review decisions or approved CRM updates.
 
 | CRM ID | Underlying source and CRM evidence | Generated flag | Suggested action / decision gate |
 |---|---|---|---|
@@ -11,6 +11,12 @@
 | **C00006** | CRM C00006 email `wyatt.park1007@example.com`; no matching email in the 700-row source extract | `EMAIL_NOT_IN_SOURCE` | Confirm extract coverage and alternate lead intake before deciding the record is extraneous |
 
 A supplementary edge case, **C00108**, carries both `INVALID_EMAIL` and `POTENTIAL_DUPLICATE` because its malformed `@@` address is repeated. This shows why a duplicate flag can coexist with **unverifiable identity**.
+
+## Source trace and approval
+
+The [review CSV](../02-crm-data-quality/outputs/crm_review.csv) now includes `matched_source_id` for exactly one matching source email: C00007 links to L0640 and C00016 to L0315. The field remains blank if the source match is absent, malformed or ambiguous. A trace link does not prove that the source is newer or that two records belong to the same person.
+
+These are **proposed triage actions**, not completed investigations. Live corrections would require dated supporting evidence, a record owner and an approved change procedure. The [personal review worksheet](../CANDIDATE_VERIFICATION_WORKSHEET.md) remains blank.
 
 ## Review policy
 
