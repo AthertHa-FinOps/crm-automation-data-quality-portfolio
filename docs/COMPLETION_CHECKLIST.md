@@ -18,7 +18,8 @@ The CRM reconciliation is a reproducible fictional-data exercise. The n8n workfl
 - [x] Reject malformed or ambiguous search results and write responses lacking IDs in isolated contract tests
 - [x] Disable blind automatic retries for contact write requests
 - [x] Restrict the supplied test sender to local n8n test URLs
-- [ ] Import the revised workflow into an identified n8n version and confirm each node runs
+- [x] Import the 23-node export into local n8n and verify the missing-email rejection path (T03, November 3, 2026; [evidence](../01-lead-to-crm-automation/evidence/T03-2026-11-03.md))
+- [ ] Record the exact n8n version and verify the remaining nodes with applicable runtime tests
 - [ ] Connect a permitted test HubSpot account using appropriately scoped, private credentials
 - [ ] Capture actual results for [T01–T11](../01-lead-to-crm-automation/test-results.md), including API-error responses
 - [ ] Resolve or explicitly document the outcome of the parallel-submission race case
@@ -31,6 +32,6 @@ The [Power Automate translation](../03-power-automate/README.md) is a design ref
 
 ## Release language
 
-Use **"reproducible CRM data-quality exercise"** for the completed synthetic analysis. Use **"n8n workflow export with isolated contract checks; live integration pending"** for the lead-intake work.
+Use **"reproducible CRM data-quality exercise"** for the completed synthetic analysis. Use **"n8n workflow export with isolated contract checks and one local validation test (T03); HubSpot integration pending"** for the lead-intake work.
 
 Do not claim a production integration, personally completed five-case assessment, recorded demonstration or commercial CRM result until its actual evidence is available. The absence of those records is a known gap, not a CI failure.
