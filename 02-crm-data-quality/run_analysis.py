@@ -159,7 +159,7 @@ def run_sql_checks(source_rows, crm_rows):
             header = next((line for line in lines if line.startswith("-- Q")), None)
             if not header:
                 continue
-            label = header[3:].strip()
+            label = header[4:].strip()
             sql = "\n".join(line for line in lines
                             if not line.startswith("--")).rstrip(";")
             result = db.execute(sql).fetchall()
