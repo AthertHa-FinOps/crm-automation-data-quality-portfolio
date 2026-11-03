@@ -15,6 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check workflow node contracts and response paths
+        run: node --test 01-lead-to-crm-automation/tests/workflow_contract.test.mjs
       - name: Run non-destructive data review
         run: python 02-crm-data-quality/run_analysis.py
       - name: Validate local-only lead test client

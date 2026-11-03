@@ -10,7 +10,7 @@ WORKFLOW = json.loads((ROOT / "workflow.json").read_text(encoding="utf-8"))
 class StaticBlueprintChecks(unittest.TestCase):
     def test_nodes_and_connection_references(self):
         names = {node["name"] for node in WORKFLOW["nodes"]}
-        self.assertEqual(len(names), 18)
+        self.assertEqual(len(names), 23)
         for connections in WORKFLOW.get("connections", {}).values():
             for output in connections.get("main", []):
                 for edge in output:
@@ -34,6 +34,28 @@ class StaticBlueprintChecks(unittest.TestCase):
         notify = next(n for n in WORKFLOW["nodes"]
                       if n["name"] == "Notify Agent (replace)")
         self.assertEqual(notify["type"], "n8n-nodes-base.noOp")
+
+    def test_crm_failure_branch_has_distinct_http_response(self):
+        by_name = {node["name"]: node for node in WORKFLOW["nodes"]}
+        con = WORKFLOW["connections"]
+        self.assertEqual(
+            con["Outcome CRM Error"]["main"][0][0]["node"], "Audit Log Error"
+        )
+        self.assertEqual(
+            con["Audit Log Error"]["main"][0][0]["node"], "Respond 502"
+        )
+        self.assertEqual(
+            by_name["Respond 502"]["parameters"]["options"]["responseCode"], 502
+        )
+        self.assertEqual(
+            by_name["Respond 422"]["parameters"]["options"]["responseCode"], 422
+        )
+
+    def test_write_requests_are_not_retried_blindly(self):
+        by_name = {node["name"]: node for node in WORKFLOW["nodes"]}
+        self.assertTrue(by_name["HubSpot Search"]["retryOnFail"])
+        self.assertFalse(by_name["HubSpot Create"]["retryOnFail"])
+        self.assertFalse(by_name["HubSpot Update"]["retryOnFail"])
 
 
 if __name__ == "__main__":
