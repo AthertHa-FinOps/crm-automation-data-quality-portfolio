@@ -1,44 +1,19 @@
-
 # CRM Automation & Data Quality Portfolio
 
-Practical projects in CRM operations, workflow automation,
-data quality, and business process improvement.
+**Self-directed, AI-assisted technical projects using fictional data.** This repository is private. None of the projects represents a paid production deployment.
 
-## Projects
+## Project status
 
-### 01 — Real Estate Lead-to-CRM Automation
-**Tools:** n8n, HubSpot, REST APIs, JSON
+| Project | What is present | What remains |
+|---|---|---|
+| [Lead-to-CRM automation](01-lead-to-crm-automation/) | n8n workflow blueprint and supporting materials | End-to-end HubSpot integration and independent execution verification |
+| [CRM data quality & reconciliation](02-crm-data-quality/) | Python generator, SQL checks, source/export CSV files, generated discrepancy report | Independent replication, verification of cleaning policy and documentation of personal edits |
+| [Power Automate translation](03-power-automate/) | Process design and test plan | Executable implementation and completed tests |
 
-AI-assisted workflow prototype for lead validation,
-CRM contact creation, duplicate checking, and exception
-handling.
+The CRM data-quality exercise compares **700 fictional source leads with 733 fictional CRM rows**. These are separate row counts, not an asserted match rate. The generated discrepancy report includes overlapping error categories and unresolved exceptions; see its limitations.
 
-**Status:** Blueprint created; integration testing pending.
+## What this proves and what it does not
 
-### 02 — CRM Data Quality & Reconciliation
-**Tools:** Python, SQL, SQLite
+The repository provides source files and code for inspection and further testing. It does **not** establish independent production operations, live CRM access, commercial throughput, verified external QA or completed integrations. AI was used for drafting and analysis. Human review and reproducible testing must be recorded before describing particular work as independently verified.
 
-Reconciliation of 700 fictional source leads against
-733 CRM records, with data-quality checks, cleaning
-rules, and exception reporting.
-
-**Status:** Generated analysis available; independent
-review and improvements in progress.
-
-### 03 — Power Automate Translation
-**Tools:** Microsoft Power Automate
-
-Planned translation of a lead-processing workflow
-into Microsoft's automation platform.
-
-**Status:** Design and test plan only.
-
-## Development Approach
-
-These projects begin with AI-assisted designs.
-The objective is to independently recreate, test,
-troubleshoot, and improve each implementation.
-
-All datasets are fictional. No production client
-implementations or unverified performance results
-are claimed.
+The separate public [back-office reconciliation work sample](https://github.com/AthertHa-FinOps/AI-Output-Evaluation-Content-Accuracy-Review/tree/main/back-office-case-study) uses a small, different synthetic dataset, specifically to demonstrate record-control checks and exception-handling decisions.
