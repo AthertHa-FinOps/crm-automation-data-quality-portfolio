@@ -23,6 +23,6 @@ The 18 blank emails are excluded by Q9's nonblank requirement. In the Python ana
 
 ### Important distinction
 
-The source has 700 rows and the CRM has 733 rows; these totals cannot be netted as a simple 33-record discrepancy because rows may be duplicated, missing, unmatched or malformed. Likewise, the **311** flagged CRM rows may each carry multiple flags; issue-category counts are **not additive**.
+The source has 700 rows and the CRM has 733 rows; these totals cannot be netted as a simple 33-record discrepancy because rows may be duplicated, missing, unmatched or malformed. The **52 source email keys without a CRM email-key match** are not 52 verified missing contacts; changes or errors in CRM email fields can break a match. Likewise, the **311** flagged CRM rows may each carry multiple flags; issue-category counts are **not additive**.
 
 See the [generated control report](../02-crm-data-quality/outputs/control_report.md) and [code](../02-crm-data-quality/run_analysis.py) for reproducible evidence.
