@@ -18,7 +18,7 @@ const expression = (name, data) => {
 };
 const normalize = body => {
   const code = nodes.get('Validate & Normalize').parameters.jsCode;
-  const result = vm.runInNewContext(code, { $input: { first: () => ({ json: { body } }) }, Date });
+  const result = vm.runInNewContext('(function () {\n' + code + '\n})()', { $input: { first: () => ({ json: { body } }) }, Date });
   return JSON.parse(JSON.stringify(result[0].json));
 };
 
