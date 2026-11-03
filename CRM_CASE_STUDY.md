@@ -1,6 +1,6 @@
 # CRM record reconciliation — business case study
 
-**Self-directed exercise using fictional source and CRM data.** The HubSpot integration remains unfinished.
+**Self-directed exercise using fictional source and CRM data.** The analysis is reproducible; the separate HubSpot integration has no recorded end-to-end execution.
 
 ## Business question
 
@@ -40,4 +40,4 @@ The [review CSV](02-crm-data-quality/outputs/crm_review.csv) preserves all input
 
 In real estate, I review agreements and supporting records, investigate discrepancies and follow up before contractual deadlines. The project extends those record-checking methods to CRM exports. It identifies duplicate candidates, inconsistent contact details and records requiring manual review.
 
-For a genuine interview demonstration, the candidate should walk through one raw source row, the matching CRM row, the generated flag and the supporting evidence for a decision. [Guide](docs/INTERVIEW_WALKTHROUGH.md).
+The [walkthrough outline](docs/INTERVIEW_WALKTHROUGH.md) follows a raw source record, its CRM counterpart and the resulting flag. The [completion checklist](docs/COMPLETION_CHECKLIST.md) records which independent checks and integration tests are still outstanding.

@@ -1,26 +1,26 @@
-# Portfolio quality, security and evidence boundaries
+# Evidence and security review
 
-**Repository:** Public CRM data-quality and workflow design portfolio. **Scope:** Current files, synthetic test execution and recruiter-facing documentation. This is not an employer certification.
+## What can be inspected
 
-## Verifiable capabilities
+- The fictional source contains 700 leads and the fictional CRM export contains 733 records. Every CRM row is retained in the generated review output.
+- The analysis flags 311 distinct rows, including 40 potential duplicate-email groups. Category counts overlap.
+- Python and SQLite results are reconciled where their email inclusion rules differ. The 15 valid-looking unmatched emails and 13 malformed nonblank emails account for SQLite Q9's 28.
+- The repository includes edge-case tests for ambiguous source matches, shared email addresses, invalid or missing emails, phone formatting and conflicting names.
+- Workflow contract checks inspect the n8n export and execute its validation Code node in isolation. They test graph routing and response guards, **not an n8n runtime or HubSpot server**.
+- [GitHub Actions](https://github.com/AthertHa-FinOps/crm-automation-data-quality-portfolio/actions/workflows/data-quality-tests.yml) records execution of the automated repository tests. Review the specific commit's run before describing its status.
 
-- Read-only analysis retains all 733 fictional CRM rows rather than deleting 40 duplicate-email groups.
-- Python record controls and ten SQLite checks provide complementary checks, with the [difference in email inclusion rules explicitly reconciled](docs/COUNT_RECONCILIATION.md).
-- Source-to-CRM issue examples show the exact fictional records, flags and proposed review gates.
-- GitHub Actions executes data-quality and static webhook/workflow checks; **static workflow checks are not live integration tests**.
-- The README links to a source-based case study, a scorecard, interview guide and a blank owner review worksheet.
+## Remaining limitations
 
-## Risks and boundaries
+- The CRM records are deliberately fictional and defect-heavy; they provide no real-world error-rate estimate.
+- Normalized email is a useful matching clue, not an identity or permission decision. No changes are automatically approved.
+- The n8n workflow is not authenticated to HubSpot in the repository. None of its eleven integration scenarios has a documented observed result.
+- The webhook export has no authentication. Keep it restricted to local tests until appropriate protections are implemented.
+- The n8n notification is a placeholder, its execution log is not durable, and parallel create operations are not proven idempotent.
+- AI assistance contributed to code, fictional data, documentation and suggested review actions. The [personal review worksheet](CANDIDATE_VERIFICATION_WORKSHEET.md) has not been completed.
+- No original client data, real credentials or paid CRM implementation are presented. A current-file string scan cannot establish what was present throughout the full Git history.
 
-- The dataset is **deliberately defect-heavy** and not evidence of a real business error rate.
-- Python and SQL source-matching rules are simplified and cannot validate actual identity or authorization.
-- No real HubSpot, Salesforce, Power Automate or production n8n execution has been demonstrated.
-- HubSpot token references in the current workflow are placeholders; its webhook design has no verified authentication for internet exposure. Do not expose it to real customer traffic.
-- All generated names, email domains and records are fictional. A current-file credential-pattern scan cannot prove that earlier Git history never contained secrets.
-- AI contributed to code, documentation and suggested dispositions. Automated tests do not prove independently authored software or personal review of every example.
+## Recruiter assessment of the evidence
 
-## Audit decision
+The completed, reproducible portion is the CRM record-quality analysis and its automated sample tests. The n8n export shows a design with explicit failure handling, but it remains an integration candidate until actual n8n/HubSpot results are recorded.
 
-**Ready as a reproducible synthetic CRM data-quality work sample**, subject to the latest passing GitHub Actions run and the final published main-branch check. **Not ready to present as a production CRM automation implementation.**
-
-The personal owner-review worksheet is intentionally unfilled because no real independent human decisions were supplied.
+[Specific record-review examples](docs/REVIEW_DECISIONS.md) · [Completion criteria](docs/COMPLETION_CHECKLIST.md) · [Repository overview](README.md)

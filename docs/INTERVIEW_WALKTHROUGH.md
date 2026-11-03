@@ -1,24 +1,23 @@
-# Recruiter walkthrough — script for a future genuine demonstration
+# Two-minute portfolio walkthrough outline
 
-**No video or live CRM demo is represented as already recorded.** Use this guide only after independently checking the files and being able to explain them without reading AI-generated answers.
+**Format:** A guide for a future demonstration. No recording or independent owner-review result is claimed here.
 
-## Suggested two-minute sequence
+**0:00–0:20 — Explain the comparison.** Open the [scorecard](reconciliation-scorecard.svg). The fictional source has 700 leads and the CRM export has 733 rows. A row-count difference does not itself establish which records need changing.
 
-**0:00–0:20:** Open [the illustrative scorecard](reconciliation-scorecard.svg) and explain the business problem: 700 fictional source leads, 733 fictional CRM rows, no assumption that row totals should match.
+**0:20–0:55 — Inspect a disputed surname.** Open [C00007](../02-crm-data-quality/outputs/crm_review.csv) and source record L0640. The CRM says Patei and the source says Patel. Explain why source authority and timing matter before an edit.
 
-**0:20–0:55:** Open [C00007 in the review CSV](../02-crm-data-quality/outputs/crm_review.csv) and the source record L0640. Show the surname conflict. Explain what evidence would authorize changing either record.
+**0:55–1:20 — Check a possible duplicate.** Compare CRM records C00004 and C00522, which share a normalized email. Explain why both are preserved for review rather than merged.
 
-**0:55–1:20:** Open C00004 and C00522. Explain why a shared normalized email identifies a review candidate but does not prove safe deletion or merging.
+**1:20–1:40 — Reconcile the counts.** Open the [count bridge](COUNT_RECONCILIATION.md). Python has 15 valid-looking unmatched emails; SQL includes 13 malformed addresses and reports 28.
 
-**1:20–1:40:** Open [the count bridge](COUNT_RECONCILIATION.md). Explain 15 valid-looking unmatched emails, 13 malformed nonblank and why SQL Q9 reports 28.
+**1:40–2:00 — Describe what passed.** Open the [test workflow](../.github/workflows/data-quality-tests.yml). Explain the record-quality checks and isolated n8n export tests. State clearly that no HubSpot end-to-end run is recorded.
 
-**1:40–2:00:** Open [the test suite](../02-crm-data-quality/tests/). Show what GitHub Actions confirms and state that no HubSpot API or n8n end-to-end integration has been verified.
+## Questions worth preparing
 
-### Interview prompts for independent preparation
+- If the source row is old and the CRM phone number is newer, what evidence controls the decision?
+- If a family uses one email address, when is a merge unsafe?
+- Why are the 311 flagged rows not the sum of issue categories?
+- Which tests demonstrate the actual workflow, and which only inspect its source?
+- What should an operator do when a contact write may have succeeded but the API response is lost?
 
-- What if the original source is out of date and the CRM phone number is newer?
-- What if two CRM entries share a family email but represent different people?
-- Why is a sample with many planted errors **not** evidence of a typical company error rate?
-- If AI writes the SQL, what must you personally verify before making a business decision?
-
-Recording an actual walkthrough or personally reviewing exceptions is a separate future step. This script is not evidence of those actions.
+A recorded demonstration and independent review are separate steps. The [completion checklist](COMPLETION_CHECKLIST.md) identifies the supporting evidence required.

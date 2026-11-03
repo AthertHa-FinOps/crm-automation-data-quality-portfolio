@@ -1,47 +1,40 @@
-# CRM data quality, exception review and workflow design
+# CRM data quality and lead-intake workflow
 
-**Hans Atherton | Public, self-directed, AI-assisted portfolio | Ontario, Canada**
+**Hans Atherton | Ontario, Canada | Self-directed portfolio using fictional data**
 
-This project compares **700 fictional source leads** with **733 CRM records** and flags discrepancies without deleting or changing the originals. It includes a reproducible record-quality exercise and two unfinished automation designs.
+My real estate transaction work involves checking agreements and supporting documents, resolving conflicting information and following up before contractual deadlines. This project applies those record-checking methods to CRM exports and lead intake.
 
-In real estate, I review agreements and supporting documents, identify missing or conflicting information, and follow up on corrections before contractual deadlines. This portfolio applies the same record-checking approach to fictional CRM data.
+## Start with the evidence
 
-![Illustrative reconciliation scorecard drawn from synthetic test results](docs/reconciliation-scorecard.svg)
+A fictional lead source has **700 rows** and the CRM export has **733**. The [reconciliation](02-crm-data-quality/README.md) preserves every CRM row and flags **311 distinct records** for review. It identifies **40 possible duplicate-email groups (80 rows)**, but does not merge or delete them. These are planted test defects, not a real company's error rate.
 
-<sub>Illustrative scorecard derived from generated test records and GitHub Actions results. Not a screenshot from HubSpot or any customer system. Issue categories overlap.</sub>
-
-## Recruiter quick review
-
-| Evidence | Open it | What can be verified |
+| Example | Actual sample finding | Decision to investigate |
 |---|---|---|
-| **Business case** | [Business case study](CRM_CASE_STUDY.md) | Business objective, control totals, exception decisions and limitations |
-| **Specific exceptions** | [Five grounded record-review examples](docs/REVIEW_DECISIONS.md) | Source-versus-CRM evidence, required follow-up and why no auto-correction is authorized |
-| **Calculation check** | [Count reconciliation](docs/COUNT_RECONCILIATION.md) | Why Python reports 15 unmatched valid-looking emails while SQL reports 28 including invalid addresses |
-| **Runnable evidence** | [CRM analysis](02-crm-data-quality/README.md) | Fictional CSVs, non-destructive Python/SQLite analysis, committed output and automated tests |
-| **Walkthrough** | [Interview demonstration guide](docs/INTERVIEW_WALKTHROUGH.md) | Short sequence to explain a discrepancy without pretending a video was recorded |
-| **Independent owner review** | [Blank verification worksheet](CANDIDATE_VERIFICATION_WORKSHEET.md) | Where to record actual personal decisions and observations; **not completed** |
+| [C00007](docs/REVIEW_DECISIONS.md) | Source surname Patel; CRM surname Patei | Confirm the authoritative record before editing |
+| [C00016](docs/REVIEW_DECISIONS.md) | Source phone ends 3858; CRM phone ends 0598 | Check which number is current |
+| [C00004 and C00522](docs/REVIEW_DECISIONS.md) | Two CRM rows share a normalized email | Review history rather than delete one |
+| [Python / SQL count bridge](docs/COUNT_RECONCILIATION.md) | 15 valid-looking unmatched CRM emails versus 28 unmatched nonblank strings | Explain the 13 malformed addresses included in SQL |
 
-**Reproducible example:** 700 fictional source leads were compared with 733 CRM rows. All 733 CRM rows remain in the review output. The checks flag **311 distinct rows** with at least one issue, including **40 duplicate-email groups (80 rows)**. These are deliberately planted defects, not a measured customer-data quality rate.
+[Business case and control totals](CRM_CASE_STUDY.md) · [Record-level decisions](docs/REVIEW_DECISIONS.md) · [Generated review CSV](02-crm-data-quality/outputs/crm_review.csv)
 
-## Project status
+![Illustrative scorecard built from fictional reconciliation results](docs/reconciliation-scorecard.svg)
 
-| Component | Status | Scope |
+<sub>Illustrative scorecard, not a CRM screenshot. Issue categories overlap and must not be added together.</sub>
+
+## Components and verification
+
+| Component | Current status | Evidence |
 |---|---|---|
-| [CRM data-quality review](02-crm-data-quality/README.md) | **Reproducible on fictional records** | Python/SQLite checks and repeatable tests. No live CRM access |
-| [n8n–HubSpot lead intake](01-lead-to-crm-automation/README.md) | **Importable blueprint; integration not verified** | Static workflow structure can be checked; none of 11 HubSpot scenarios has an observed result |
-| [Power Automate design](03-power-automate/README.md) | **Design-only** | No executable cloud flow or real run results |
+| [CRM record-quality analysis](02-crm-data-quality/README.md) | Reproducible synthetic exercise | Python/SQLite reports, preservation and edge-case tests |
+| [n8n lead-intake workflow](01-lead-to-crm-automation/README.md) | Export and validation/response paths checked; **no live HubSpot run verified** | Workflow JSON, isolated Code-node contract checks and 11 uncompleted integration scenarios |
+| [Power Automate translation](03-power-automate/README.md) | Design reference | Proposed mapping only; no executed cloud flow |
 
-```mermaid
-flowchart LR
- A["Fictional source leads"] --> C["Compare by normalized email"]
- B["Fictional CRM export"] --> C
- C --> D["Keep original rows"]
- D --> E["Flag exceptions and control totals"]
- E --> F{"Evidence supports correction?"}
- F -->|"No or uncertain"| G["Hold and investigate"]
- F -->|"Yes; authorized"| H["Propose source-backed change"]
-```
+The workflow keeps invalid leads out of the CRM request path. It distinguishes validation failures (HTTP 422) from CRM failures (HTTP 502) in its committed routing design. **These routes have been checked against the export but not exercised inside n8n.** The contact create/update calls also still require valid test credentials and observed results.
 
-**Testing:** GitHub Actions runs the Python record review, business-rule checks, static workflow checks and documentation validation. The automated tests verify the fictional exercise; they do not test a live CRM system.
+[Automated checks](https://github.com/AthertHa-FinOps/crm-automation-data-quality-portfolio/actions/workflows/data-quality-tests.yml) run the synthetic data review, business-rule tests, workflow structure and isolated JavaScript checks. They do not constitute a live n8n/HubSpot integration test.
 
-[Evidence boundaries and security audit](PUBLIC_REPO_AUDIT.md) · [AI output evaluation portfolio](https://github.com/AthertHa-FinOps/AI-Output-Evaluation-Content-Accuracy-Review)
+## Experience and evidence limits
+
+This is independent project work using fictional records and AI-assisted code and documentation. The rules, review output and tests are available for inspection; the [personal review worksheet](CANDIDATE_VERIFICATION_WORKSHEET.md) is still blank. It does not establish paid CRM administration or a production automation deployment.
+
+[Walkthrough outline](docs/INTERVIEW_WALKTHROUGH.md) · [Completion criteria](docs/COMPLETION_CHECKLIST.md) · [Repository evidence audit](PUBLIC_REPO_AUDIT.md) · [AI output evaluation portfolio](https://github.com/AthertHa-FinOps/AI-Output-Evaluation-Content-Accuracy-Review)

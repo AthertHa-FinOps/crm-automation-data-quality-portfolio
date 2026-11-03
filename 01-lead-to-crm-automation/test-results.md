@@ -1,23 +1,27 @@
-# Lead-to-CRM integration test results
+# n8n to HubSpot integration results
 
-**Status: Not run.** No end-to-end execution results have been recorded. The Observed and Result fields remain blank.
+**End-to-end status: Not yet verified.** The Observed and Result fields are blank because no actual HubSpot-backed execution has been recorded in this repository.
 
-**Execution environment:** Not recorded. **HubSpot test account:** Not recorded. **Test date:** Not recorded.
+**n8n version:** Not recorded · **Test account:** Not recorded · **Date:** Not recorded
 
 | Test | Scenario | Expected | Observed | Result | Fix / notes |
 |---|---|---|---|---|---|
-| T01 | New lead, complete info | Contact created in HubSpot | | | |
-| T02 | Same email, new inquiry, different phone format | Existing contact updated, no duplicate | | | |
-| T03 | Email missing | HTTP 422, logged as rejected | | | |
-| T04 | Uppercase email | Created with lowercase email | | | |
-| T05 | Lowercase version of T04 | Updates T04's contact | | | |
-| T06 | Email without @ | HTTP 422 INVALID_EMAIL | | | |
+| T01 | New valid lead | Contact created; HTTP 200 | | | |
+| T02 | Same email, changed phone format | Existing test contact updated, not duplicated | | | |
+| T03 | Missing email | HTTP 422; no HubSpot write | | | |
+| T04 | Uppercase email | Normalized lowercase email | | | |
+| T05 | Lowercase version of T04 | Updates the existing test contact | | | |
+| T06 | Email missing @ | HTTP 422 INVALID_EMAIL | | | |
 | T07 | Phone `12345` | HTTP 422 INVALID_PHONE | | | |
-| T08 | Whitespace + `+1` phone | Cleaned name; phone `416-555-0105` | | | |
-| T09 | Submit twice quickly | One contact only | | | |
-| T10 | Invalid HubSpot token | Error branch, audit entry, caller not left hanging | | | |
-| T11 | HubSpot unreachable (e.g. block network / bad URL) | 3 retries, then error branch | | | |
+| T08 | Whitespace and `+1` phone | Name normalized; phone `416-555-0105` | | | |
+| T09 | Two nearly simultaneous submissions | Investigate duplicate/race outcome; do not assume one contact | | | |
+| T10 | Invalid HubSpot token | HTTP 502, no success response | | | |
+| T11 | HubSpot unreachable | Search retries are attempted, then HTTP 502 | | | |
 
-## Defects observed
+## Automated checks recorded separately
 
-No defects from end-to-end execution have been recorded.
+GitHub Actions runs Python structural checks, isolated JavaScript validation/route tests, CRM reconciliation tests and repository validation. These do not call HubSpot or execute the n8n workflow. See [workflow run history](https://github.com/AthertHa-FinOps/crm-automation-data-quality-portfolio/actions/workflows/data-quality-tests.yml).
+
+## Defects observed during live integration
+
+None have been recorded from a real n8n/HubSpot test. When a test is run, add its observed result, supporting evidence and any fix without replacing the original expectation.
