@@ -45,6 +45,7 @@ class BusinessDecisions(unittest.TestCase):
         s = self.source_by_email[c["normalized_email"]]
         self.assertEqual((c["last_name"], s["last_name"]), ("Patei", "Patel"))
         self.assertIn("LAST_NAME_CONFLICT", c["review_flags"])
+        self.assertEqual(c["matched_source_id"], "L0640")
 
     def test_phone_conflict_trace(self):
         c = self.by_id["C00016"]
@@ -52,6 +53,7 @@ class BusinessDecisions(unittest.TestCase):
         self.assertEqual((c["phone"], s["phone"]),
                          ("416-555-0598", "416-555-3858"))
         self.assertIn("PHONE_CONFLICT", c["review_flags"])
+        self.assertEqual(c["matched_source_id"], "L0315")
 
     def test_invalid_and_missing_emails_are_unverifiable(self):
         self.assertEqual(self.by_id["C00012"]["source_match"],

@@ -29,6 +29,17 @@ class ReviewControls(unittest.TestCase):
             self.assertEqual({key: row[key] for key in ORIGINAL_FIELDS},
                              {key: by_id[row["crm_id"]][key] for key in ORIGINAL_FIELDS})
 
+    def test_match_trace_link_is_unique_and_grounded(self):
+        source_by_id = {row["lead_id"]: row for row in self.source}
+        for row in self.results:
+            matched_id = row["matched_source_id"]
+            if row["source_match"] == "ONE_EMAIL_MATCH":
+                self.assertIn(matched_id, source_by_id)
+                self.assertEqual(email_key(source_by_id[matched_id]["email"]),
+                                 row["normalized_email"])
+            else:
+                self.assertEqual(matched_id, "")
+
     def test_potential_duplicate_groups_not_dropped(self):
         self.assertEqual(self.controls["duplicate_email_groups"], 40)
         self.assertEqual(self.flags["POTENTIAL_DUPLICATE"], 80)
