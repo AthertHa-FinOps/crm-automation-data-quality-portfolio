@@ -13,7 +13,7 @@ A fictional lead source contains **700 rows** and a separate CRM export contains
 3. Flag potential duplicate contact emails and preserve all versions for human review.
 4. Compare source and CRM data by normalized email, flag unmatched records and conflicting names/phone values.
 5. Run ten SQLite checks and write a review-only output and control report.
-6. Exercise six automated tests, including preservation of all source data.
+6. Run automated preservation, rule, grounded-exception and count-bridge tests.
 
 ## Review artifacts
 
@@ -46,6 +46,6 @@ The source of truth and matching rules must be defined before changing a record.
 
 AI tools contributed to generated code, synthetic data and documentation. The scripts and tests allow verification of the described behavior, but they do not establish paid CRM administration, independent professional software engineering or a live HubSpot deployment. Matching is by normalized email only and the examples deliberately contain planted errors.
 
-The earlier **data/crm_clean.csv** file and the old discrepancy report used an automatic deduplication rule. That rule is superseded by the non-destructive review output. The old 693-row export is not an approved cleaning result.
+An earlier analysis applied automatic deduplication; that method was retired. The current generated review output preserves all rows. This deliberately defect-heavy sample does not measure a real company's data-quality rate.
 
-See the [recruiter-facing summary](../CRM_CASE_STUDY.md) for the concise business explanation.
+See the [business case](../CRM_CASE_STUDY.md), [five grounded review examples](../docs/REVIEW_DECISIONS.md), and [Python/SQLite count bridge](../docs/COUNT_RECONCILIATION.md).

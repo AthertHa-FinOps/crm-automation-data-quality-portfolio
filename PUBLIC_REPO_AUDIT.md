@@ -1,25 +1,27 @@
-# Public repository audit and evidence boundaries
+# Portfolio quality, security and evidence boundaries
 
-**Date:** November 3, 2026. This is a static/current-file review plus automated example testing, not an employer security certification.
+**Repository:** Public CRM data-quality and workflow design portfolio. **Scope:** Current files, synthetic test execution and recruiter-facing documentation. This is not an employer certification.
 
-## Findings addressed
+## Verifiable capabilities
 
-- Corrected the overview's outdated "private" description after visibility changed.
-- Replaced the earlier 693-row automatically deduplicated output with a non-destructive 733-row review dataset.
-- Added tests for row preservation, duplicate flags, normalization and SQLite query execution.
-- Distinguished reproducible synthetic data-quality analysis from untested integrations.
-- Clarified that n8n/HubSpot and Power Automate artifacts are not live production implementations.
-- Linked a short business-facing CRM case study for recruiters.
-- Kept paid employment separate from AI-assisted portfolio creation.
+- Read-only analysis retains all 733 fictional CRM rows rather than deleting 40 duplicate-email groups.
+- Python record controls and ten SQLite checks provide complementary checks, with the [difference in email inclusion rules explicitly reconciled](docs/COUNT_RECONCILIATION.md).
+- Source-to-CRM issue examples show the exact fictional records, flags and proposed review gates.
+- GitHub Actions executes data-quality and static webhook/workflow checks; **static workflow checks are not live integration tests**.
+- The README links to a source-based case study, a scorecard, interview guide and a blank owner review worksheet.
 
-## Security and publishing limits
+## Risks and boundaries
 
-The inspected current files use fictional `example.com` email addresses. The exported n8n workflow references a `REPLACE_ME` credential identifier and the documented HubSpot API endpoint; this is not a live secret. The static review did not identify a live API token in inspected current files. **This does not prove historical Git commits are secret-free.** Do not paste real access tokens, client data, secrets or webhook URLs into issues, commits or screenshots.
+- The dataset is **deliberately defect-heavy** and not evidence of a real business error rate.
+- Python and SQL source-matching rules are simplified and cannot validate actual identity or authorization.
+- No real HubSpot, Salesforce, Power Automate or production n8n execution has been demonstrated.
+- HubSpot token references in the current workflow are placeholders; its webhook design has no verified authentication for internet exposure. Do not expose it to real customer traffic.
+- All generated names, email domains and records are fictional. A current-file credential-pattern scan cannot prove that earlier Git history never contained secrets.
+- AI contributed to code, documentation and suggested dispositions. Automated tests do not prove independently authored software or personal review of every example.
+- This portfolio cannot guarantee applicant selection or passing proprietary AI-writing checkers.
 
-Because this repository is public, anyone can inspect its workflow JSON and script limitations. The n8n webhook currently has no documented authentication setting; do not expose it to the internet with real customer data.
+## Audit decision
 
-## Audit limits
+**Ready as a reproducible synthetic CRM data-quality work sample**, subject to the latest passing GitHub Actions run and the final published main-branch check. **Not ready to present as a production CRM automation implementation.**
 
-No real HubSpot OAuth/private-app connection, Salesforce production account or n8n runtime was accessed. Passing synthetic tests does not establish a completed business integration, independent commercial quality-assurance experience or technical tenure.
-
-No reliable AI-detector pass can be guaranteed; AI assistance is disclosed instead of concealed. Any later employer project using real customer data requires proper permissions and privacy controls.
+The personal owner-review worksheet is intentionally unfilled because no real independent human decisions were supplied.

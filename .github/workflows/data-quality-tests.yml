@@ -34,5 +34,7 @@ jobs:
           assert (root/"outputs/control_report.md").is_file()
           print("PASS: original 733 CRM records preserved with report")
           PY
+      - name: Validate Markdown links and illustrative scorecard
+        run: python scripts/check_repository.py
       - name: Check committed generated outputs match
         run: git diff --exit-code -- 02-crm-data-quality/outputs
