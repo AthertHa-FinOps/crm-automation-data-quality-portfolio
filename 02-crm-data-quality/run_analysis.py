@@ -79,6 +79,8 @@ def review(source_rows: list[dict[str, str]],
             flags.append("MISSING_EMAIL")
         elif not valid_email(email):
             flags.append("INVALID_EMAIL")
+        if row["email"] != email:
+            flags.append("EMAIL_FORMAT")
         if email in duplicate_keys:
             flags.append("POTENTIAL_DUPLICATE")
         if row["phone"] and not phone:
