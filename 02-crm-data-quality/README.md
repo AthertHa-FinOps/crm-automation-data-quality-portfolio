@@ -1,17 +1,32 @@
-# CRM Data Quality & Reconciliation (SQL)
+# CRM Data Quality & Reconciliation — Synthetic Work in Progress
 
-Finds and fixes quality problems in a **fictional** 733-row CRM export and reconciles it against 700 source leads.
+This exercise contains generated Python/SQL analysis of a **fictional** CRM export (733 rows) and source-lead dataset (700 rows). The distinction between a generated output and an independently reviewed result is important.
 
-**Run it:** `python generate_data.py` (builds data) → `python run_analysis.py` (runs `sql/queries.sql`, writes `discrepancy-report.md` and `data/crm_clean.csv`).
+## Files
 
-| Deliverable | File |
+| File | Purpose |
 |---|---|
-| Deliberately flawed datasets | `data/source_leads.csv`, `data/crm_export.csv` |
-| SQL checks (10) | `sql/queries.sql` |
-| Discrepancy report with real counts, before/after | `discrepancy-report.md` |
-| Cleaned dataset (flags rows needing a human) | `data/crm_clean.csv` |
+| `data/source_leads.csv` | Fictional source leads |
+| `data/crm_export.csv` | Fictional CRM export with planted issues |
+| `generate_data.py` | Generates the demonstration datasets |
+| `sql/queries.sql` | SQL-based quality checks |
+| `run_analysis.py` | Runs checks and creates reports |
+| `discrepancy-report.md` | Generated findings and known limitations |
+| `data/crm_clean.csv` | Generated cleaned export with review flags |
 
-Checks: duplicates, missing/invalid/unnormalized email, phone formats, province variants, blank source, source↔CRM mismatches.
-Injected error counts are known from the generator, so you can verify the SQL finds what was planted (some counts overlap; see the report's limitations).
+## Reproduce and review
 
-**What I personally did:** _(fill in: which queries you wrote or rewrote yourself, what you changed in the cleaning rules)_
+From this directory with Python installed:
+
+```bash
+python generate_data.py
+python run_analysis.py
+```
+
+Review the report, input files and script before relying on the outputs. The report describes injected defects, overlapping categories and exceptions that require source confirmation. **Do not treat auto-deduplication as an approved production rule:** apparently duplicate rows could contain different valid data or transaction versions.
+
+## Evidence and boundaries
+
+The repository provides generated work products but does not yet establish a completed independent QA review, a tested CRM integration or professional Python/SQL employment. The exact queries independently rewritten or validated by Hans have not been recorded; do not claim specific independently authored code or tested production performance until that evidence exists.
+
+All data is fictional.
