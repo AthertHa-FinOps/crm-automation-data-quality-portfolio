@@ -4,7 +4,7 @@
 
 **0:00–0:20 — Explain the comparison.** Open the [scorecard](reconciliation-scorecard.svg). The fictional source has 700 leads and the CRM export has 733 rows. A row-count difference does not itself establish which records need changing.
 
-**0:20–0:55 — Inspect a disputed surname.** Open [C00007](../02-crm-data-quality/outputs/crm_review.csv) and source record L0640. The CRM says Patei and the source says Patel. Explain why source authority and timing matter before an edit.
+**0:20–0:55 — Inspect a disputed surname.** Find C00007 in the [review CSV](../02-crm-data-quality/outputs/crm_review.csv), then use `matched_source_id` to find L0640 in the source extract. CRM says Patei; source says Patel. Explain why this requires checking the record's authority and date, rather than automatically editing it.
 
 **0:55–1:20 — Check a possible duplicate.** Compare CRM records C00004 and C00522, which share a normalized email. Explain why both are preserved for review rather than merged.
 
