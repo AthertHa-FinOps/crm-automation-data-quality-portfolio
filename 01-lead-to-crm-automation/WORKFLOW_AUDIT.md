@@ -2,7 +2,7 @@
 
 **Status: design only. Not validated in a live HubSpot integration.**
 
-The committed `workflow.json` parses as JSON and contains 18 nodes, including a webhook, normalization logic, HubSpot search/create/update HTTP request nodes, error paths, a response node, a no-op notification placeholder and an in-execution audit object.
+The committed `workflow.json` parses as JSON and has [structural tests](tests/test_workflow_export.py) for node references and credential placeholders; it contains 18 nodes, including a webhook, normalization logic, HubSpot search/create/update HTTP request nodes, error paths, a response node, a no-op notification placeholder and an in-execution audit object.
 
 ## What can be inferred from the file
 
@@ -23,5 +23,7 @@ The committed `workflow.json` parses as JSON and contains 18 nodes, including a 
 5. Verify idempotency and race behavior; do not claim exact-once creation without testing.
 6. Review API property names, credential scopes and consent requirements against current official documentation.
 7. Revisit privacy, error logging and notifications before handling real customer data.
+
+The structural checks do **not** run n8n, authenticate to HubSpot, establish data creation or prove error-path execution.
 
 The existing flow is an AI-assisted **blueprint**, not demonstrated production integration. Do not describe the workflow as a completed deployment in applications.
