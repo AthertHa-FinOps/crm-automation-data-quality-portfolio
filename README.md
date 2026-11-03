@@ -14,7 +14,7 @@ My paid experience is reviewing real estate agreements and supporting records, i
 
 | Evidence | Open it | What can be verified |
 |---|---|---|
-| **Business case** | [One-page CRM case study](CRM_CASE_STUDY.md) | Business objective, control totals, exception decisions and limitations |
+| **Business case** | [Business case study](CRM_CASE_STUDY.md) | Business objective, control totals, exception decisions and limitations |
 | **Specific exceptions** | [Five grounded record-review examples](docs/REVIEW_DECISIONS.md) | Source-versus-CRM evidence, required follow-up and why no auto-correction is authorized |
 | **Calculation check** | [Count reconciliation](docs/COUNT_RECONCILIATION.md) | Why Python reports 15 unmatched valid-looking emails while SQL reports 28 including invalid addresses |
 | **Runnable evidence** | [CRM analysis](02-crm-data-quality/README.md) | Fictional CSVs, non-destructive Python/SQLite analysis, committed output and automated tests |
