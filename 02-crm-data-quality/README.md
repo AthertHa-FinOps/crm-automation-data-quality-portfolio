@@ -1,32 +1,51 @@
-# CRM Data Quality & Reconciliation — Synthetic Work in Progress
+# CRM Data Quality & Record Review
 
-This exercise contains generated Python/SQL analysis of a **fictional** CRM export (733 rows) and source-lead dataset (700 rows). The distinction between a generated output and an independently reviewed result is important.
+**Runnable, read-only case study with fictional leads; not production CRM administration.**
 
-## Files
+## Business task
+
+A fictional lead source contains **700 rows** and a separate CRM export contains **733 rows**. The objective is not to force the totals to match. It is to identify record mismatches, duplicate candidates and fields requiring source-backed correction.
+
+## What was done
+
+1. Read the original CSV exports without overwriting or deleting records.
+2. Check email normalization, invalid/missing values, phone formats, province variants and blank lead sources.
+3. Flag potential duplicate contact emails and preserve all versions for human review.
+4. Compare source and CRM data by normalized email, flag unmatched records and conflicting names/phone values.
+5. Run ten SQLite checks and write a review-only output and control report.
+6. Exercise six automated tests, including preservation of all source data.
+
+## Review artifacts
 
 | File | Purpose |
 |---|---|
-| `data/source_leads.csv` | Fictional source leads |
-| `data/crm_export.csv` | Fictional CRM export with planted issues |
-| `generate_data.py` | Generates the demonstration datasets |
-| `sql/queries.sql` | SQL-based quality checks |
-| `run_analysis.py` | Runs checks and creates reports |
-| `discrepancy-report.md` | Generated findings and known limitations |
-| `data/crm_clean.csv` | Generated cleaned export with review flags |
+| [Source leads](data/source_leads.csv) | 700 synthetic source leads |
+| [CRM export](data/crm_export.csv) | 733 synthetic CRM rows |
+| [Review output](outputs/crm_review.csv) | Every CRM row preserved, plus proposed normalized fields and flags |
+| [Control report](outputs/control_report.md) | Totals, quality checks and review decisions |
+| [Python analysis](run_analysis.py) | Runnable non-destructive processing |
+| [SQLite queries](sql/queries.sql) | Ten check queries |
+| [Automated tests](tests/test_review.py) | Preservation, duplicates, normalization and SQL checks |
 
-## Reproduce and review
+## Run without installing packages
 
-From this directory with Python installed:
+From the repository root:
 
 ```bash
-python generate_data.py
-python run_analysis.py
+python 02-crm-data-quality/run_analysis.py
+python -m unittest discover -s 02-crm-data-quality/tests -v
 ```
 
-Review the report, input files and script before relying on the outputs. The report describes injected defects, overlapping categories and exceptions that require source confirmation. **Do not treat auto-deduplication as an approved production rule:** apparently duplicate rows could contain different valid data or transaction versions.
+Python 3.10+ standard library only. A GitHub Actions workflow also runs the checks. Data is fictional, so no CRM account, OAuth token or production credentials are required.
 
-## Evidence and boundaries
+## Business decisions
 
-The repository provides generated work products but does not yet establish a completed independent QA review, a tested CRM integration or professional Python/SQL employment. The exact queries independently rewritten or validated by Hans have not been recorded; do not claim specific independently authored code or tested production performance until that evidence exists.
+The source of truth and matching rules must be defined before changing a record. Duplicate email groups are flagged rather than deleted. A source mismatch is evidence for investigation, not proof that a CRM record is unauthorized. Invalid addresses and conflicting source values need confirmation before any merge or update.
 
-All data is fictional.
+## Evidence boundaries
+
+AI tools contributed to generated code, synthetic data and documentation. The scripts and tests allow verification of the described behavior, but they do not establish paid CRM administration, independent professional software engineering or a live HubSpot deployment. Matching is by normalized email only and the examples deliberately contain planted errors.
+
+The earlier **data/crm_clean.csv** file and the old discrepancy report used an automatic deduplication rule. That rule is superseded by the non-destructive review output. The old 693-row export is not an approved cleaning result.
+
+See the [recruiter-facing summary](../CRM_CASE_STUDY.md) for the concise business explanation.

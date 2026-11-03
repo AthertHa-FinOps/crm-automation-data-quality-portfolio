@@ -1,0 +1,36 @@
+name: CRM data-quality sample tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run non-destructive data review
+        run: python 02-crm-data-quality/run_analysis.py
+      - name: Check record controls
+        run: python -m unittest discover -s 02-crm-data-quality/tests -v
+      - name: Validate output snapshots
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          root=Path("02-crm-data-quality")
+          a=list(csv.DictReader((root/"data/crm_export.csv").open(newline="", encoding="utf-8")))
+          b=list(csv.DictReader((root/"outputs/crm_review.csv").open(newline="", encoding="utf-8")))
+          assert len(a)==len(b)==733, (len(a),len(b))
+          assert {r["crm_id"] for r in a}=={r["crm_id"] for r in b}
+          assert (root/"outputs/control_report.md").is_file()
+          print("PASS: original 733 CRM records preserved with report")
+          PY
+      - name: Check committed generated outputs match
+        run: git diff --exit-code -- 02-crm-data-quality/outputs
