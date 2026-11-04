@@ -5,7 +5,7 @@
 - The fictional source contains 700 leads and the fictional CRM export contains 733 records. Every CRM row is retained in the generated review output.
 - The analysis flags 311 distinct rows, including 40 potential duplicate-email groups. Category counts overlap.
 - Python and SQLite results are reconciled where their email inclusion rules differ. The 15 valid-looking unmatched emails and 13 malformed nonblank emails account for SQLite Q9's 28.
-- The repository includes edge-case tests for ambiguous source matches, shared email addresses, invalid or missing emails, phone formatting and conflicting surnames. Each unique source-email match now has a traceable `matched_source_id`, and a test checks those links against the fictional source.
+- The repository includes edge-case tests for ambiguous source matches, shared email addresses, invalid or missing emails, phone formatting, conflicting surnames and blank/duplicate source or CRM identifiers. Each unique source-email match now has a traceable `matched_source_id`, and a test checks those links against the fictional source.
 - Workflow contract checks inspect the n8n export and execute its validation Code node in isolation. Separately, the [T03 local test](01-lead-to-crm-automation/evidence/T03-2026-11-03.md) demonstrated HTTP 422 for a missing-email lead in n8n. Neither the automated checks nor T03 tested HubSpot.
 - [GitHub Actions](https://github.com/AthertHa-FinOps/crm-automation-data-quality-portfolio/actions/workflows/data-quality-tests.yml) records execution of the automated repository tests. Review the specific commit's run before describing its status.
 
@@ -16,7 +16,7 @@
 - The n8n workflow is not authenticated to HubSpot in the repository. Only T03 has a documented local runtime result; ten other scenarios have no observed results and none has demonstrated authenticated HubSpot behaviour.
 - The webhook export has no authentication. Keep it restricted to local tests until appropriate protections are implemented.
 - The n8n notification is a placeholder, its execution log is not durable, and parallel create operations are not proven idempotent.
-- AI assistance contributed to code, fictional data, documentation and suggested review actions. The [personal review worksheet](CANDIDATE_VERIFICATION_WORKSHEET.md) has not been completed.
+- AI assistance contributed to code, fictional data, documentation and suggested review actions. The [personal review log](docs/MANUAL_REVIEW.md) has not been completed.
 - No original client data, real credentials or paid CRM implementation are presented. A current-file string scan cannot establish what was present throughout the full Git history.
 
 ## Recruiter assessment of the evidence
