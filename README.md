@@ -1,47 +1,54 @@
-# CRM contact-data reconciliation
+# CRM contact-data reconciliation and exception controls
 
-**Hans Atherton | Self-directed exercise | Fictional data**
+**Hans Atherton | Self-directed work sample | Fictional records**
 
-In real estate transactions, I compare names, dates, figures and supporting documents with agreements and amendments. When records conflict, I follow up before contractual deadlines. This sample applies the same approach to a fictional CRM export: find discrepancies, trace the source and keep uncertain changes on hold.
+This project compares a 700-lead source file with a 733-row CRM-style export. It identifies records needing review, keeps the original data intact and traces a CRM row back to its source when a unique email-key match exists. It does **not** change contacts in a live CRM.
 
-## Inspect a record
+## Results from the reproducible sample
 
-The source file has **700 leads**; the CRM export has **733 rows**. The Python review preserves every CRM row and flags **311 distinct rows**. It finds **40 repeated-email groups** (80 CRM rows). These were deliberately planted defects, not a measured error rate.
+| Control | Observed |
+|---|---:|
+| CRM records read and preserved | 733 / 733 |
+| Records with one or more flags | 311 |
+| Total flag occurrences, including overlaps | 399 |
+| Repeated normalized-email groups | 40 groups, 80 CRM rows |
+| CRM rows with exactly one matching source-email record | 687 |
 
-| Example | Evidence | What needs deciding |
+These figures come from an intentionally defect-heavy, AI-assisted fictional dataset. They measure what the script flagged, **not** the number of confirmed bad contacts or its accuracy on unseen records. Formatting alone accounts for many flags. See the [manager's review brief](docs/OPERATIONS_BRIEF.md) for the full breakdown.
+
+The row counts reconcile: **700 source leads − 40 omitted from the CRM extract + 40 copied CRM rows + 18 CRM-only rows without email + 15 CRM-only rows with email = 733 CRM rows**. All 40 repeated-email groups contain two rows. The 52 source rows without a CRM email-key match are not necessarily missing contacts; corrupted or changed emails can also prevent matching.
+
+## Three exceptions a coordinator would investigate
+
+| Record | Source evidence | Proposed action — not an approved edit |
 |---|---|---|
-| [C00007](docs/REVIEW_DECISIONS.md) | CRM surname Patei; source L0640 says Patel | Which dated record is authoritative? |
-| [C00016](docs/REVIEW_DECISIONS.md) | CRM and source L0315 have different phone digits | Which number has been confirmed? |
-| [C00004 and C00522](docs/REVIEW_DECISIONS.md) | Two CRM rows share a normalized email | Are they duplicates or separate legitimate records? |
-| [15 versus 28](docs/COUNT_RECONCILIATION.md) | Two checks use different rules for malformed email addresses | Which population should the report count? |
+| [C00007](docs/REVIEW_DECISIONS.md) | CRM surname `Patei`; source L0640 says `Patel` | Hold the surname change until the authoritative record and confirmation are checked |
+| [C00016](docs/REVIEW_DECISIONS.md) | CRM phone `416-555-0598`; source L0315 has `416-555-3858` | Ask the record owner which number was last verified; retain both values |
+| [C00004 / C00522](docs/REVIEW_DECISIONS.md) | Two rows share one normalized email and source L0419 | Review identity and inquiry history; do not merge on email equality alone |
 
-The [review CSV](02-crm-data-quality/outputs/crm_review.csv) adds flags, suggested normalized values and `matched_source_id` for records with **exactly one matching source email**. A matching email is not proof of identity or permission to edit a contact.
+An email match is a **lookup clue**, not proof of identity, source authority or permission to overwrite a record. The script attaches `matched_source_id` only when exactly one source email matches.
 
-[Review CSV](02-crm-data-quality/outputs/crm_review.csv) · [Control report](02-crm-data-quality/outputs/control_report.md) · [Source examples](docs/REVIEW_DECISIONS.md) · [Python script](02-crm-data-quality/run_analysis.py)
+[Review output CSV](02-crm-data-quality/outputs/crm_review.csv) · [Control report](02-crm-data-quality/outputs/control_report.md) · [Data standards and review SOP](docs/DATA_STANDARDS.md) · [Python review](02-crm-data-quality/run_analysis.py)
 
-![Illustrative scorecard from the fictional record review](docs/reconciliation-scorecard.svg)
+## What is verified
 
-<sub>Illustration, not a live CRM screenshot. A record can carry multiple flags.</sub>
+The Python review retains all original CRM fields, adds separate suggested normalizations and exception flags, and runs ten SQLite cross-check queries on the same fictional files. Automated tests cover row preservation, source linking, duplicate candidates, conflicting values and rejection of blank or duplicate record IDs. [GitHub Actions](.github/workflows/data-quality-tests.yml) checks the regenerated files and the committed outputs.
 
-## What was actually tested
+The separate [n8n lead-intake example](01-lead-to-crm-automation/README.md) has **one verified local validation test**: a fictional POST without an email returned the *expected* HTTP 422 and `MISSING_EMAIL` ([T03 evidence](01-lead-to-crm-automation/evidence/T03-2026-11-03.md)). HubSpot contact search, creation and updates remain unverified. The Power Automate translation is a design reference, not an implemented flow.
 
-| Component | Evidence | Limit |
-|---|---|---|
-| [CRM record review](02-crm-data-quality/README.md) | Reproducible Python and SQLite checks, preservation and edge-case tests, [GitHub Actions](.github/workflows/data-quality-tests.yml) | No approved CRM edits or independent five-case personal sign-off |
-| [n8n lead intake](01-lead-to-crm-automation/README.md) | Workflow export, isolated contract checks, and a [local T03 run](01-lead-to-crm-automation/evidence/T03-2026-11-03.md) returning HTTP 422 | HubSpot create/update and ten other runtime scenarios unverified |
-| [Power Automate](03-power-automate/README.md) | Design mapping | No working cloud flow |
-
-Run the data review and checks from the repository root (Python 3.10+):
+Run the reconciliation checks from the repository root with Python 3.10+:
 
 ```bash
 python 02-crm-data-quality/run_analysis.py
 python -m unittest discover -s 02-crm-data-quality/tests -v
 ```
 
-## Experience and boundaries
+## Why I built this
 
-My paid experience is in real estate transaction documentation, record checks and correction follow-up. This project shows transferable CRM data-review methods; it is **not** paid CRM administration, a production deployment or proof of CRM user-support experience.
+At **HOOPP (June 2005–June 2008)**, I worked as a **Project Associate / Analyst (Contract)** in QRM on successive pension-system defect-remediation projects associated with a migration. I audited affected accounts, recalculated pension figures, compared system records with actual pension payments and worked within peer-review checks. In real estate work since 2012, I have reviewed agreements, amendments, identity documents and financial records, and followed up on discrepancies before contractual deadlines.
 
-The fictional dataset, scripts and documentation were developed with AI assistance. The outputs can be independently inspected, but my [five-case review worksheet](CANDIDATE_VERIFICATION_WORKSHEET.md) has not been completed. No client data was used.
+These are **paid document and reconciliation responsibilities**, not paid CRM administration. The repository applies similar checking principles to fictional contact data; it does not claim recent professional CRM platform configuration or a production integration.
 
-[Business case](CRM_CASE_STUDY.md) · [Count reconciliation](docs/COUNT_RECONCILIATION.md) · [Evidence audit](PUBLIC_REPO_AUDIT.md) · [Completion checklist](docs/COMPLETION_CHECKLIST.md)
+AI assistance contributed to the fictional data, code, proposed exception actions and documentation. The Python/SQLite results and automated tests are reproducible, but the [five-case personal review log](docs/MANUAL_REVIEW.md) has **not** been completed. No independently established defect-detection rate, approved CRM correction or client deployment is claimed.
+
+[Business case](CRM_CASE_STUDY.md) · [Count reconciliation](docs/COUNT_RECONCILIATION.md) · [Exception examples](docs/REVIEW_DECISIONS.md)
