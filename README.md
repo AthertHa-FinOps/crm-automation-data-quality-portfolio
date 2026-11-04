@@ -38,6 +38,6 @@ The separate [n8n prototype](01-lead-to-crm-automation/README.md) has one observ
 
 At **HOOPP (June 2005–June 2008)**, I was a **Project Associate / Analyst (Contract)** in QRM on pension-system defect-remediation projects associated with a migration. I audited affected accounts, recalculated pension figures, compared records with payments to pensioners, and worked through peer review. Since 2012, my real estate work has involved checking agreements, amendments, identity documents and financial records, then resolving discrepancies before deadlines.
 
-These responsibilities inform the review process; they are not paid CRM administration. AI assisted with the fictional dataset, scripts, proposed actions and writing. Automated tests are reproducible, but my [five-case personal review log](docs/MANUAL_REVIEW.md) remains blank. No real customer data, approved CRM corrections or live HubSpot deployment is claimed.
+These responsibilities inform the review process; they are not paid CRM administration. AI assisted with the fictional dataset, scripts, proposed actions and documentation. Automated tests are reproducible; the proposed case dispositions are not presented as my independent adjudications. No real customer data, approved CRM corrections or live HubSpot deployment is claimed.
 
 **Reproduce:** `python 02-crm-data-quality/run_analysis.py` and `python -m unittest discover -s 02-crm-data-quality/tests -v`.
