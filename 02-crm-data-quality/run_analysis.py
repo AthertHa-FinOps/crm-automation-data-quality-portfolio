@@ -55,9 +55,26 @@ def normalized_province(value: str) -> str:
     return value
 
 
+def validate_record_ids(rows: list[dict[str, str]], field: str) -> None:
+    """Stop if a source or CRM record has a blank or duplicate normalized ID.
+
+    This checks presence/uniqueness, not a full business ID format standard.
+    """
+    seen = set()
+    for index, row in enumerate(rows, start=1):
+        identifier = (row.get(field) or "").strip().upper()
+        if not identifier:
+            raise ValueError(f"Blank {field} at input row {index}")
+        if identifier in seen:
+            raise ValueError(f"Duplicate {field} after normalization: {identifier}")
+        seen.add(identifier)
+
+
 def review(source_rows: list[dict[str, str]],
            crm_rows: list[dict[str, str]]):
     """Return all CRM rows unchanged in their original fields, plus review columns."""
+    validate_record_ids(source_rows, "lead_id")
+    validate_record_ids(crm_rows, "crm_id")
     source_by_email = defaultdict(list)
     crm_by_email = defaultdict(list)
     for row in source_rows:
