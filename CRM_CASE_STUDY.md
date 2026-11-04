@@ -40,6 +40,6 @@ The [review CSV](02-crm-data-quality/outputs/crm_review.csv) preserves the origi
 
 ## Connection to my work
 
-When an agreement and a supporting document disagree, I can't decide which figure to use without checking the relevant record and following up with the right party. The same principle guides this exercise: it flags the conflict but does not approve a CRM correction based only on a matching email address.
+At HOOPP (June 2005–June 2008), I worked as a contract Project Associate / Analyst in QRM on successive pension-system defect-remediation projects associated with a migration. My work included checking affected accounts, recalculating pension figures, comparing records with pension payments and peer review. In later real estate transaction work, I checked agreements, amendments and supporting documents against each other before deadlines. This exercise uses similar source-comparison and exception-handling rules, but it is not paid CRM administration.
 
-The [walkthrough outline](docs/INTERVIEW_WALKTHROUGH.md) follows a raw source record, its CRM counterpart and the resulting flag. The [completion checklist](docs/COMPLETION_CHECKLIST.md) records which independent checks and integration tests are still outstanding.
+The [manager brief](docs/OPERATIONS_BRIEF.md) summarizes the controls and proposed triage order; the [data standards and SOP](docs/DATA_STANDARDS.md) explain who should approve a correction. The [walkthrough outline](docs/INTERVIEW_WALKTHROUGH.md) follows a source record, its CRM counterpart and the resulting flag. These are proposed processes on fictional data, not an executed contact-cleanup operation.

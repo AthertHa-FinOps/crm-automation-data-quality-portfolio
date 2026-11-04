@@ -51,6 +51,20 @@ class EdgeCases(unittest.TestCase):
         self.assertIn('MISSING_EMAIL', rows[0]['review_flags'])
         self.assertIn('INVALID_EMAIL', rows[1]['review_flags'])
 
+    def test_duplicate_or_blank_source_ids_stop_processing(self):
+        source = [lead("L1", "a@example.com"), lead(" l1 ", "b@example.com")]
+        with self.assertRaisesRegex(ValueError, "Duplicate lead_id"):
+            review(source, [crm("C1", "a@example.com")])
+        with self.assertRaisesRegex(ValueError, "Blank lead_id"):
+            review([lead(" ", "a@example.com")], [crm("C1", "a@example.com")])
+
+    def test_duplicate_or_blank_crm_ids_stop_processing(self):
+        source = [lead("L1", "a@example.com")]
+        with self.assertRaisesRegex(ValueError, "Duplicate crm_id"):
+            review(source, [crm("C1", "a@example.com"), crm(" c1 ", "b@example.com")])
+        with self.assertRaisesRegex(ValueError, "Blank crm_id"):
+            review(source, [crm("", "a@example.com")])
+
     def test_phone_format_only_is_not_a_conflict(self):
         source = [lead('L1','valid@example.com',phone='416-555-0105')]
         rows, _, _ = review(source,[crm('C1','VALID@example.com',phone='+1 (416) 555-0105')])

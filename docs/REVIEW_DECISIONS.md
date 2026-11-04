@@ -14,9 +14,9 @@ A supplementary edge case, **C00108**, carries both `INVALID_EMAIL` and `POTENTI
 
 ## Source trace and approval
 
-The [review CSV](../02-crm-data-quality/outputs/crm_review.csv) now includes `matched_source_id` for exactly one matching source email: C00007 links to L0640 and C00016 to L0315. The field remains blank if the source match is absent, malformed or ambiguous. A trace link does not prove that the source is newer or that two records belong to the same person.
+The [review CSV](../02-crm-data-quality/outputs/crm_review.csv) includes `matched_source_id` for exactly one matching source email: C00007 links to L0640 and C00016 to L0315. The field remains blank if the source match is absent, malformed or ambiguous. A trace link does not prove that the source is newer or that two records belong to the same person.
 
-These are **proposed triage actions**, not completed investigations. Live corrections would require dated supporting evidence, a record owner and an approved change procedure. The [personal review worksheet](../CANDIDATE_VERIFICATION_WORKSHEET.md) remains blank.
+These are **proposed triage actions**, not completed investigations. Live corrections would require dated supporting evidence, a record owner and an approved change procedure. The [personal review log](MANUAL_REVIEW.md) remains blank.
 
 ## Review policy
 
@@ -25,6 +25,6 @@ These are **proposed triage actions**, not completed investigations. Live correc
 - **No invented match:** Missing or malformed contact keys are held rather than guessed.
 - **Keep the trail:** Original record, detected issue and proposed disposition remain visible.
 
-**Verification boundary:** The IDs, fields and flags above are grounded in the committed fictional CSV extracts and generated review output. The suggested actions are a review framework, not decisions executed on a production system. The [owner worksheet](../CANDIDATE_VERIFICATION_WORKSHEET.md) is intentionally blank until genuinely completed.
+**Verification boundary:** The IDs, fields and flags above are grounded in the committed fictional CSV extracts and generated review output. The suggested actions are a review framework, not decisions executed on a production system. The [personal review log](MANUAL_REVIEW.md) is intentionally blank until genuinely completed.
 
 [Original source CSV](../02-crm-data-quality/data/source_leads.csv) · [CRM input CSV](../02-crm-data-quality/data/crm_export.csv) · [Generated review output](../02-crm-data-quality/outputs/crm_review.csv)

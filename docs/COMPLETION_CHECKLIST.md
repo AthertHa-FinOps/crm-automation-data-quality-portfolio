@@ -7,9 +7,9 @@ The CRM reconciliation is a reproducible fictional-data exercise. The n8n workfl
 - [x] Preserve the original 700 source rows and 733 CRM rows
 - [x] Produce a review file retaining all 733 CRM records
 - [x] Reconcile the 15-vs-28 email-match counts and document overlapping flags
-- [x] Test duplicate candidates, source ambiguity, invalid emails, phone normalization and conflicting values with fictional fixtures
+- [x] Test duplicate candidates, source ambiguity, invalid emails, phone normalization, conflicting values and blank/duplicate record ID rejection with fictional fixtures
 - [x] Run Python and SQLite checks through GitHub Actions
-- [ ] Independently review the five source/CRM record pairs in the [owner worksheet](../CANDIDATE_VERIFICATION_WORKSHEET.md), with actual decisions and dates
+- [ ] Independently review the five source/CRM record pairs in the [manual-review log](MANUAL_REVIEW.md), with actual decisions and dates
 - [ ] Record a real walkthrough showing the original row, flagged output and reason for the proposed action
 
 ## n8n workflow

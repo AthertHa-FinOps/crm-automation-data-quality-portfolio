@@ -2,7 +2,7 @@
 
 **Format:** A guide for a future demonstration. No recording or independent owner-review result is claimed here.
 
-**0:00–0:20 — Explain the comparison.** Open the [scorecard](reconciliation-scorecard.svg). The fictional source has 700 leads and the CRM export has 733 rows. A row-count difference does not itself establish which records need changing.
+**0:00–0:20 — Explain the comparison.** Open the [operations summary](OPERATIONS_BRIEF.md). The fictional source has 700 leads and the CRM-style export has 733 rows; the generator's 40 omissions, 40 copies, 18 blank-email additions and 15 other additions explain the count.
 
 **0:20–0:55 — Inspect a disputed surname.** Find C00007 in the [review CSV](../02-crm-data-quality/outputs/crm_review.csv), then use `matched_source_id` to find L0640 in the source extract. CRM says Patei; source says Patel. Explain why this requires checking the record's authority and date, rather than automatically editing it.
 
@@ -20,4 +20,4 @@
 - Which tests demonstrate the actual workflow, and which only inspect its source?
 - What should an operator do when a contact write may have succeeded but the API response is lost?
 
-A recorded demonstration and independent review are separate steps. The [completion checklist](COMPLETION_CHECKLIST.md) identifies the supporting evidence required.
+A recorded demonstration and independent review are separate steps. The [manual-review log](MANUAL_REVIEW.md) is blank; use it only for decisions personally completed. The [completion checklist](COMPLETION_CHECKLIST.md) identifies remaining integration evidence.

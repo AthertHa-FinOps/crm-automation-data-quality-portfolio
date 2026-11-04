@@ -13,7 +13,7 @@ A fictional lead source contains **700 rows** and a separate CRM export contains
 3. Flag potential duplicate contact emails and preserve all versions for human review.
 4. Compare source and CRM data by normalized email, include a source-record ID where exactly one source email matches, and flag conflicting surnames or phone values.
 5. Run ten SQLite checks and write a review-only output and control report.
-6. Run automated preservation, grounded-exception, count-bridge and matching edge-case tests.
+6. Reject blank/duplicate record IDs and run automated tests for source traceability, preserved fields, grounded exceptions and matching edge cases.
 
 ## Review artifacts
 
@@ -45,7 +45,7 @@ Python 3.10+ standard library only. A GitHub Actions workflow also runs the chec
 
 ## Business decisions
 
-The source of truth and matching rules must be defined before changing a record. Duplicate email groups are flagged rather than deleted. A source mismatch is evidence for investigation, not proof that a CRM record is unauthorized. Invalid addresses and conflicting source values need confirmation before any merge or update.
+The source of truth and matching rules must be defined before changing a record. [Data standards and a proposed operating procedure](../docs/DATA_STANDARDS.md) describe how a coordinator would investigate exceptions and seek authorization. Duplicate email groups are flagged rather than deleted. A source mismatch is evidence for investigation, not proof that a CRM record is unauthorized. Invalid addresses and conflicting source values need confirmation before any merge or update.
 
 ## Evidence boundaries
 
@@ -53,4 +53,4 @@ AI tools contributed to generated code, synthetic data and documentation. The sc
 
 The current generated review output preserves all rows, including candidate duplicates. The deliberately defect-heavy sample does not measure a real company's data-quality rate.
 
-See the [business case](../CRM_CASE_STUDY.md), [five grounded review examples](../docs/REVIEW_DECISIONS.md), and [Python/SQLite count bridge](../docs/COUNT_RECONCILIATION.md).
+See the [business case](../CRM_CASE_STUDY.md), [operations-manager summary](../docs/OPERATIONS_BRIEF.md), [five fictional exceptions](../docs/REVIEW_DECISIONS.md) and [Python/SQLite count bridge](../docs/COUNT_RECONCILIATION.md).
